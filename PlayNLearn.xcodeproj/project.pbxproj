@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6AF6787B29DAAC9F001DBC83 /* NumberGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AF6787A29DAAC9F001DBC83 /* NumberGameView.swift */; };
 		7EFE233029DA30400066B490 /* PlayNLearnApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EFE232F29DA30400066B490 /* PlayNLearnApp.swift */; };
 		7EFE233229DA30400066B490 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EFE233129DA30400066B490 /* ContentView.swift */; };
 		7EFE233429DA30410066B490 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7EFE233329DA30410066B490 /* Assets.xcassets */; };
@@ -34,6 +35,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6AF6787A29DAAC9F001DBC83 /* NumberGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberGameView.swift; sourceTree = "<group>"; };
 		7EFE232C29DA30400066B490 /* PlayNLearn.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PlayNLearn.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7EFE232F29DA30400066B490 /* PlayNLearnApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayNLearnApp.swift; sourceTree = "<group>"; };
 		7EFE233129DA30400066B490 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -98,6 +100,7 @@
 				7EFE233129DA30400066B490 /* ContentView.swift */,
 				7EFE233329DA30410066B490 /* Assets.xcassets */,
 				7EFE233529DA30410066B490 /* Preview Content */,
+				6AF6787A29DAAC9F001DBC83 /* NumberGameView.swift */,
 			);
 			path = PlayNLearn;
 			sourceTree = "<group>";
@@ -257,6 +260,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6AF6787B29DAAC9F001DBC83 /* NumberGameView.swift in Sources */,
 				7EFE233229DA30400066B490 /* ContentView.swift in Sources */,
 				7EFE233029DA30400066B490 /* PlayNLearnApp.swift in Sources */,
 			);
