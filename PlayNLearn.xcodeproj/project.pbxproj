@@ -16,6 +16,8 @@
 		7EFE234B29DA30410066B490 /* PlayNLearnUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EFE234A29DA30410066B490 /* PlayNLearnUITests.swift */; };
 		7EFE234D29DA30410066B490 /* PlayNLearnUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EFE234C29DA30410066B490 /* PlayNLearnUITestsLaunchTests.swift */; };
 		F8646C5429DD79F700D85449 /* NumberGameWithSpeech.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8646C5329DD79F700D85449 /* NumberGameWithSpeech.swift */; };
+		F8646C5629DD7AF900D85449 /* SpeechRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8646C5529DD7AF900D85449 /* SpeechRecognizer.swift */; };
+		F8646C5829DD7B1C00D85449 /* NumberGameViewWithSpeech.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8646C5729DD7B1C00D85449 /* NumberGameViewWithSpeech.swift */; };
 		F8EED87929DABCE400D3E3C3 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = F8EED87829DABCE400D3E3C3 /* .gitignore */; };
 /* End PBXBuildFile section */
 
@@ -49,6 +51,8 @@
 		7EFE234A29DA30410066B490 /* PlayNLearnUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayNLearnUITests.swift; sourceTree = "<group>"; };
 		7EFE234C29DA30410066B490 /* PlayNLearnUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayNLearnUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		F8646C5329DD79F700D85449 /* NumberGameWithSpeech.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberGameWithSpeech.swift; sourceTree = "<group>"; };
+		F8646C5529DD7AF900D85449 /* SpeechRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechRecognizer.swift; sourceTree = "<group>"; };
+		F8646C5729DD7B1C00D85449 /* NumberGameViewWithSpeech.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberGameViewWithSpeech.swift; sourceTree = "<group>"; };
 		F8EED87829DABCE400D3E3C3 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -107,6 +111,7 @@
 				7EFE233329DA30410066B490 /* Assets.xcassets */,
 				7EFE233529DA30410066B490 /* Preview Content */,
 				6AF6787A29DAAC9F001DBC83 /* NumberGameView.swift */,
+				F8646C5729DD7B1C00D85449 /* NumberGameViewWithSpeech.swift */,
 			);
 			path = PlayNLearn;
 			sourceTree = "<group>";
@@ -140,6 +145,7 @@
 			isa = PBXGroup;
 			children = (
 				F8646C5329DD79F700D85449 /* NumberGameWithSpeech.swift */,
+				F8646C5529DD7AF900D85449 /* SpeechRecognizer.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -278,7 +284,9 @@
 				F8646C5429DD79F700D85449 /* NumberGameWithSpeech.swift in Sources */,
 				6AF6787B29DAAC9F001DBC83 /* NumberGameView.swift in Sources */,
 				7EFE233229DA30400066B490 /* ContentView.swift in Sources */,
+				F8646C5629DD7AF900D85449 /* SpeechRecognizer.swift in Sources */,
 				7EFE233029DA30400066B490 /* PlayNLearnApp.swift in Sources */,
+				F8646C5829DD7B1C00D85449 /* NumberGameViewWithSpeech.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -439,6 +447,8 @@
 				DEVELOPMENT_ASSET_PATHS = "\"PlayNLearn/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "\"Audio is recorded to transcribe the user speech\"";
+				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "“You can view a text transcription of your meeting in the app.”\n\n“You can view a text transcription of your meeting in the app.”\n\n“You can view a text transcription of your meeting in the app.”\n\n“You can view a text transcription of your meeting in the app.”\n\n\"You can view a text transcription of what you said\"";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -467,6 +477,8 @@
 				DEVELOPMENT_ASSET_PATHS = "\"PlayNLearn/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "\"Audio is recorded to transcribe the user speech\"";
+				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "“You can view a text transcription of your meeting in the app.”\n\n“You can view a text transcription of your meeting in the app.”\n\n“You can view a text transcription of your meeting in the app.”\n\n“You can view a text transcription of your meeting in the app.”\n\n\"You can view a text transcription of what you said\"";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
