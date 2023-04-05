@@ -14,4 +14,7 @@ xcuserdata/
 !*.xcworkspace/contents.xcworkspacedata
 /*.gcno
 **/xcshareddata/WorkspaceSettings.xcsettings
+<<<<<<< HEAD
 *.xcuserdata
+=======
+>>>>>>> homepage
