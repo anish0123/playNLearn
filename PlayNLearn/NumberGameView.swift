@@ -8,7 +8,10 @@
 import SwiftUI
 
 struct NumberGameView: View {
-    @State var imageName: Int = 13
+    var numbers: [Numbers] = NumberList.numbers
+    let workoutDateRange = Date()...Date().addingTimeInterval(60)
+    @State var randomNum: Int
+    
     var body: some View {
         ZStack {
             LinearGradient(gradient: Gradient(colors: [Color.green, Color.mint]), startPoint: .topTrailing, endPoint: .bottomTrailing)
@@ -25,6 +28,7 @@ struct NumberGameView: View {
                     .foregroundColor(.black)
                     .padding(.bottom)
                 
+                
                 HStack {
                     Image(systemName: "star")
                     Image(systemName: "star")
@@ -32,26 +36,30 @@ struct NumberGameView: View {
                     Image(systemName: "star")
                     Image(systemName: "star")
                 }
-                .padding(.bottom,50)
-                
-                Divider()
+                .padding(.bottom,20)
                 
                 Text("Select the correct number")
                     .font(.system(size: 25, weight: .semibold))
+
                 
-                Text("13")
-                    .font(.system(size: 60, weight: .regular))
-                    .frame(width: 180,height: 180)
+                Circle()
+                    .strokeBorder(.white, lineWidth: 15)
+                    .overlay {
+                        Text("\(numbers[randomNum].question)")
+                            .font(.system(size: 60, weight: .regular))
+                    }
                     .padding()
-                    .background(Color.white)
-                    .clipShape(Circle())
-                    .padding(.top, 20)
                 
                 Spacer()
                 Divider()
+            
+                Text(Date().addingTimeInterval(30),style: .timer)
+                    .frame(width: 150,height: 50)
+                    .font(.system(size: 25, weight: .regular))
+                    .foregroundColor(.red)
                 
                 HStack {
-                    Text("\(imageName)")
+                    Text("\(numbers[randomNum].option[0])")
                         .font(.system(size: 30, weight: .regular))
                         .frame(width: 50,height: 50)
                         .padding()
@@ -59,9 +67,10 @@ struct NumberGameView: View {
                         .clipShape(Circle())
                         .padding()
                         .onTapGesture (count: 1) {
+                            checkAnswer(numbers[randomNum].question, numbers[randomNum].option[0])
                         }
                     
-                    Text("\(imageName + 5)")
+                    Text("\(numbers[randomNum].option[1])")
                         .font(.system(size: 30, weight: .regular))
                         .frame(width: 50,height: 50)
                         .padding()
@@ -69,9 +78,10 @@ struct NumberGameView: View {
                         .clipShape(Circle())
                         .padding()
                         .onTapGesture (count: 1) {
+                            checkAnswer(numbers[randomNum].question, numbers[randomNum].option[1])
                         }
                     
-                    Text("\(imageName + 2)")
+                    Text("\(numbers[randomNum].option[2])")
                         .font(.system(size: 30, weight: .regular))
                         .frame(width: 50,height: 50)
                         .padding()
@@ -79,11 +89,14 @@ struct NumberGameView: View {
                         .clipShape(Circle())
                         .padding()
                         .onTapGesture (count: 1) {
+                            checkAnswer(numbers[randomNum].question, numbers[randomNum].option[2])
                         }
                 }
                 .padding()
+                
                 Button{
-                    
+                    print("")
+                    randomNum = Int.random(in: 0...NumberList.numbers.count - 1 )
                 } label: {
                     Text("Skip")
                         .frame(width: 150, height: 50)
@@ -95,12 +108,25 @@ struct NumberGameView: View {
             }
         }
     }
+    
+    func correctAnswer () {
+        
+    }
+    
+    func checkAnswer(_ question: Int, _ answer: Int) {
+        
+        if question == answer {
+           print("correct answer")
+        }else {
+            print("Wrong answer")
+        }
+    }
 }
 
 
 struct NumberGameView_Previews: PreviewProvider {
     static var previews: some View {
-        NumberGameView()
+        NumberGameView(randomNum: 3)
     }
 }
 
