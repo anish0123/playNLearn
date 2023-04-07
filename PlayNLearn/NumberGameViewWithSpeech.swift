@@ -14,6 +14,7 @@ struct NumberGameViewWithSpeech: View {
     @State private var numberMap = ["one": 1, "two": 2, "three": 3, "four": 4, "five": 5, "six": 6, "seven": 7, "eight": 8, "nine": 9, "ten": 10, "eleven": 11, "twelve": 12, "thirteen": 13, "fourteen": 14, "fifteen": 15, "sixteen": 16, "seventeen": 17, "eighteen": 18, "nineteen": 19, "twenty": 20]
     @State private var game = NumberGameWithSpeech()
     @State private var timeRemaining = 30.0
+    @State private var score  = 0
     var body: some View {
         ZStack {
             LinearGradient(gradient: Gradient(colors: [Color.green, Color.mint]), startPoint: .topTrailing, endPoint: .bottomTrailing)
@@ -31,11 +32,30 @@ struct NumberGameViewWithSpeech: View {
                     .padding(.bottom)
                 
                 HStack {
-                    Image(systemName: "star")
-                    Image(systemName: "star")
-                    Image(systemName: "star")
-                    Image(systemName: "star")
-                    Image(systemName: "star")
+                    if (score > 50) {
+                        Image(systemName: "star")
+                        Image(systemName: "star")
+                        Image(systemName: "star")
+                        Image(systemName: "star")
+                        Image(systemName: "star")
+                    } else if (score > 40) {
+                        Image(systemName: "star")
+                        Image(systemName: "star")
+                        Image(systemName: "star")
+                        Image(systemName: "star")
+                    } else if (score > 30) {
+                        Image(systemName: "star")
+                        Image(systemName: "star")
+                        Image(systemName: "star")
+                    } else if (score > 20) {
+                        Image(systemName: "star")
+                        Image(systemName: "star")
+                    } else if ( score > 10) {
+                        Image(systemName: "star")
+                    }
+                       
+                   
+                    
                 }
                 .padding(.bottom,50)
                 
@@ -63,7 +83,7 @@ struct NumberGameViewWithSpeech: View {
                             .padding()
                             .background(Color.white)
                             .clipShape(Circle())
-                            
+                        
                     }
                     .frame(width: 200)
                     .padding(.top,40)
@@ -75,7 +95,7 @@ struct NumberGameViewWithSpeech: View {
                                 game = NumberGameWithSpeech()
                                 timeRemaining = 30
                             }
-
+                            
                         }
                         RunLoop.current.add(timer, forMode: .common)
                     }
@@ -108,14 +128,16 @@ struct NumberGameViewWithSpeech: View {
                         // converting string using dictionary
                         if(game.correctAnswer < 9 ) {
                             number = numberMap[output.lowercased()] ?? 0
+                            print("number:\(number)")
                         } else {
                             number = Int(output) ?? 0
                         }
-                        print("output we got \(output). Type of output \(type(of: output))")
+                        print("output we got \(number). Type of output \(type(of: output))")
                         let result = game.checkAnswer(answer: number)
                         if( result == .right) {
                             print("Correct")
                             game = NumberGameWithSpeech()
+                            score += 10
                             timeRemaining = 30
                             
                         } else {
