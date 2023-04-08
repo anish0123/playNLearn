@@ -37,7 +37,7 @@ struct PopUpWindow: View {
                     Button(action: {
                         // Dismiss the PopUp
                         SPConfetti.stopAnimating()
-                        withAnimation(.linear(duration: 0.3)) {
+                        withAnimation(.linear) {
                             show = false
                             answer = false
                         }
