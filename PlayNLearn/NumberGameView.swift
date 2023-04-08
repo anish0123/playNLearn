@@ -159,18 +159,18 @@ struct NumberGameView: View {
         if question == answer {
             SPConfetti.startAnimating(.centerWidthToUp, particles: [.triangle, .arc], duration: 1)
 
-            withAnimation(.easeInOut(duration: 0.3)) {
+            withAnimation(.easeInOut) {
                 showPopUp.toggle()
                 rightAnswer.toggle()
             }
         }else {
-            withAnimation(.easeInOut(duration: 0.3)) {
+            withAnimation(.easeInOut) {
                 showPopUp.toggle()
             }
         }
         
-        //call nextquestion function with a 2 second delay
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+        //call nextquestion function with a 1 second delay
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
             nextQuestion()
          }
     }
