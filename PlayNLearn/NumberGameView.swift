@@ -6,9 +6,16 @@
 //
 
 import SwiftUI
+import ConfettiSwiftUI
+import SPConfetti
 
 struct NumberGameView: View {
-    @State var imageName: Int = 13
+    @State private var showPopUp: Bool = false
+    @State private var rightAnswer: Bool = false
+    var numbers: [Numbers] = NumberList.numbers
+    @State var randomNum: Int
+    @State private var counter = 0
+
     var body: some View {
         ZStack {
             LinearGradient(gradient: Gradient(colors: [Color.green, Color.mint]), startPoint: .topTrailing, endPoint: .bottomTrailing)
@@ -25,6 +32,7 @@ struct NumberGameView: View {
                     .foregroundColor(.black)
                     .padding(.bottom)
                 
+                
                 HStack {
                     Image(systemName: "star")
                     Image(systemName: "star")
@@ -32,75 +40,146 @@ struct NumberGameView: View {
                     Image(systemName: "star")
                     Image(systemName: "star")
                 }
-                .padding(.bottom,50)
-                
-                Divider()
+                .padding(.bottom,20)
                 
                 Text("Select the correct number")
                     .font(.system(size: 25, weight: .semibold))
+
                 
-                Text("13")
-                    .font(.system(size: 60, weight: .regular))
-                    .frame(width: 180,height: 180)
+                Circle()
+                    .strokeBorder(.white, lineWidth: 10)
+                    .overlay {
+                        Text("\(numbers[randomNum].question)")
+                            .font(.system(size: 60, weight: .regular))
+                    }
                     .padding()
-                    .background(Color.white)
-                    .clipShape(Circle())
-                    .padding(.top, 20)
+                
                 
                 Spacer()
-                Divider()
                 
-                HStack {
-                    Text("\(imageName)")
-                        .font(.system(size: 30, weight: .regular))
-                        .frame(width: 50,height: 50)
-                        .padding()
-                        .background(Color.white)
-                        .clipShape(Circle())
-                        .padding()
-                        .onTapGesture (count: 1) {
+                Rectangle()
+                    .fill(Color.white)
+                    .frame(width: 320, height: 250)
+                    .cornerRadius(30)
+                    .overlay{
+                        VStack {
+                            HStack {
+                                Text("\(numbers[randomNum].option[0])")
+                                    .font(.system(size: 25, weight: .regular))
+                                    .frame(width: 40, height: 40)
+                                    .padding()
+                                    .background(Color("lightGreen"))
+                                    .clipShape(Circle())
+                                    .overlay(
+                                        Circle()
+                                            .stroke(.green, lineWidth: 4)
+                                    )
+                                    .padding()
+                                    .onTapGesture (count: 1) {
+                                        checkAnswer(numbers[randomNum].question, numbers[randomNum].option[0])
+
+                                    }
+                                
+                                Text("\(numbers[randomNum].option[1])")
+                                    .font(.system(size: 25, weight: .regular))
+                                    .frame(width: 40, height: 40)
+                                    .padding()
+                                    .background(Color("lightGreen"))
+                                    .clipShape(Circle())
+                                    .overlay(
+                                        Circle()
+                                            .stroke(.green, lineWidth: 4)
+                                    )
+                                    .padding()
+                                    .onTapGesture (count: 1) {
+                                        checkAnswer(numbers[randomNum].question, numbers[randomNum].option[1])
+                                    }
+                            }
+                            
+                            HStack {
+                                Text("\(numbers[randomNum].option[2])")
+                                    .font(.system(size: 25, weight: .regular))
+                                    .frame(width: 40, height: 40)
+                                    .padding()
+                                    .background(Color("lightGreen"))
+                                    .clipShape(Circle())
+                                    .overlay(
+                                        Circle()
+                                            .stroke(.green, lineWidth: 4)
+                                    )
+                                    .padding()
+                                    .onTapGesture (count: 1) {
+                                        checkAnswer(numbers[randomNum].question, numbers[randomNum].option[2])
+                                    }
+                                
+                                Text("\(numbers[randomNum].option[3])")
+                                    .font(.system(size: 25, weight: .regular))
+                                    .frame(width: 40, height: 40)
+                                    .padding()
+                                    .background(Color("lightGreen"))
+                                    .clipShape(Circle())
+                                    .overlay(
+                                        Circle()
+                                            .stroke(.green, lineWidth: 4)
+                                    )
+                                    .padding()
+                                    .onTapGesture (count: 1) {
+                                        checkAnswer(numbers[randomNum].question, numbers[randomNum].option[3])
+                                    }
+                            }
                         }
-                    
-                    Text("\(imageName + 5)")
-                        .font(.system(size: 30, weight: .regular))
-                        .frame(width: 50,height: 50)
-                        .padding()
-                        .background(Color.white)
-                        .clipShape(Circle())
-                        .padding()
-                        .onTapGesture (count: 1) {
-                        }
-                    
-                    Text("\(imageName + 2)")
-                        .font(.system(size: 30, weight: .regular))
-                        .frame(width: 50,height: 50)
-                        .padding()
-                        .background(Color.white)
-                        .clipShape(Circle())
-                        .padding()
-                        .onTapGesture (count: 1) {
-                        }
-                }
+                    }
                 .padding()
+                
                 Button{
-                    
+                    randomNum = Int.random(in: 0...NumberList.numbers.count - 1 )
                 } label: {
                     Text("Skip")
-                        .frame(width: 150, height: 50)
-                        .background(Color(.white))
+                        .frame(width: 200, height: 50)
+                        .background(Color("button"))
                         .foregroundColor(.black)
                         .font(.system(size: 20, weight: .bold, design: .default))
-                        .cornerRadius(10)
+                        .cornerRadius(25)
                 }
             }
+            
+            PopUpWindow(title: rightAnswer ? "Correct Answer" : "Incorrect Answer",
+                        message: "",
+                        buttonText: rightAnswer ? "Continue" : "Retry",
+                        show: $showPopUp, answer: $rightAnswer)
         }
+    }
+    
+    func nextQuestion() {
+        randomNum = Int.random(in: 0...NumberList.numbers.count - 1 )
+    }
+    
+    func checkAnswer(_ question: Int, _ answer: Int) {
+        
+        if question == answer {
+            SPConfetti.startAnimating(.centerWidthToUp, particles: [.triangle, .arc], duration: 1)
+
+            withAnimation(.easeInOut(duration: 0.3)) {
+                showPopUp.toggle()
+                rightAnswer.toggle()
+            }
+        }else {
+            withAnimation(.easeInOut(duration: 0.3)) {
+                showPopUp.toggle()
+            }
+        }
+        
+        //call nextquestion function with a 2 second delay
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+            nextQuestion()
+         }
     }
 }
 
 
 struct NumberGameView_Previews: PreviewProvider {
     static var previews: some View {
-        NumberGameView()
+        NumberGameView(randomNum: 3)
     }
 }
 

@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6A27E9AF29E0B8C5002FEC17 /* congratulation.gif in Resources */ = {isa = PBXBuildFile; fileRef = 6A27E9AE29E0B8C5002FEC17 /* congratulation.gif */; };
+		6A27E9B329E0BEBF002FEC17 /* sadface.gif in Resources */ = {isa = PBXBuildFile; fileRef = 6A27E9B229E0BEBF002FEC17 /* sadface.gif */; };
+		6A7BFA8B29DF62B9003E5A4C /* PopUpWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A7BFA8A29DF62B9003E5A4C /* PopUpWindow.swift */; };
+		6A7BFA9229E041D7003E5A4C /* ConfettiSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 6A7BFA9129E041D7003E5A4C /* ConfettiSwiftUI */; };
+		6A7BFA9529E0516E003E5A4C /* SPConfetti in Frameworks */ = {isa = PBXBuildFile; productRef = 6A7BFA9429E0516E003E5A4C /* SPConfetti */; };
+		6A7BFA9929E0B4FC003E5A4C /* GifImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A7BFA9829E0B4FC003E5A4C /* GifImage.swift */; };
+		6A97E92229DB0D5F00150080 /* NumbersList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A97E92129DB0D5F00150080 /* NumbersList.swift */; };
 		6AF6787B29DAAC9F001DBC83 /* NumberGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AF6787A29DAAC9F001DBC83 /* NumberGameView.swift */; };
 		7EFE233029DA30400066B490 /* PlayNLearnApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EFE232F29DA30400066B490 /* PlayNLearnApp.swift */; };
 		7EFE233229DA30400066B490 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EFE233129DA30400066B490 /* ContentView.swift */; };
@@ -40,6 +47,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6A27E9AE29E0B8C5002FEC17 /* congratulation.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = congratulation.gif; sourceTree = "<group>"; };
+		6A27E9B229E0BEBF002FEC17 /* sadface.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = sadface.gif; sourceTree = "<group>"; };
+		6A7BFA8A29DF62B9003E5A4C /* PopUpWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpWindow.swift; sourceTree = "<group>"; };
+		6A7BFA9829E0B4FC003E5A4C /* GifImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GifImage.swift; sourceTree = "<group>"; };
+		6A97E92129DB0D5F00150080 /* NumbersList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumbersList.swift; sourceTree = "<group>"; };
 		6AF6787A29DAAC9F001DBC83 /* NumberGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberGameView.swift; sourceTree = "<group>"; };
 		7EFE232C29DA30400066B490 /* PlayNLearn.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PlayNLearn.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7EFE232F29DA30400066B490 /* PlayNLearnApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayNLearnApp.swift; sourceTree = "<group>"; };
@@ -64,6 +76,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6A7BFA9229E041D7003E5A4C /* ConfettiSwiftUI in Frameworks */,
+				6A7BFA9529E0516E003E5A4C /* SPConfetti in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -87,7 +101,11 @@
 		7EFE232329DA30400066B490 = {
 			isa = PBXGroup;
 			children = (
+<<<<<<< HEAD
 
+=======
+				6A7BFA9829E0B4FC003E5A4C /* GifImage.swift */,
+>>>>>>> homepage
 				F8EED87829DABCE400D3E3C3 /* .gitignore */,
 
 				7EFE232E29DA30400066B490 /* PlayNLearn */,
@@ -110,13 +128,23 @@
 		7EFE232E29DA30400066B490 /* PlayNLearn */ = {
 			isa = PBXGroup;
 			children = (
+<<<<<<< HEAD
 				F8646C5029DD79AA00D85449 /* models */,
+=======
+				6A27E9AE29E0B8C5002FEC17 /* congratulation.gif */,
+				6A27E9B229E0BEBF002FEC17 /* sadface.gif */,
+>>>>>>> homepage
 				7EFE232F29DA30400066B490 /* PlayNLearnApp.swift */,
 				7EFE233129DA30400066B490 /* ContentView.swift */,
 				7EFE233329DA30410066B490 /* Assets.xcassets */,
 				7EFE233529DA30410066B490 /* Preview Content */,
 				6AF6787A29DAAC9F001DBC83 /* NumberGameView.swift */,
+<<<<<<< HEAD
 				F8646C5729DD7B1C00D85449 /* NumberGameViewWithSpeech.swift */,
+=======
+				6A97E92129DB0D5F00150080 /* NumbersList.swift */,
+				6A7BFA8A29DF62B9003E5A4C /* PopUpWindow.swift */,
+>>>>>>> homepage
 			);
 			path = PlayNLearn;
 			sourceTree = "<group>";
@@ -171,6 +199,10 @@
 			dependencies = (
 			);
 			name = PlayNLearn;
+			packageProductDependencies = (
+				6A7BFA9129E041D7003E5A4C /* ConfettiSwiftUI */,
+				6A7BFA9429E0516E003E5A4C /* SPConfetti */,
+			);
 			productName = PlayNLearn;
 			productReference = 7EFE232C29DA30400066B490 /* PlayNLearn.app */;
 			productType = "com.apple.product-type.application";
@@ -243,6 +275,10 @@
 				Base,
 			);
 			mainGroup = 7EFE232329DA30400066B490;
+			packageReferences = (
+				6A7BFA9029E041D7003E5A4C /* XCRemoteSwiftPackageReference "ConfettiSwiftUI" */,
+				6A7BFA9329E0516E003E5A4C /* XCRemoteSwiftPackageReference "SPConfetti" */,
+			);
 			productRefGroup = 7EFE232D29DA30400066B490 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -259,8 +295,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6A27E9AF29E0B8C5002FEC17 /* congratulation.gif in Resources */,
 				7EFE233729DA30410066B490 /* Preview Assets.xcassets in Resources */,
+<<<<<<< HEAD
 
+=======
+				6A27E9B329E0BEBF002FEC17 /* sadface.gif in Resources */,
+>>>>>>> homepage
 				F8EED87929DABCE400D3E3C3 /* .gitignore in Resources */,
 				7EFE233429DA30410066B490 /* Assets.xcassets in Resources */,
 			);
@@ -287,12 +328,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+<<<<<<< HEAD
 				F8646C5429DD79F700D85449 /* NumberGameWithSpeech.swift in Sources */,
+=======
+				6A97E92229DB0D5F00150080 /* NumbersList.swift in Sources */,
+>>>>>>> homepage
 				6AF6787B29DAAC9F001DBC83 /* NumberGameView.swift in Sources */,
+				6A7BFA9929E0B4FC003E5A4C /* GifImage.swift in Sources */,
 				7EFE233229DA30400066B490 /* ContentView.swift in Sources */,
 				F8646C5629DD7AF900D85449 /* SpeechRecognizer.swift in Sources */,
 				7EFE233029DA30400066B490 /* PlayNLearnApp.swift in Sources */,
+<<<<<<< HEAD
 				F8646C5829DD7B1C00D85449 /* NumberGameViewWithSpeech.swift in Sources */,
+=======
+				6A7BFA8B29DF62B9003E5A4C /* PopUpWindow.swift in Sources */,
+>>>>>>> homepage
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -469,7 +519,10 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = fi.metropolia.PlayNLearn;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+<<<<<<< HEAD
 				PROVISIONING_PROFILE_SPECIFIER = "";
+=======
+>>>>>>> homepage
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
@@ -505,7 +558,10 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = fi.metropolia.PlayNLearn;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+<<<<<<< HEAD
 				PROVISIONING_PROFILE_SPECIFIER = "";
+=======
+>>>>>>> homepage
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
@@ -627,6 +683,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		6A7BFA9029E041D7003E5A4C /* XCRemoteSwiftPackageReference "ConfettiSwiftUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/simibac/ConfettiSwiftUI.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+		6A7BFA9329E0516E003E5A4C /* XCRemoteSwiftPackageReference "SPConfetti" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ivanvorobei/SPConfetti";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		6A7BFA9129E041D7003E5A4C /* ConfettiSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6A7BFA9029E041D7003E5A4C /* XCRemoteSwiftPackageReference "ConfettiSwiftUI" */;
+			productName = ConfettiSwiftUI;
+		};
+		6A7BFA9429E0516E003E5A4C /* SPConfetti */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6A7BFA9329E0516E003E5A4C /* XCRemoteSwiftPackageReference "SPConfetti" */;
+			productName = SPConfetti;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 7EFE232429DA30400066B490 /* Project object */;
 }
