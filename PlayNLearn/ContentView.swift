@@ -80,11 +80,11 @@ struct ContentView: View {
                         
                     } label: {
                         Text("Let's Play")
-                            .frame(width: 280, height: 50)
-                            .background(Color("woodencolor"))
+                            .frame(width: 220, height: 50)
+                            .background(Color("button"))
                             .foregroundColor(.black)
                             .font(.system(size: 20, weight: .bold, design: .default))
-                            .cornerRadius(10)
+                            .cornerRadius(25)
                     }
                 }
             }
