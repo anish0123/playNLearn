@@ -6,6 +6,8 @@
 //
 
 import SwiftUI
+import ConfettiSwiftUI
+import SPConfetti
 
 struct NumberGameViewWithSpeech: View {
     @StateObject var speechRecognizer = SpeechRecognizer()
@@ -15,6 +17,8 @@ struct NumberGameViewWithSpeech: View {
     @State private var game = NumberGameWithSpeech()
     @State private var timeRemaining = 30.0
     @State private var score  = 0
+    @State private var showPopUp: Bool = false
+    @State private var rightAnswer: Bool = false
     var body: some View {
         ZStack {
             LinearGradient(gradient: Gradient(colors: [Color.green, Color.mint]), startPoint: .topTrailing, endPoint: .bottomTrailing)
@@ -53,8 +57,8 @@ struct NumberGameViewWithSpeech: View {
                     } else if ( score > 10) {
                         Image(systemName: "star")
                     }
-                       
-                   
+                    
+                    
                     
                 }
                 .padding(.bottom,50)
@@ -139,9 +143,24 @@ struct NumberGameViewWithSpeech: View {
                             game = NumberGameWithSpeech()
                             score += 10
                             timeRemaining = 30
+                            SPConfetti.startAnimating(.centerWidthToUp, particles: [.triangle, .arc], duration: 1)
+                            
+                            withAnimation(.easeInOut) {
+                                showPopUp.toggle()
+                                rightAnswer.toggle()
+                            }
                             
                         } else {
-                            print("Wrong")
+                            game = NumberGameWithSpeech()
+                            timeRemaining = 30
+                            withAnimation(.easeInOut) {
+                                showPopUp.toggle()
+                            }
+                        }
+                        
+                        //call nextquestion function with a 1 second delay
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                            game = NumberGameWithSpeech()
                         }
                         
                     }
@@ -154,6 +173,7 @@ struct NumberGameViewWithSpeech: View {
                 .padding()
                 Button{
                     game = NumberGameWithSpeech()
+                    timeRemaining = 30
                 } label: {
                     Text("Skip")
                         .frame(width: 150, height: 50)
@@ -162,7 +182,12 @@ struct NumberGameViewWithSpeech: View {
                         .font(.system(size: 20, weight: .bold, design: .default))
                         .cornerRadius(10)
                 }
+                
             }
+            PopUpWindow(title: rightAnswer ? "Correct Answer" : "Incorrect Answer",
+                        message: "",
+                        buttonText: rightAnswer ? "Continue" : "Retry",
+                        show: $showPopUp, answer: $rightAnswer)
         }
     }
 }
