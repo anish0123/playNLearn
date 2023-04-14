@@ -19,6 +19,7 @@ struct NumberGameViewWithSpeech: View {
     @State private var score  = 0
     @State private var showPopUp: Bool = false
     @State private var rightAnswer: Bool = false
+    @State private var isRecording = false
     var body: some View {
         ZStack {
             LinearGradient(gradient: Gradient(colors: [Color.green, Color.mint]), startPoint: .topTrailing, endPoint: .bottomTrailing)
@@ -77,7 +78,7 @@ struct NumberGameViewWithSpeech: View {
                         
                         Circle()
                             .trim(from: 0.0, to: CGFloat(1 - timeRemaining/30.0))
-                            .stroke(style: StrokeStyle(lineWidth: 40.0, lineCap: .round, lineJoin: .round))
+                            .stroke(style: StrokeStyle(lineWidth: 40.0))
                             .foregroundColor(timeRemaining > 10 ? .green : .red)
                             .rotationEffect(.degrees(-90))
                         
@@ -96,8 +97,13 @@ struct NumberGameViewWithSpeech: View {
                             if timeRemaining > 0 {
                                 timeRemaining -= 1.0
                             } else {
+                                score = 0
+                                withAnimation(.easeInOut) {
+                                    showPopUp.toggle()
+                                }
                                 game = NumberGameWithSpeech()
                                 timeRemaining = 30
+                                
                             }
                             
                         }
@@ -112,65 +118,27 @@ struct NumberGameViewWithSpeech: View {
                 Divider()
                 
                 HStack {
-                    Button("Mic On"){
-                        // Turning on the speech recognition
-                        speechRecognizer.reset()
-                        speechRecognizer.transcribe()
-                        output = speechRecognizer.transcript
-                    }
-                    .frame(width: 150, height: 50)
-                    .background(Color(.white))
-                    .foregroundColor(.black)
-                    .font(.system(size: 20, weight: .bold, design: .default))
-                    .cornerRadius(10)
-                    
-                    Button ("Mic off") {
-                        // Turning off the speech recognition
-                        speechRecognizer.stopTranscribing()
-                        // Processing the output
-                        output = speechRecognizer.transcript
-                        // converting string using dictionary
-                        if(game.correctAnswer < 9 ) {
-                            number = numberMap[output.lowercased()] ?? 0
-                            print("number:\(number)")
-                        } else {
-                            number = Int(output) ?? 0
-                        }
-                        print("output we got \(number). Type of output \(type(of: output))")
-                        let result = game.checkAnswer(answer: number)
-                        if( result == .right) {
-                            print("Correct")
-                            game = NumberGameWithSpeech()
-                            score += 10
-                            timeRemaining = 30
-                            SPConfetti.startAnimating(.centerWidthToUp, particles: [.triangle, .arc], duration: 1)
-                            
-                            withAnimation(.easeInOut) {
-                                showPopUp.toggle()
-                                rightAnswer.toggle()
-                            }
-                            
-                        } else {
-                            game = NumberGameWithSpeech()
-                            timeRemaining = 30
-                            withAnimation(.easeInOut) {
-                                showPopUp.toggle()
-                            }
-                        }
+                    Button (action : {
                         
-                        //call nextquestion function with a 1 second delay
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-                            game = NumberGameWithSpeech()
+                        print("Long gesture ended")
+                        stopRecording()
+                    }) {
+                        ZStack {
+                            Image(systemName: "mic.circle")
+                                .frame(height: 100)
+                                .foregroundColor(.orange)
+                                .font(.system(size: 100))
+                                .padding()
                         }
-                        
                     }
-                    .frame(width: 150, height: 50)
-                    .background(Color(.white))
-                    .foregroundColor(.black)
-                    .font(.system(size: 20, weight: .bold, design: .default))
-                    .cornerRadius(10)
                 }
-                .padding()
+                .simultaneousGesture(
+                    LongPressGesture(minimumDuration: 0.1).onEnded({_ in
+                        startRecording()
+                        print("Long gesture started")
+                    })
+                    
+                )
                 Button{
                     game = NumberGameWithSpeech()
                     timeRemaining = 30
@@ -183,11 +151,59 @@ struct NumberGameViewWithSpeech: View {
                         .cornerRadius(10)
                 }
                 
+                
+                
             }
             PopUpWindow(title: rightAnswer ? "Correct Answer" : "Incorrect Answer",
                         message: "",
                         buttonText: rightAnswer ? "Continue" : "Retry",
                         show: $showPopUp, answer: $rightAnswer)
+        }
+    }
+    
+    func startRecording() {
+        output = ""
+        speechRecognizer.reset()
+        speechRecognizer.transcribe()
+        output = speechRecognizer.transcript
+    }
+    
+    func stopRecording() {
+        // Turning off the speech recognition
+        speechRecognizer.stopTranscribing()
+        // Processing the output
+        output = speechRecognizer.transcript
+        // converting string using dictionary
+        print("output " ,output)
+        if(game.correctAnswer < 9 ) {
+            number = numberMap[output.lowercased()] ?? 0
+            print("number:\(number)")
+        } else {
+            number = Int(output) ?? 0
+        }
+        print("output we got \(number). Type of output \(type(of: output))")
+        let result = game.checkAnswer(answer: number)
+        if( result == .right) {
+            print("Correct")
+            score += 10
+            SPConfetti.startAnimating(.centerWidthToUp, particles: [.triangle, .arc], duration: 1)
+            withAnimation(.easeInOut) {
+                showPopUp.toggle()
+                rightAnswer.toggle()
+            }
+            
+        } else {
+            
+            
+            score = 0
+            withAnimation(.easeInOut) {
+                showPopUp.toggle()
+            }
+        }
+        //call nextquestion function with a 1 second delay
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+            game = NumberGameWithSpeech()
+            timeRemaining = 30
         }
     }
 }
