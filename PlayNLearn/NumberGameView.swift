@@ -15,50 +15,53 @@ struct NumberGameView: View {
     var numbers: [Numbers] = NumberList.numbers
     @State var randomNum: Int
     @State private var counter = 0
+    @State private var timeRemaining = 30.0
 
     var body: some View {
+        
         ZStack {
-            LinearGradient(gradient: Gradient(colors: [Color.green, Color.mint]), startPoint: .topTrailing, endPoint: .bottomTrailing)
+                
+            Image("zebra")
+                .resizable()
+                .aspectRatio(contentMode: .fill)
+                .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
                 .edgesIgnoringSafeArea(.all)
             
             VStack {
-                Text("Learn Numbers")
-                    .font(.system(size: 30, weight: .bold))
-                    .foregroundColor(.black)
-                    .padding(.bottom)
                 
-                Text("Score")
-                    .font(.system(size: 30, weight: .regular))
-                    .foregroundColor(.black)
-                    .padding(.bottom)
-                
-                
-                HStack {
-                    Image(systemName: "star")
-                    Image(systemName: "star")
-                    Image(systemName: "star")
-                    Image(systemName: "star")
-                    Image(systemName: "star")
-                }
-                .padding(.bottom,20)
-                
-                Text("Select the correct number")
-                    .font(.system(size: 25, weight: .semibold))
-
-                
-                Circle()
-                    .strokeBorder(.white, lineWidth: 10)
-                    .overlay {
+                Group {
+                    
+                    ZStack {
+                        Circle()
+                            .stroke(lineWidth: 20)
+                            .opacity(0.3)
+                            .foregroundColor(.white)
+                        
+                        Circle()
+                            .trim(from: 0.0, to: CGFloat(1 - timeRemaining/30.0))
+                            .stroke(style: StrokeStyle(lineWidth: 20.0, lineJoin: .round))
+                            .foregroundColor(timeRemaining > 8 ? .green : .red)
+                            .rotationEffect(.degrees(-90))
+                        
                         Text("\(numbers[randomNum].question)")
-                            .font(.system(size: 60, weight: .regular))
+                            .font(.system(size: 80, weight: .bold))
+                            .frame(width: 150,height: 150)
+                            .padding()
+                            .background(Color.white)
+                            .clipShape(Circle())
+                        
                     }
-                    .padding()
-                
-                
-                Spacer()
+                    .frame(width: 200)
+                    .opacity(0.9)
+                    .padding(60)
+                    .onAppear {
+                        startTimer()
+                    }
+                    
+                }
                 
                 Rectangle()
-                    .fill(Color.white)
+                    .fill(Color("rectangularbox"))
                     .frame(width: 320, height: 250)
                     .cornerRadius(30)
                     .overlay{
@@ -72,7 +75,7 @@ struct NumberGameView: View {
                                     .clipShape(Circle())
                                     .overlay(
                                         Circle()
-                                            .stroke(.green, lineWidth: 4)
+                                            .stroke(Color("optionstroke"), lineWidth: 4)
                                     )
                                     .padding()
                                     .onTapGesture (count: 1) {
@@ -88,7 +91,7 @@ struct NumberGameView: View {
                                     .clipShape(Circle())
                                     .overlay(
                                         Circle()
-                                            .stroke(.green, lineWidth: 4)
+                                            .stroke(Color("optionstroke"), lineWidth: 4)
                                     )
                                     .padding()
                                     .onTapGesture (count: 1) {
@@ -105,7 +108,7 @@ struct NumberGameView: View {
                                     .clipShape(Circle())
                                     .overlay(
                                         Circle()
-                                            .stroke(.green, lineWidth: 4)
+                                            .stroke(Color("optionstroke"), lineWidth: 4)
                                     )
                                     .padding()
                                     .onTapGesture (count: 1) {
@@ -120,7 +123,7 @@ struct NumberGameView: View {
                                     .clipShape(Circle())
                                     .overlay(
                                         Circle()
-                                            .stroke(.green, lineWidth: 4)
+                                            .stroke(Color("optionstroke"), lineWidth: 4)
                                     )
                                     .padding()
                                     .onTapGesture (count: 1) {
@@ -130,25 +133,43 @@ struct NumberGameView: View {
                         }
                     }
                 .padding()
-                
-                Button{
-                    randomNum = Int.random(in: 0...NumberList.numbers.count - 1 )
-                } label: {
-                    Text("Skip")
-                        .frame(width: 200, height: 50)
-                        .background(Color("button"))
-                        .foregroundColor(.black)
-                        .font(.system(size: 20, weight: .bold, design: .default))
-                        .cornerRadius(25)
-                }
+                Rectangle()
+                    .fill(Color("lightGreen"))
+                    .frame(width: 110, height: 50)
+                    .cornerRadius(20)
+                    .overlay{
+                        Label("Skip", systemImage: "forward")
+                            .font(.system(size: 20))
+                    }
+                    .onTapGesture (count: 1) {
+                        timeRemaining = 30.0
+                        startTimer()
+                        randomNum = Int.random(in: 0...NumberList.numbers.count - 1 )
+                    }
             }
+            .padding(50)
             
             PopUpWindow(title: rightAnswer ? "Correct Answer" : "Incorrect Answer",
-                        message: "",
                         buttonText: rightAnswer ? "Continue" : "Retry",
                         show: $showPopUp, answer: $rightAnswer)
         }
     }
+    
+    func startTimer(){
+        let timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { i in
+            
+            if timeRemaining > 0 && showPopUp == true {
+                i.invalidate()
+            } else if timeRemaining > 0 {
+                timeRemaining -= 1
+            } else {
+                randomNum = Int.random(in: 0...NumberList.numbers.count - 1 )
+                timeRemaining = 30
+            }
+        }
+        RunLoop.current.add(timer, forMode: .common)
+    }
+    
     
     func nextQuestion() {
         randomNum = Int.random(in: 0...NumberList.numbers.count - 1 )
@@ -158,22 +179,22 @@ struct NumberGameView: View {
         
         if question == answer {
             SPConfetti.startAnimating(.centerWidthToUp, particles: [.triangle, .arc], duration: 1)
-
+            SoundManager.instance.playSound(sound: .win)
             withAnimation(.easeInOut) {
                 showPopUp.toggle()
                 rightAnswer.toggle()
             }
+            
         }else {
+            SoundManager.instance.playSound(sound: .lose)
             withAnimation(.easeInOut) {
                 showPopUp.toggle()
             }
         }
-        
-        //call nextquestion function with a 1 second delay
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-            nextQuestion()
-         }
+        nextQuestion()
+        startTimer()
     }
+
 }
 
 

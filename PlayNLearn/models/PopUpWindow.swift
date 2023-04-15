@@ -10,11 +10,9 @@ import SPConfetti
 
 struct PopUpWindow: View {
     var title: String
-    var message: String
     var buttonText: String
     @Binding var show: Bool
     @Binding var answer: Bool
-    
     
     var body: some View {
         ZStack {
@@ -41,6 +39,7 @@ struct PopUpWindow: View {
                             show = false
                             answer = false
                         }
+                        
                     }, label: {
                         Text(buttonText)
                             .frame(maxWidth: .infinity)
@@ -61,6 +60,6 @@ struct PopUpWindow: View {
 
 struct PopUpWindow_Previews: PreviewProvider {
     static var previews: some View {
-        PopUpWindow(title: "Incorrect Answer", message: "", buttonText: "Retry", show: .constant(true), answer: .constant(false))
+        PopUpWindow(title: "Incorrect Answer", buttonText: "Retry", show: .constant(true), answer: .constant(false))
     }
 }

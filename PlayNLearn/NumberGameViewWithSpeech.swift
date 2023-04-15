@@ -17,19 +17,15 @@ struct NumberGameViewWithSpeech: View {
     @State private var score  = 0
     var body: some View {
         ZStack {
-            LinearGradient(gradient: Gradient(colors: [Color.green, Color.mint]), startPoint: .topTrailing, endPoint: .bottomTrailing)
+            
+            Image("giraffeneck")
+                .resizable()
+                .aspectRatio(contentMode: .fill)
+                .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
                 .edgesIgnoringSafeArea(.all)
+                .padding(.leading, 150)
             
             VStack {
-                Text("Learn Numbers")
-                    .font(.system(size: 30, weight: .bold))
-                    .foregroundColor(.black)
-                    .padding(.bottom)
-                
-                Text("Score")
-                    .font(.system(size: 30, weight: .regular))
-                    .foregroundColor(.black)
-                    .padding(.bottom)
                 
                 HStack {
                     if (score > 50) {
@@ -59,34 +55,33 @@ struct NumberGameViewWithSpeech: View {
                 }
                 .padding(.bottom,50)
                 
-                Divider()
+                Spacer()
                 
                 Group {
-                    Text("Please tell the correct number")
-                        .font(.system(size: 25, weight: .semibold))
                     
                     ZStack {
                         Circle()
-                            .stroke(lineWidth: 40)
+                            .stroke(lineWidth: 20)
                             .opacity(0.3)
                             .foregroundColor(.white)
                         
                         Circle()
                             .trim(from: 0.0, to: CGFloat(1 - timeRemaining/30.0))
-                            .stroke(style: StrokeStyle(lineWidth: 40.0, lineCap: .round, lineJoin: .round))
-                            .foregroundColor(timeRemaining > 10 ? .green : .red)
+                            .stroke(style: StrokeStyle(lineWidth: 20.0, lineJoin: .round))
+                            .foregroundColor(timeRemaining > 8 ? .green : .red)
                             .rotationEffect(.degrees(-90))
                         
                         Text("\(game.correctAnswer)")
-                            .font(.system(size: 60, weight: .regular))
-                            .frame(width: 180,height: 180)
+                            .font(.system(size: 80, weight: .bold))
+                            .frame(width: 150,height: 150)
                             .padding()
                             .background(Color.white)
                             .clipShape(Circle())
                         
                     }
                     .frame(width: 200)
-                    .padding(.top,40)
+                    .opacity(0.8)
+                    .padding(.top,70)
                     .onAppear {
                         let timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { _ in
                             if timeRemaining > 0 {
@@ -152,18 +147,22 @@ struct NumberGameViewWithSpeech: View {
                     .cornerRadius(10)
                 }
                 .padding()
-                Button{
-                    game = NumberGameWithSpeech()
-                } label: {
-                    Text("Skip")
-                        .frame(width: 150, height: 50)
-                        .background(Color(.white))
-                        .foregroundColor(.black)
-                        .font(.system(size: 20, weight: .bold, design: .default))
-                        .cornerRadius(10)
-                }
+                
+                Rectangle()
+                    .fill(Color("lightGreen"))
+                    .frame(width: 110, height: 50)
+                    .cornerRadius(20)
+                    .overlay{
+                        Label("Skip", systemImage: "forward")
+                            .font(.system(size: 20))
+                    }
+                    .onTapGesture (count: 1) {
+                        game = NumberGameWithSpeech()
+                    }
             }
+            .padding(50)
         }
+        
     }
 }
 
