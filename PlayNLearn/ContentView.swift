@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     @State public var imageName: String = "numbers"
+    
     var body: some View {
         NavigationView{
             ZStack {
@@ -41,16 +42,18 @@ struct ContentView: View {
                     .cornerRadius(30)
                 }
             }
-                .toolbar {
-                    Button(action: {
-                        
-                    }) {
-                        Image(systemName: "line.horizontal.3")
+            .toolbar {
+                HStack{
+                    NavigationLink(destination: SettingsView()){
+                        Label("", systemImage: "line.horizontal.3")
+                            .font(.system(size: 18))
                             .foregroundColor(.black)
+                        
                     }
                 }
             }
         }
+    }
 }
 
 struct ScrollViewList: View {
@@ -59,6 +62,7 @@ struct ScrollViewList: View {
     var image: String
     var color : String
     @Binding var imageName: String
+    @State private var checkBoolean = SettingsView().voiceMode
     
     var body: some View {
         
@@ -86,7 +90,10 @@ struct ScrollViewList: View {
                                 .cornerRadius(20)
                                 .overlay{
                                     HStack{
-                                        NavigationLink(destination: NumberGameView(randomNum: 1)){
+                                        NavigationLink(destination: checkBoolean ?
+                                                       AnyView(NumberGameViewWithSpeech()) :
+                                                        AnyView(NumberGameView( randomNum: 1))
+                                        ){
                                             Label("", systemImage: "play.circle")
                                                 .font(.system(size: 25))
                                             
