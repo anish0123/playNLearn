@@ -10,7 +10,7 @@ import ConfettiSwiftUI
 import SPConfetti
 
 struct NumberGameView: View {
-    @State private var showPopUp: Bool = false
+    @State var showPopUp: Bool = false
     @State private var rightAnswer: Bool = false
     var numbers: [Numbers] = NumberList.numbers
     @State var randomNum: Int
@@ -150,7 +150,7 @@ struct NumberGameView: View {
             .padding(50)
             
             PopUpWindow(title: rightAnswer ? "Correct Answer" : "Incorrect Answer",
-                        buttonText: rightAnswer ? "Continue" : "Retry",
+                        buttonText: rightAnswer ? "Continue" : "Retry", 
                         show: $showPopUp, answer: $rightAnswer)
         }
     }
@@ -169,7 +169,6 @@ struct NumberGameView: View {
         }
         RunLoop.current.add(timer, forMode: .common)
     }
-    
     
     func nextQuestion() {
         randomNum = Int.random(in: 0...NumberList.numbers.count - 1 )
