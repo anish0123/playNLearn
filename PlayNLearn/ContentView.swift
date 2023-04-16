@@ -9,38 +9,60 @@ import SwiftUI
 
 struct ContentView: View {
     @State public var imageName: String = "numbers"
+    @State public var titleName: String = "Number Game"
     
     var body: some View {
         NavigationView{
             ZStack {
-                LinearGradient(gradient: Gradient(colors: [Color.green, Color.mint]), startPoint: .topLeading, endPoint: .trailing)
+                Image("homeimage")
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
                     .edgesIgnoringSafeArea(.all)
                 
                 VStack {
-                    Text("Play N Learn")
-                        .font(.system(size: 30, weight: .bold))
-                        .foregroundColor(.black)
-                    
-                    Divider()
-                    
-                    Image(imageName)
-                        .resizable()
-                        .frame(width: 300, height: 300)
-                        .aspectRatio(contentMode: .fit)
-                        .clipShape(Circle())
-                    
-                    Divider()
-                    Spacer()
-                    ScrollView(showsIndicators: false) {
-                        ScrollViewList(title: "Number Game", description: "Select the correct number", image: "numbers", color: "button", imageName: $imageName)
-                        ScrollViewList(title: "Color Game", description: "Guess the color", image: "colors", color: "orange", imageName: $imageName)
-                        ScrollViewList(title: "Shape Game", description: "Learn about shapes", image: "Shapes", color: "blue", imageName: $imageName)
-                        ScrollViewList(title: "Car Game", description: "Play car game", image: "cargame", color: "lightGreen", imageName: $imageName)
+                    ZStack {
+                        VStack {
+                            Text(titleName)
+                                .font(.system(size: 30, weight: .bold))
+                            
+                            Image(imageName)
+                                .resizable()
+                                .frame(width: 200, height: 200)
+                                .aspectRatio(contentMode: .fit)
+                                .clipShape(Circle())
+                        }
                     }
-                    .frame(width: UIScreen.main.bounds.width , height: 410)
-                    .background(Color("lightwhite"))
-                    .cornerRadius(30)
+                    
+                        VStack {
+                            HStack {
+                                ScrollViewList(title: "Number Game", titleName: $titleName, image: "numbers", imageName: $imageName)
+                                ScrollViewList(title: "Color Game", titleName: $titleName, image: "colors", imageName: $imageName)
+                            }
+                            
+                            HStack {
+                                ScrollViewList(title: "Shape Game", titleName: $titleName, image: "Shapes", imageName: $imageName)
+                                ScrollViewList(title: "Car Game", titleName: $titleName, image: "cargame", imageName: $imageName)
+                            }
+                        }
+                        .frame(width: UIScreen.main.bounds.width , height: 420)
+                        .cornerRadius(30)
+                    
+                    
+                    
+                    NavigationLink(destination: NumberGameView(randomNum: 2), label: {
+                        Rectangle()
+                            .fill(Color("lightGreen"))
+                            .frame(width: 150, height: 50)
+                            .cornerRadius(20)
+                            .overlay{
+                                Label("Let's play", systemImage: "play")
+                                    .font(.system(size: 20))
+                            }
+                    } )
+                    
                 }
+                .padding(30)
             }
             .toolbar {
                 HStack{
@@ -54,78 +76,34 @@ struct ContentView: View {
             }
         }
     }
+    
+    func switchGame () {
+        
+    }
 }
 
 struct ScrollViewList: View {
     var title: String
-    var description: String
+    @Binding var titleName: String
     var image: String
-    var color : String
     @Binding var imageName: String
     @State private var checkBoolean = SettingsView().voiceMode
     
     var body: some View {
-        
-        VStack(spacing: 20) {
-            Rectangle()
-                .fill(Color(color))
-                .frame(width: UIScreen.main.bounds.width - 40, height: 150)
-                .cornerRadius(30)
-                .overlay{
-                    HStack{
-                        VStack(alignment: .leading, spacing: 5){
-                            Text(title)
-                                .frame(width: 210, height: 30, alignment: .leading)
-                                .foregroundColor(.black)
-                                .font(.system(size: 20, weight: .bold, design: .default))
-                            
-                            Text(description)
-                                .frame(width: 210, height: 30, alignment: .leading)
-                                .foregroundColor(.black)
-                                .font(.system(size: 15, weight: .regular, design: .default))
-                            
-                            Rectangle()
-                                .fill(Color.green)
-                                .frame(width: 110, height: 50)
-                                .cornerRadius(20)
-                                .overlay{
-                                    HStack{
-                                        NavigationLink(destination: checkBoolean ?
-                                                       AnyView(NumberGameViewWithSpeech()) :
-                                                        AnyView(NumberGameView( randomNum: 1))
-                                        ){
-                                            Label("", systemImage: "play.circle")
-                                                .font(.system(size: 25))
-                                            
-                                            Text("Play")
-                                                .foregroundColor(.black)
-                                                .font(.system(size: 20, weight: .bold, design: .default))
-                                                .cornerRadius(20)
-                                        }
-                                    }
-                                    
-                                }
-                        }
-                        
-                        Spacer()
-                        
-                        Image(image)
-                            .resizable()
-                            .frame(width: 100, height: 100)
-                            .aspectRatio(contentMode: .fit)
-                            .clipShape(Circle())
-                    }
-                    .padding()
-                    
-                }
-        }
-        .padding(.top, 20)
-        .onTapGesture (count: 1) {
-            self.imageName = image
-        }
+        Image(image)
+            .resizable()
+            .frame(width: 120, height: 120)
+            .aspectRatio(contentMode: .fit)
+            .clipShape(Rectangle())
+            .padding()
+            .opacity(0.9)
+            .onTapGesture (count: 1) {
+                self.imageName = image
+                self.titleName = title
+            }
     }
-    
 }
+
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {

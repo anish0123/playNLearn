@@ -13,8 +13,12 @@
 		6A7BFA9229E041D7003E5A4C /* ConfettiSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 6A7BFA9129E041D7003E5A4C /* ConfettiSwiftUI */; };
 		6A7BFA9529E0516E003E5A4C /* SPConfetti in Frameworks */ = {isa = PBXBuildFile; productRef = 6A7BFA9429E0516E003E5A4C /* SPConfetti */; };
 		6A7BFA9929E0B4FC003E5A4C /* GifImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A7BFA9829E0B4FC003E5A4C /* GifImage.swift */; };
+		6A8C6E3729E974B200962E65 /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A8C6E3629E974B200962E65 /* SoundManager.swift */; };
+		6A8C6E3A29E97BC500962E65 /* lose.wav in Resources */ = {isa = PBXBuildFile; fileRef = 6A8C6E3929E97BC500962E65 /* lose.wav */; };
+		6A8C6E3C29E97BE800962E65 /* win.wav in Resources */ = {isa = PBXBuildFile; fileRef = 6A8C6E3B29E97BE800962E65 /* win.wav */; };
 		6A97E92229DB0D5F00150080 /* NumbersList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A97E92129DB0D5F00150080 /* NumbersList.swift */; };
 		6AF6787B29DAAC9F001DBC83 /* NumberGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AF6787A29DAAC9F001DBC83 /* NumberGameView.swift */; };
+		6AF7151F29EAA4E9006ED404 /* ShapeGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AF7151E29EAA4E9006ED404 /* ShapeGameView.swift */; };
 		7EFE233029DA30400066B490 /* PlayNLearnApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EFE232F29DA30400066B490 /* PlayNLearnApp.swift */; };
 		7EFE233229DA30400066B490 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EFE233129DA30400066B490 /* ContentView.swift */; };
 		7EFE233429DA30410066B490 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7EFE233329DA30410066B490 /* Assets.xcassets */; };
@@ -51,8 +55,12 @@
 		6A27E9B229E0BEBF002FEC17 /* sadface.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = sadface.gif; sourceTree = "<group>"; };
 		6A7BFA8A29DF62B9003E5A4C /* PopUpWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpWindow.swift; sourceTree = "<group>"; };
 		6A7BFA9829E0B4FC003E5A4C /* GifImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GifImage.swift; sourceTree = "<group>"; };
+		6A8C6E3629E974B200962E65 /* SoundManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
+		6A8C6E3929E97BC500962E65 /* lose.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = lose.wav; sourceTree = "<group>"; };
+		6A8C6E3B29E97BE800962E65 /* win.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = win.wav; sourceTree = "<group>"; };
 		6A97E92129DB0D5F00150080 /* NumbersList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumbersList.swift; sourceTree = "<group>"; };
 		6AF6787A29DAAC9F001DBC83 /* NumberGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberGameView.swift; sourceTree = "<group>"; };
+		6AF7151E29EAA4E9006ED404 /* ShapeGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShapeGameView.swift; sourceTree = "<group>"; };
 		7EFE232C29DA30400066B490 /* PlayNLearn.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PlayNLearn.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7EFE232F29DA30400066B490 /* PlayNLearnApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayNLearnApp.swift; sourceTree = "<group>"; };
 		7EFE233129DA30400066B490 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -106,6 +114,24 @@
 			path = gifImages;
 			sourceTree = "<group>";
 		};
+		6A8C6E3829E97BA500962E65 /* Sound */ = {
+			isa = PBXGroup;
+			children = (
+				6A8C6E3629E974B200962E65 /* SoundManager.swift */,
+				6A8C6E3929E97BC500962E65 /* lose.wav */,
+				6A8C6E3B29E97BE800962E65 /* win.wav */,
+			);
+			path = Sound;
+			sourceTree = "<group>";
+		};
+		6AF7151D29EAA4D1006ED404 /* ShapeGame */ = {
+			isa = PBXGroup;
+			children = (
+				6AF7151E29EAA4E9006ED404 /* ShapeGameView.swift */,
+			);
+			path = ShapeGame;
+			sourceTree = "<group>";
+		};
 		7EFE232329DA30400066B490 = {
 			isa = PBXGroup;
 			children = (
@@ -130,6 +156,8 @@
 		7EFE232E29DA30400066B490 /* PlayNLearn */ = {
 			isa = PBXGroup;
 			children = (
+				6AF7151D29EAA4D1006ED404 /* ShapeGame */,
+				6A8C6E3829E97BA500962E65 /* Sound */,
 				6A27E9B429E17A9B002FEC17 /* gifImages */,
 				F8646C5029DD79AA00D85449 /* models */,
 				7EFE232F29DA30400066B490 /* PlayNLearnApp.swift */,
@@ -295,6 +323,8 @@
 				6A27E9AF29E0B8C5002FEC17 /* congratulation.gif in Resources */,
 				7EFE233729DA30410066B490 /* Preview Assets.xcassets in Resources */,
 				6A27E9B329E0BEBF002FEC17 /* sadface.gif in Resources */,
+				6A8C6E3A29E97BC500962E65 /* lose.wav in Resources */,
+				6A8C6E3C29E97BE800962E65 /* win.wav in Resources */,
 				F8EED87929DABCE400D3E3C3 /* .gitignore in Resources */,
 				7EFE233429DA30410066B490 /* Assets.xcassets in Resources */,
 			);
@@ -329,8 +359,10 @@
 				F8C628B929EAE73C000FEFEF /* SettingsView.swift in Sources */,
 				F8646C5629DD7AF900D85449 /* SpeechRecognizer.swift in Sources */,
 				7EFE233029DA30400066B490 /* PlayNLearnApp.swift in Sources */,
+				6AF7151F29EAA4E9006ED404 /* ShapeGameView.swift in Sources */,
 				F8646C5829DD7B1C00D85449 /* NumberGameViewWithSpeech.swift in Sources */,
 				6A7BFA8B29DF62B9003E5A4C /* PopUpWindow.swift in Sources */,
+				6A8C6E3729E974B200962E65 /* SoundManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
