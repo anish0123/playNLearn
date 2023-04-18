@@ -29,6 +29,8 @@
 		F8646C5429DD79F700D85449 /* NumberGameWithSpeech.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8646C5329DD79F700D85449 /* NumberGameWithSpeech.swift */; };
 		F8646C5629DD7AF900D85449 /* SpeechRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8646C5529DD7AF900D85449 /* SpeechRecognizer.swift */; };
 		F8646C5829DD7B1C00D85449 /* NumberGameViewWithSpeech.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8646C5729DD7B1C00D85449 /* NumberGameViewWithSpeech.swift */; };
+		F8967F8629EEC5FB00F1EA49 /* PlayNLearn.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F8967F8429EEC5FB00F1EA49 /* PlayNLearn.xcdatamodeld */; };
+		F8967F8829EEC66C00F1EA49 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8967F8729EEC66C00F1EA49 /* Persistence.swift */; };
 		F8C628B929EAE73C000FEFEF /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C628B829EAE73C000FEFEF /* SettingsView.swift */; };
 		F8EED87929DABCE400D3E3C3 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = F8EED87829DABCE400D3E3C3 /* .gitignore */; };
 /* End PBXBuildFile section */
@@ -74,6 +76,8 @@
 		F8646C5329DD79F700D85449 /* NumberGameWithSpeech.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberGameWithSpeech.swift; sourceTree = "<group>"; };
 		F8646C5529DD7AF900D85449 /* SpeechRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechRecognizer.swift; sourceTree = "<group>"; };
 		F8646C5729DD7B1C00D85449 /* NumberGameViewWithSpeech.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberGameViewWithSpeech.swift; sourceTree = "<group>"; };
+		F8967F8529EEC5FB00F1EA49 /* PlayNLearn.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PlayNLearn.xcdatamodel; sourceTree = "<group>"; };
+		F8967F8729EEC66C00F1EA49 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		F8C628B829EAE73C000FEFEF /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		F8EED87829DABCE400D3E3C3 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -156,6 +160,7 @@
 		7EFE232E29DA30400066B490 /* PlayNLearn */ = {
 			isa = PBXGroup;
 			children = (
+				F8967F8929EECB7500F1EA49 /* Core Data */,
 				6AF7151D29EAA4D1006ED404 /* ShapeGame */,
 				6A8C6E3829E97BA500962E65 /* Sound */,
 				6A27E9B429E17A9B002FEC17 /* gifImages */,
@@ -206,6 +211,15 @@
 				F8646C5529DD7AF900D85449 /* SpeechRecognizer.swift */,
 			);
 			path = models;
+			sourceTree = "<group>";
+		};
+		F8967F8929EECB7500F1EA49 /* Core Data */ = {
+			isa = PBXGroup;
+			children = (
+				F8967F8429EEC5FB00F1EA49 /* PlayNLearn.xcdatamodeld */,
+				F8967F8729EEC66C00F1EA49 /* Persistence.swift */,
+			);
+			path = "Core Data";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -354,11 +368,13 @@
 				F8646C5429DD79F700D85449 /* NumberGameWithSpeech.swift in Sources */,
 				6A97E92229DB0D5F00150080 /* NumbersList.swift in Sources */,
 				6AF6787B29DAAC9F001DBC83 /* NumberGameView.swift in Sources */,
+				F8967F8829EEC66C00F1EA49 /* Persistence.swift in Sources */,
 				6A7BFA9929E0B4FC003E5A4C /* GifImage.swift in Sources */,
 				7EFE233229DA30400066B490 /* ContentView.swift in Sources */,
 				F8C628B929EAE73C000FEFEF /* SettingsView.swift in Sources */,
 				F8646C5629DD7AF900D85449 /* SpeechRecognizer.swift in Sources */,
 				7EFE233029DA30400066B490 /* PlayNLearnApp.swift in Sources */,
+				F8967F8629EEC5FB00F1EA49 /* PlayNLearn.xcdatamodeld in Sources */,
 				6AF7151F29EAA4E9006ED404 /* ShapeGameView.swift in Sources */,
 				F8646C5829DD7B1C00D85449 /* NumberGameViewWithSpeech.swift in Sources */,
 				6A7BFA8B29DF62B9003E5A4C /* PopUpWindow.swift in Sources */,
@@ -729,6 +745,19 @@
 			productName = SPConfetti;
 		};
 /* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		F8967F8429EEC5FB00F1EA49 /* PlayNLearn.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				F8967F8529EEC5FB00F1EA49 /* PlayNLearn.xcdatamodel */,
+			);
+			currentVersion = F8967F8529EEC5FB00F1EA49 /* PlayNLearn.xcdatamodel */;
+			path = PlayNLearn.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 7EFE232429DA30400066B490 /* Project object */;
 }

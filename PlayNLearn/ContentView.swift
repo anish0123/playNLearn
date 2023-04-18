@@ -10,6 +10,11 @@ import SwiftUI
 struct ContentView: View {
     @State public var imageName: String = "numbers"
     @State public var titleName: String = "Number Game"
+    @Environment(\.managedObjectContext) private var moc
+        @FetchRequest(entity: SwitchObject.entity(), sortDescriptors: []) private var objects: FetchedResults<SwitchObject>
+    var voiceMode: Bool {
+        return objects.first?.switchState ?? false
+    }
     
     var body: some View {
         NavigationView{
@@ -50,7 +55,7 @@ struct ContentView: View {
                     
                     
                     
-                    NavigationLink(destination: NumberGameView(randomNum: 2), label: {
+                    NavigationLink(destination: voiceMode ?  AnyView(NumberGameViewWithSpeech()) : AnyView(NumberGameView(randomNum: 2)), label: {
                         Rectangle()
                             .fill(Color("lightGreen"))
                             .frame(width: 150, height: 50)
@@ -87,7 +92,6 @@ struct ScrollViewList: View {
     @Binding var titleName: String
     var image: String
     @Binding var imageName: String
-    @State private var checkBoolean = SettingsView().voiceMode
     
     var body: some View {
         Image(image)
