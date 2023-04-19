@@ -15,7 +15,7 @@ struct NumberGameView: View {
     var numbers: [Numbers] = NumberList.numbers
     @State var randomNum: Int
     @State private var counter = 0
-    @State private var timeRemaining = 30.0
+    @State var timeRemaining = 30.0
 
     var body: some View {
         
@@ -151,17 +151,17 @@ struct NumberGameView: View {
             
             PopUpWindow(title: rightAnswer ? "Correct Answer" : "Incorrect Answer",
                         buttonText: rightAnswer ? "Continue" : "Retry", 
-                        show: $showPopUp, answer: $rightAnswer)
+                        show: $showPopUp, answer: $rightAnswer,
+                        timeRemaining: $timeRemaining)
         }
     }
     
     func startTimer(){
         let timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { i in
             
-            if timeRemaining > 0 && showPopUp == true {
-                i.invalidate()
-            } else if timeRemaining > 0 {
+            if timeRemaining > 0 {
                 timeRemaining -= 1
+                
             } else {
                 randomNum = Int.random(in: 0...NumberList.numbers.count - 1 )
                 timeRemaining = 30
@@ -171,6 +171,7 @@ struct NumberGameView: View {
     }
     
     func nextQuestion() {
+        timeRemaining = 30.0
         randomNum = Int.random(in: 0...NumberList.numbers.count - 1 )
     }
     
@@ -190,8 +191,10 @@ struct NumberGameView: View {
                 showPopUp.toggle()
             }
         }
-        nextQuestion()
-        startTimer()
+        // Wait for 1 second before calling the funciton nextQuestion
+        DispatchQueue.main.asyncAfter(deadline: .now() +  1){
+            nextQuestion()
+        }
     }
 
 }

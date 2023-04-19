@@ -10,6 +10,10 @@ import SwiftUI
 struct ContentView: View {
     @State public var imageName: String = "numbers"
     @State public var titleName: String = "Number Game"
+    @State private var showNumberGame = false
+    @State private var showShapeGame = false
+    @State private var selectedDestination: Destination?
+    
     var body: some View {
         NavigationView{
             ZStack {
@@ -46,8 +50,8 @@ struct ContentView: View {
                         }
                         .frame(width: UIScreen.main.bounds.width , height: 420)
                         .cornerRadius(30)
-                    
-                    NavigationLink(destination: NumberGameView(randomNum: 2), label: {
+
+                    NavigationLink(destination: switchGame(), label: {
                         Rectangle()
                             .fill(Color("lightGreen"))
                             .frame(width: 150, height: 50)
@@ -56,22 +60,34 @@ struct ContentView: View {
                                 Label("Let's play", systemImage: "play")
                                     .font(.system(size: 20))
                             }
-                    } )
+                    })
+
                     
                 }
                 .padding(30)
             }
-                .toolbar {
-                    Button(action: {
-                        
-                    }) {
-                        Image(systemName: "line.horizontal.3")
+            .toolbar {
+                HStack{
+                    NavigationLink(destination: SettingsView()){
+                        Label("", systemImage: "line.horizontal.3")
+                            .font(.system(size: 18))
                             .foregroundColor(.black)
+                        
                     }
                 }
             }
         }
- 
+    }
+    
+    func switchGame () -> some View {
+        var game: Destination?
+        if titleName ==  "Number Game" {
+            game = .numberGame
+        } else if titleName == "Shape Game" {
+            game = .shapeGame
+        }
+        return game?.getView()
+    }
 }
 
 struct ScrollViewList: View {
@@ -79,9 +95,9 @@ struct ScrollViewList: View {
     @Binding var titleName: String
     var image: String
     @Binding var imageName: String
+    @State private var checkBoolean = SettingsView().voiceMode
     
     var body: some View {
-        
         Image(image)
             .resizable()
             .frame(width: 120, height: 120)
@@ -96,6 +112,20 @@ struct ScrollViewList: View {
     }
 }
 
+//open the specific game selected by the user
+enum Destination {
+    case numberGame
+    case shapeGame
+    
+    func getView() -> AnyView {
+        switch self {
+        case .numberGame:
+            return AnyView(NumberGameView(randomNum: 2))
+        case .shapeGame:
+            return AnyView(ShapeGameView(randomNum: 2))
+        }
+    }
+}
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
