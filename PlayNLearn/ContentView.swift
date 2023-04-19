@@ -50,7 +50,7 @@ struct ContentView: View {
                     
                     
                     
-                    NavigationLink(destination: NumberGameView(randomNum: 2), label: {
+                    NavigationLink(destination: ColorGameTouchModeView(), label: {
                         Rectangle()
                             .fill(Color("lightGreen"))
                             .frame(width: 150, height: 50)
