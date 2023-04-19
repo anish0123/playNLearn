@@ -11,7 +11,7 @@ import SwiftUI
 struct PlayNLearnApp: App {
     var body: some Scene {
         WindowGroup {
-            NumberGameViewWithSpeech()
+            ContentView(imageName: "numbers")
         }
     }
 }
