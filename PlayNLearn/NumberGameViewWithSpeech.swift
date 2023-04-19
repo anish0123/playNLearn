@@ -15,7 +15,7 @@ struct NumberGameViewWithSpeech: View {
     @State private var number: Int = 0
     @State private var numberMap = ["one": 1, "two": 2, "three": 3, "four": 4, "five": 5, "six": 6, "seven": 7, "eight": 8, "nine": 9, "ten": 10, "eleven": 11, "twelve": 12, "thirteen": 13, "fourteen": 14, "fifteen": 15, "sixteen": 16, "seventeen": 17, "eighteen": 18, "nineteen": 19, "twenty": 20]
     @State private var game = NumberGameWithSpeech()
-    @State private var timeRemaining = 30.0
+    @State public var timeRemaining = 30.0
     @State private var score  = 0
     @State private var showPopUp: Bool = false
     @State private var rightAnswer: Bool = false
@@ -157,10 +157,10 @@ struct NumberGameViewWithSpeech: View {
     }
     
     func startRecording() {
-        output = ""
-        speechRecognizer.reset()
-        speechRecognizer.transcribe()
-        output = speechRecognizer.transcript
+        
+        speechRecognizer.resetTranscript()
+        speechRecognizer.startTranscribing()
+        
     }
     
     func stopRecording() {
