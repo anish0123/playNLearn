@@ -62,8 +62,6 @@ struct ColorGameTouchModeView: View {
 
     }
 
-
-
 struct ColorGameTouchModeView_Previews: PreviewProvider {
     static var previews: some View {
         ColorGameTouchModeView()
