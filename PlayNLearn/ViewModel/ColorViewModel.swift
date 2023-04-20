@@ -50,43 +50,56 @@ class ColorViewModel: ObservableObject {
     }
         
     func prepareObjects(){
-        optionContainers.shuffle()
-        resetPosition()
-                
+        withAnimation{
+            optionContainers.shuffle()
+        }
+        withAnimation(.none){
+            resetPosition()
+            withAnimation{
+                draggableObjectOpacity = 1.0
+            }
+        } 
     }
         
-        //for screenupdate
-        func update(frame:CGRect, for id:Int) {
-            frames[id] = frame
+    //for screenupdate
+    func update(frame:CGRect, for id:Int) {
+        frames[id] = frame
+    }
+    
+    func update(dragPosition:CGPoint) {
+        currentPosition = dragPosition
+        for (id, frame)in frames where frame.contains(dragPosition){
+            highlightedObject = id
+            return
         }
-        func update(dragPosition:CGPoint) {
-            currentPosition = dragPosition
-            for (id, frame)in frames where frame.contains(dragPosition){
-                highlightedObject = id
-                return
-            }
-            highlightedObject = nil
+        highlightedObject = nil
+    }
+    
+    // checks if current color matches the draggable color
+    func checkAnswer () -> Bool {
+        defer {highlightedObject = nil}
+        
+        guard let highlightedObject = highlightedObject else {
+            resetPosition()
+            return false
         }
-        func confirmDrop() {
             
-            defer {highlightedObject = nil
-            }
-            guard let highlightedObject = highlightedObject else {
-                resetPosition()
-                return
-            }
-            
-            if highlightedObject == currentObject?.id {
-                draggableObjectOpacity = 0
-            }else{
-                resetPosition()
-            }
-        }
-        func resetPosition(){
-            currentPosition = ColorViewModel.initialPosition
-        }
-        func isHighlightedId(id: Int) ->Bool {
-            highlightedObject == id
+        if highlightedObject == currentObject?.id {
+            draggableObjectOpacity = 0
+            nextRound()
+            return true
+        }else{
+            resetPosition()
+            return false
         }
     }
+    
+    func resetPosition(){
+        currentPosition = ColorViewModel.initialPosition
+    }
+    
+    func isHighlightedId(id: Int) ->Bool {
+        highlightedObject == id
+    }
+}
 

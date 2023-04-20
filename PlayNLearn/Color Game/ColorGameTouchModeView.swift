@@ -9,13 +9,15 @@ import SwiftUI
 import SPConfetti
 
 struct ColorGameTouchModeView: View {
-    @StateObject private var viewModel = ColorViewModel()
     @State var showPopUp: Bool = false
     @State private var rightAnswer: Bool = false
+    @StateObject private var viewModel = ColorViewModel()
+    
     let gridItems = [
         GridItem(.flexible()),
         GridItem(.flexible()),
-        GridItem(.flexible())]
+        GridItem(.flexible()),
+    ]
     
     var drag:some Gesture {
         DragGesture()
@@ -24,8 +26,14 @@ struct ColorGameTouchModeView: View {
             }
             .onEnded {state in
                 viewModel.update(dragPosition: state.location)
-                viewModel.confirmDrop()
-                
+                if viewModel.checkAnswer() == true {
+                    SPConfetti.startAnimating(.centerWidthToUp, particles: [.triangle, .arc], duration: 1)
+                    SoundManager.instance.playSound(sound: .win)
+                    withAnimation(.easeInOut) {
+                        showPopUp.toggle()
+                        rightAnswer.toggle()
+                    }
+                }
             }
     }
     
@@ -51,15 +59,13 @@ struct ColorGameTouchModeView: View {
             PopUpWindow(title: rightAnswer ? "Correct Answer" : "Incorrect Answer",
                         buttonText: rightAnswer ? "Continue" : "Retry",
                         show: $showPopUp, answer: $rightAnswer)
-            
         }
         .onAppear{
             viewModel.setupGame()
         }
-        
     }
 
-    }
+}
 
 struct ColorGameTouchModeView_Previews: PreviewProvider {
     static var previews: some View {

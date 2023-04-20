@@ -142,6 +142,15 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		6AB924B729F1445F0049E359 /* Color Game */ = {
+			isa = PBXGroup;
+			children = (
+				6AB9249229ED34610049E359 /* ColorGameTouchMode.swift */,
+				6AB9249429ED34B10049E359 /* ColorGameTouchModeView.swift */,
+			);
+			path = "Color Game";
+			sourceTree = "<group>";
+		};
 		6AF7151D29EAA4D1006ED404 /* ShapeGame */ = {
 			isa = PBXGroup;
 			children = (
@@ -174,6 +183,7 @@
 		7EFE232E29DA30400066B490 /* PlayNLearn */ = {
 			isa = PBXGroup;
 			children = (
+				6AB924B729F1445F0049E359 /* Color Game */,
 				6AB9249A29EFEEF90049E359 /* ViewModel */,
 				6AF7151D29EAA4D1006ED404 /* ShapeGame */,
 				6A8C6E3829E97BA500962E65 /* Sound */,
@@ -183,9 +193,8 @@
 				7EFE233129DA30400066B490 /* ContentView.swift */,
 				7EFE233329DA30410066B490 /* Assets.xcassets */,
 				7EFE233529DA30410066B490 /* Preview Content */,
-				6AB9249429ED34B10049E359 /* ColorGameTouchModeView.swift */,
-				6AB9249629ED3C430049E359 /* DragObjectForColorGame.swift */,
 				6AF6787A29DAAC9F001DBC83 /* NumberGameView.swift */,
+				6AB9249629ED3C430049E359 /* DragObjectForColorGame.swift */,
 				F8646C5729DD7B1C00D85449 /* NumberGameViewWithSpeech.swift */,
 				F8C628B829EAE73C000FEFEF /* SettingsView.swift */,
 			);
@@ -225,7 +234,6 @@
 				6A97E92129DB0D5F00150080 /* NumbersList.swift */,
 				F8646C5329DD79F700D85449 /* NumberGameWithSpeech.swift */,
 				F8646C5529DD7AF900D85449 /* SpeechRecognizer.swift */,
-				6AB9249229ED34610049E359 /* ColorGameTouchMode.swift */,
 				6AB9249829EFEDA90049E359 /* OptionContainer.swift */,
 			);
 			path = models;

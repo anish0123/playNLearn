@@ -14,11 +14,11 @@ struct ColorGame {
 
 extension ColorGame {
     static let allColor = [
-        ColorGame(id: 1,color: Color("colorGameRed")),
+        ColorGame(id: 1,color: Color("colorgameRed")),
         ColorGame(id: 2,color: Color("blue")),
-        ColorGame(id: 3,color: Color("colorGameGreen")),
-        ColorGame(id: 4,color: Color("colorGameBlack")),
+        ColorGame(id: 3,color: Color("colorgameGreen")),
+        ColorGame(id: 4,color: Color("colorgameBlack")),
         ColorGame(id: 5,color: Color("colorGameOrange")),
-        ColorGame(id: 6,color: Color("colorGamePurple")),
+        ColorGame(id: 6,color: Color("colorgamePurple")),
     ]
 }
