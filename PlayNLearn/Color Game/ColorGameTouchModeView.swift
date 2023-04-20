@@ -11,6 +11,7 @@ import SPConfetti
 struct ColorGameTouchModeView: View {
     @State var showPopUp: Bool = false
     @State private var rightAnswer: Bool = false
+    @State var timeRemaining = 30.0
     @StateObject private var viewModel = ColorViewModel()
     
     let gridItems = [
@@ -58,7 +59,8 @@ struct ColorGameTouchModeView: View {
             }
             PopUpWindow(title: rightAnswer ? "Correct Answer" : "Incorrect Answer",
                         buttonText: rightAnswer ? "Continue" : "Retry",
-                        show: $showPopUp, answer: $rightAnswer)
+                        show: $showPopUp, answer: $rightAnswer,
+                        timeRemaining: $timeRemaining)
         }
         .onAppear{
             viewModel.setupGame()

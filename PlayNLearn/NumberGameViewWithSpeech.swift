@@ -1,9 +1,8 @@
-//
+
 //  NumberGameViewWithSpeech.swift
 //  PlayNLearn
 //
 //  Created by Anish Maharjan on 5.4.2023.
-//
 
 import SwiftUI
 import ConfettiSwiftUI
@@ -13,7 +12,7 @@ struct NumberGameViewWithSpeech: View {
     @StateObject var speechRecognizer = SpeechRecognizer()
     @State private var output = ""
     @State private var number: Int = 0
-    @State private var numberMap = ["one": 1, "two": 2, "three": 3, "four": 4, "five": 5, "six": 6, "seven": 7, "eight": 8, "nine": 9, "ten": 10, "eleven": 11, "twelve": 12, "thirteen": 13, "fourteen": 14, "fifteen": 15, "sixteen": 16, "seventeen": 17, "eighteen": 18, "nineteen": 19, "twenty": 20]
+    @State private var numberMap = ["one": 1, "two": 2, "three": 3, "four": 4, "five": 5, "six": 6, "seven": 7, "eight": 8, "nine": 9, "ten": 10, "eleven": 11, "twelve": 12, "thirteen": 13, "fourteen": 14, "fifteen": 15, "sixteen":                                 16, "seventeen": 17, "eighteen": 18, "nineteen": 19, "twenty": 20]
     @State private var game = NumberGameWithSpeech()
     @State public var timeRemaining = 30.0
     @State private var score  = 0
@@ -152,7 +151,8 @@ struct NumberGameViewWithSpeech: View {
             .padding(50)
             PopUpWindow(title: rightAnswer ? "Correct Answer" : "Incorrect Answer",
                         buttonText: rightAnswer ? "Continue" : "Retry",
-                        show: $showPopUp, answer: $rightAnswer)
+                        show: $showPopUp, answer: $rightAnswer,
+                        timeRemaining: $timeRemaining)
         }
     }
     

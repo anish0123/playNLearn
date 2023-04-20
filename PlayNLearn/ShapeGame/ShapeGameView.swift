@@ -6,9 +6,14 @@
 //
 
 import SwiftUI
+import SPConfetti
 
 struct ShapeGameView: View {
+    @State var showPopUp: Bool = false
+    @State private var rightAnswer: Bool = false
     @State private var timeRemaining = 30.0
+    @State var randomNum: Int
+    var shapes: [Shapes] = ShapeList.shapes
     
     var body: some View {
         
@@ -30,21 +35,21 @@ struct ShapeGameView: View {
                         
                         Circle()
                             .trim(from: 0.0, to: CGFloat(1 - timeRemaining/30.0))
-                            .stroke(style: StrokeStyle(lineWidth: 30.0, lineJoin: .round))
+                            .stroke(style: StrokeStyle(lineWidth: 20.0, lineJoin: .round))
                             .foregroundColor(timeRemaining > 8 ? .green : .red)
                             .rotationEffect(.degrees(-90))
                         
                         Circle()
                             .fill(.white)
+                            .frame(width: 180, height: 180)
                         
-                        Rectangle()
-                            .stroke(lineWidth: 10)
-                            .frame(width: 50, height: 80)
-                        
+                        Image(shapes[randomNum].question)
+                            .resizable()
+                            .frame(width: 120, height: 120)
+                            .aspectRatio(contentMode: .fit)
                         
                     }
                     .frame(width: 200)
-                    .opacity(0.9)
                     .padding(60)
                     .onAppear {
                         startTimer()
@@ -57,41 +62,53 @@ struct ShapeGameView: View {
                     .cornerRadius(30)
                     .overlay{
                         HStack {
-                            Rectangle()
-                                .stroke(lineWidth: 5)
-                                .frame(width: 40, height: 60)
-                                .padding(25)
-                                .background(Color("lightGreen"))
+                            Image(shapes[randomNum].option[0])
+                                .resizable()
+                                .frame(width: 80, height: 80)
+                                .aspectRatio(contentMode: .fit)
                                 .clipShape(Circle())
                                 .overlay(
                                     Circle()
                                         .stroke(Color("optionstroke"), lineWidth: 4)
+                                        .frame(width: 90, height: 90)
                                 )
                                 .padding()
+                                .onTapGesture (count: 1) {
+                                    checkAnswer(shapes[randomNum].question, shapes[randomNum].option[0])
+
+                                }
                             
-                            Circle()
-                                .stroke(lineWidth: 5)
-                                .frame(width: 40, height: 40)
-                                .padding(25)
-                                .background(Color("lightGreen"))
+                            Image(shapes[randomNum].option[1])
+                                .resizable()
+                                .frame(width: 80, height: 80)
+                                .aspectRatio(contentMode: .fit)
                                 .clipShape(Circle())
                                 .overlay(
                                     Circle()
                                         .stroke(Color("optionstroke"), lineWidth: 4)
+                                        .frame(width: 90, height: 90)
                                 )
                                 .padding()
+                                .onTapGesture (count: 1) {
+                                    checkAnswer(shapes[randomNum].question, shapes[randomNum].option[1])
+
+                                }
                             
-                            Rectangle()
-                                .stroke(lineWidth: 5)
-                                .frame(width: 40, height: 40)
-                                .padding(25)
-                                .background(Color("lightGreen"))
+                            Image(shapes[randomNum].option[2])
+                                .resizable()
+                                .frame(width: 80, height: 80)
+                                .aspectRatio(contentMode: .fit)
                                 .clipShape(Circle())
                                 .overlay(
                                     Circle()
                                         .stroke(Color("optionstroke"), lineWidth: 4)
+                                        .frame(width: 90, height: 90)
                                 )
                                 .padding()
+                                .onTapGesture (count: 1) {
+                                    checkAnswer(shapes[randomNum].question, shapes[randomNum].option[2])
+
+                                }
                         }
                     }
                     .padding()
@@ -106,10 +123,16 @@ struct ShapeGameView: View {
                     }
                     .onTapGesture (count: 1) {
                         timeRemaining = 30.0
-                        startTimer()
+                        randomNum = Int.random(in: 0...ShapeList.shapes.count - 1 )
                     }
             }
             .padding(80)
+            
+            PopUpWindow(title: rightAnswer ? "Correct Answer" : "Incorrect Answer",
+                        buttonText: rightAnswer ? "Continue" : "Retry",
+                        show: $showPopUp, answer: $rightAnswer,
+                        timeRemaining: $timeRemaining)
+            
             
         }
     }
@@ -120,15 +143,45 @@ struct ShapeGameView: View {
             if timeRemaining > 0 {
                 timeRemaining -= 1
             } else {
+                randomNum = Int.random(in: 0...ShapeList.shapes.count - 1 )
                 timeRemaining = 30
             }
         }
         RunLoop.current.add(timer, forMode: .common)
     }
+    
+    func nextQuestion(){
+        timeRemaining = 30.0
+        randomNum = Int.random(in: 0...ShapeList.shapes.count - 1 )
+    }
+    
+    func checkAnswer(_ question: String, _ answer: String) {
+        
+        if question == answer {
+            SPConfetti.startAnimating(.centerWidthToUp, particles: [.triangle, .arc], duration: 1)
+            SoundManager.instance.playSound(sound: .win)
+            withAnimation(.easeInOut) {
+                showPopUp.toggle()
+                rightAnswer.toggle()
+            }
+            
+        }else {
+            SoundManager.instance.playSound(sound: .lose)
+            withAnimation(.easeInOut) {
+                showPopUp.toggle()
+            }
+        }
+        
+        // Wait for 1 second before calling the funciton nextQuestion
+        DispatchQueue.main.asyncAfter(deadline: .now() +  1){
+            nextQuestion()
+        }
+    }
+
 }
 
 struct ShapeGameView_Previews: PreviewProvider {
     static var previews: some View {
-        ShapeGameView()
+        ShapeGameView(randomNum: 3)
     }
 }

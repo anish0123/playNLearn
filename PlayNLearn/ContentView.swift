@@ -15,6 +15,9 @@ struct ContentView: View {
     var voiceMode: Bool {
         return objects.first?.switchState ?? false
     }
+    @State private var showNumberGame = false
+    @State private var showShapeGame = false
+    @State private var selectedDestination: Destination?
     
     var body: some View {
         NavigationView{
@@ -52,19 +55,16 @@ struct ContentView: View {
                     }
                     .frame(width: UIScreen.main.bounds.width , height: 420)
                     .cornerRadius(30)
-                    
-                    NavigationLink(destination: ColorGameTouchModeView(), label: {
-                        NavigationLink(destination: voiceMode ?  AnyView(NumberGameViewWithSpeech()) : AnyView(NumberGameView(randomNum: 2)), label: {
-                            Rectangle()
-                                .fill(Color("lightGreen"))
-                                .frame(width: 150, height: 50)
-                                .cornerRadius(20)
-                                .overlay{
-                                    Label("Let's play", systemImage: "play")
-                                        .font(.system(size: 20))
-                                }
-                        } )
-                        
+
+                    NavigationLink(destination: switchGame(), label: {
+                        Rectangle()
+                            .fill(Color("lightGreen"))
+                            .frame(width: 150, height: 50)
+                            .cornerRadius(20)
+                            .overlay{
+                                Label("Let's play", systemImage: "play")
+                                    .font(.system(size: 20))
+                            }
                     })
                     .padding(30)
                 }
@@ -80,6 +80,26 @@ struct ContentView: View {
                 }
             }
         }
+    }
+    
+    func switchGame () -> some View {
+        var game: Destination?
+        if titleName ==  "Number Game" {
+            if voiceMode == true {
+                game = .numberGameVoiceMode
+            } else {
+                game = .numberGame
+            }
+           
+        } else if titleName == "Shape Game" {
+            game = .shapeGame
+            
+        }else if  titleName == "Color Game" {
+            game = .colorGame
+        }
+        
+        
+        return game?.getView()
     }
 }
 
@@ -104,6 +124,26 @@ struct ScrollViewList: View {
     }
 }
 
+//open the specific game selected by the user
+enum Destination {
+    case numberGame
+    case numberGameVoiceMode
+    case shapeGame
+    case colorGame
+    
+    func getView() -> AnyView {
+        switch self {
+        case .numberGame:
+            return AnyView(NumberGameView(randomNum: 2))
+        case .numberGameVoiceMode:
+            return AnyView(NumberGameViewWithSpeech())
+        case .shapeGame:
+            return AnyView(ShapeGameView(randomNum: 2))
+        case .colorGame:
+            return AnyView(ColorGameTouchModeView())        }
+        
+    }
+}
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {

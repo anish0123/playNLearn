@@ -13,6 +13,7 @@ struct PopUpWindow: View {
     var buttonText: String
     @Binding var show: Bool
     @Binding var answer: Bool
+    @Binding var timeRemaining: Double
     
     var body: some View {
         ZStack {
@@ -35,7 +36,8 @@ struct PopUpWindow: View {
                     Button(action: {
                         // Dismiss the PopUp
                         SPConfetti.stopAnimating()
-                        withAnimation(.linear) {
+                        timeRemaining = 30.0
+                        withAnimation(.easeInOut) {
                             show = false
                             answer = false
                         }
@@ -60,6 +62,6 @@ struct PopUpWindow: View {
 
 struct PopUpWindow_Previews: PreviewProvider {
     static var previews: some View {
-        PopUpWindow(title: "Incorrect Answer", buttonText: "Retry", show: .constant(true), answer: .constant(false))
+        PopUpWindow(title: "Incorrect Answer", buttonText: "Retry", show: .constant(true), answer: .constant(false), timeRemaining: .constant(30.0))
     }
 }

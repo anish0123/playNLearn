@@ -21,7 +21,7 @@ class ColorViewModel: ObservableObject {
     //for co-ordinates
     private static let initialPosition = CGPoint(
         x:UIScreen.main.bounds.midX,
-        y: UIScreen.main.bounds.maxY - 100
+        y: UIScreen.main.bounds.maxY - 150
     )
     private var frames: [Int: CGRect] = [:]
     
