@@ -10,6 +10,11 @@ import SwiftUI
 struct ContentView: View {
     @State public var imageName: String = "numbers"
     @State public var titleName: String = "Number Game"
+    @Environment(\.managedObjectContext) private var moc
+        @FetchRequest(entity: SwitchObject.entity(), sortDescriptors: []) private var objects: FetchedResults<SwitchObject>
+    var voiceMode: Bool {
+        return objects.first?.switchState ?? false
+    }
     
     var body: some View {
         NavigationView{
@@ -34,51 +39,47 @@ struct ContentView: View {
                         }
                     }
                     
-                        VStack {
-                            HStack {
-                                ScrollViewList(title: "Number Game", titleName: $titleName, image: "numbers", imageName: $imageName)
-                                ScrollViewList(title: "Color Game", titleName: $titleName, image: "colors", imageName: $imageName)
-                            }
-                            
-                            HStack {
-                                ScrollViewList(title: "Shape Game", titleName: $titleName, image: "Shapes", imageName: $imageName)
-                                ScrollViewList(title: "Car Game", titleName: $titleName, image: "cargame", imageName: $imageName)
-                            }
+                    VStack {
+                        HStack {
+                            ScrollViewList(title: "Number Game", titleName: $titleName, image: "numbers", imageName: $imageName)
+                            ScrollViewList(title: "Color Game", titleName: $titleName, image: "colors", imageName: $imageName)
                         }
-                        .frame(width: UIScreen.main.bounds.width , height: 420)
-                        .cornerRadius(30)
-                    
-                    
-                    
-                    NavigationLink(destination: NumberGameView(randomNum: 2), label: {
-                        Rectangle()
-                            .fill(Color("lightGreen"))
-                            .frame(width: 150, height: 50)
-                            .cornerRadius(20)
-                            .overlay{
-                                Label("Let's play", systemImage: "play")
-                                    .font(.system(size: 20))
-                            }
-                    } )
-                    
-                }
-                .padding(30)
-            }
-            .toolbar {
-                HStack{
-                    NavigationLink(destination: SettingsView()){
-                        Label("", systemImage: "line.horizontal.3")
-                            .font(.system(size: 18))
-                            .foregroundColor(.black)
                         
+                        HStack {
+                            ScrollViewList(title: "Shape Game", titleName: $titleName, image: "Shapes", imageName: $imageName)
+                            ScrollViewList(title: "Car Game", titleName: $titleName, image: "cargame", imageName: $imageName)
+                        }
+                    }
+                    .frame(width: UIScreen.main.bounds.width , height: 420)
+                    .cornerRadius(30)
+                    
+                    NavigationLink(destination: ColorGameTouchModeView(), label: {
+                        NavigationLink(destination: voiceMode ?  AnyView(NumberGameViewWithSpeech()) : AnyView(NumberGameView(randomNum: 2)), label: {
+                            Rectangle()
+                                .fill(Color("lightGreen"))
+                                .frame(width: 150, height: 50)
+                                .cornerRadius(20)
+                                .overlay{
+                                    Label("Let's play", systemImage: "play")
+                                        .font(.system(size: 20))
+                                }
+                        } )
+                        
+                    })
+                    .padding(30)
+                }
+                .toolbar {
+                    HStack{
+                        NavigationLink(destination: SettingsView()){
+                            Label("", systemImage: "line.horizontal.3")
+                                .font(.system(size: 18))
+                                .foregroundColor(.black)
+                            
+                        }
                     }
                 }
             }
         }
-    }
-    
-    func switchGame () {
-        
     }
 }
 
@@ -87,7 +88,6 @@ struct ScrollViewList: View {
     @Binding var titleName: String
     var image: String
     @Binding var imageName: String
-    @State private var checkBoolean = SettingsView().voiceMode
     
     var body: some View {
         Image(image)

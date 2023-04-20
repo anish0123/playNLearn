@@ -1,16 +1,10 @@
-//
-//  Speech Recognizer.swift
-//  PlayNLearn
-//
-//  Created by Anish Maharjan on 5.4.2023.
-//
-
-import AVFoundation
 import Foundation
+import AVFoundation
 import Speech
 import SwiftUI
 
-class SpeechRecognizer: ObservableObject {
+/// A helper for transcribing speech to text using SFSpeechRecognizer and AVAudioEngine.
+actor SpeechRecognizer: ObservableObject {
     enum RecognizerError: Error {
         case nilRecognizer
         case notAuthorizedToRecognize
@@ -27,21 +21,26 @@ class SpeechRecognizer: ObservableObject {
         }
     }
     
-    var transcript: String = ""
+    @MainActor var transcript: String = ""
     
     private var audioEngine: AVAudioEngine?
     private var request: SFSpeechAudioBufferRecognitionRequest?
     private var task: SFSpeechRecognitionTask?
     private let recognizer: SFSpeechRecognizer?
     
+    /**
+     Initializes a new speech recognizer. If this is the first time you've used the class, it
+     requests access to the speech recognizer and the microphone.
+     */
     init() {
         recognizer = SFSpeechRecognizer()
+        guard recognizer != nil else {
+            transcribe(RecognizerError.nilRecognizer)
+            return
+        }
         
-        Task(priority: .background) {
+        Task {
             do {
-                guard recognizer != nil else {
-                    throw RecognizerError.nilRecognizer
-                }
                 guard await SFSpeechRecognizer.hasAuthorizationToRecognize() else {
                     throw RecognizerError.notAuthorizedToRecognize
                 }
@@ -49,39 +48,56 @@ class SpeechRecognizer: ObservableObject {
                     throw RecognizerError.notPermittedToRecord
                 }
             } catch {
-                speakError(error)
+                transcribe(error)
             }
         }
     }
     
-    deinit {
-        reset()
-    }
-    
-    func transcribe() {
-        DispatchQueue(label: "Speech Recognizer Queue", qos: .background).async { [weak self] in
-            guard let self = self, let recognizer = self.recognizer, recognizer.isAvailable else {
-                self?.speakError(RecognizerError.recognizerIsUnavailable)
-                return
-            }
-            
-            do {
-                let (audioEngine, request) = try Self.prepareEngine()
-                self.audioEngine = audioEngine
-                self.request = request
-                self.task = recognizer.recognitionTask(with: request, resultHandler: self.recognitionHandler(result:error:))
-            } catch {
-                self.reset()
-                self.speakError(error)
-            }
+    @MainActor func startTranscribing() {
+        Task {
+            await transcribe()
         }
     }
     
-    func stopTranscribing() {
-        reset()
+    @MainActor func resetTranscript() {
+        Task {
+            await reset()
+        }
     }
     
-    func reset() {
+    @MainActor func stopTranscribing() {
+        Task {
+            await reset()
+        }
+    }
+    
+    /**
+     Begin transcribing audio.
+     
+     Creates a `SFSpeechRecognitionTask` that transcribes speech to text until you call `stopTranscribing()`.
+     The resulting transcription is continuously written to the published `transcript` property.
+     */
+    private func transcribe() {
+        guard let recognizer, recognizer.isAvailable else {
+            self.transcribe(RecognizerError.recognizerIsUnavailable)
+            return
+        }
+        
+        do {
+            let (audioEngine, request) = try Self.prepareEngine()
+            self.audioEngine = audioEngine
+            self.request = request
+            self.task = recognizer.recognitionTask(with: request, resultHandler: { [weak self] result, error in
+                self?.recognitionHandler(audioEngine: audioEngine, result: result, error: error)
+            })
+        } catch {
+            self.reset()
+            self.transcribe(error)
+        }
+    }
+    
+    /// Reset the speech recognizer.
+    private func reset() {
         task?.cancel()
         audioEngine?.stop()
         audioEngine = nil
@@ -96,7 +112,7 @@ class SpeechRecognizer: ObservableObject {
         request.shouldReportPartialResults = true
         
         let audioSession = AVAudioSession.sharedInstance()
-        try audioSession.setCategory(.record, mode: .measurement, options: .duckOthers)
+        try audioSession.setCategory(.playAndRecord, mode: .measurement, options: .duckOthers)
         try audioSession.setActive(true, options: .notifyOthersOnDeactivation)
         let inputNode = audioEngine.inputNode
         
@@ -110,32 +126,36 @@ class SpeechRecognizer: ObservableObject {
         return (audioEngine, request)
     }
     
-    private func recognitionHandler(result: SFSpeechRecognitionResult?, error: Error?) {
+    nonisolated private func recognitionHandler(audioEngine: AVAudioEngine, result: SFSpeechRecognitionResult?, error: Error?) {
         let receivedFinalResult = result?.isFinal ?? false
         let receivedError = error != nil
         
         if receivedFinalResult || receivedError {
-            audioEngine?.stop()
-            audioEngine?.inputNode.removeTap(onBus: 0)
+            audioEngine.stop()
+            audioEngine.inputNode.removeTap(onBus: 0)
         }
         
-        if let result = result {
-            speak(result.bestTranscription.formattedString)
+        if let result {
+            transcribe(result.bestTranscription.formattedString)
         }
     }
     
-    private func speak(_ message: String) {
-        transcript = message
-    }
     
-    private func speakError(_ error: Error) {
+    nonisolated private func transcribe(_ message: String) {
+        Task { @MainActor in
+            transcript = message
+        }
+    }
+    nonisolated private func transcribe(_ error: Error) {
         var errorMessage = ""
         if let error = error as? RecognizerError {
             errorMessage += error.message
         } else {
             errorMessage += error.localizedDescription
         }
-        transcript = "<< \(errorMessage) >>"
+        Task { @MainActor [errorMessage] in
+            transcript = "<< \(errorMessage) >>"
+        }
     }
 }
 
