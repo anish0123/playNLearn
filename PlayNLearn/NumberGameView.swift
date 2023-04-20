@@ -10,12 +10,15 @@ import ConfettiSwiftUI
 import SPConfetti
 
 struct NumberGameView: View {
+    @State private var isSpinning = false
     @State var showPopUp: Bool = false
     @State private var rightAnswer: Bool = false
     var numbers: [Numbers] = NumberList.numbers
     @State var randomNum: Int
     @State private var counter = 0
     @State var timeRemaining = 30.0
+    @State private var score  = 10
+   
 
     var body: some View {
         
@@ -28,6 +31,20 @@ struct NumberGameView: View {
                 .edgesIgnoringSafeArea(.all)
             
             VStack {
+                
+                HStack {
+                    if (score > 50) {
+                        ratingView(number: 5)
+                    } else if (score > 40) {
+                        ratingView(number: 4)
+                    } else if (score > 30) {
+                        ratingView(number: 3)
+                    } else if (score > 20) {
+                        ratingView(number: 2)
+                    } else if ( score > 10) {
+                        ratingView(number: 1)
+                    }
+                }
                 
                 Group {
                     
@@ -133,6 +150,7 @@ struct NumberGameView: View {
                         }
                     }
                 .padding()
+                
                 Rectangle()
                     .fill(Color("lightGreen"))
                     .frame(width: 110, height: 50)
@@ -143,7 +161,6 @@ struct NumberGameView: View {
                     }
                     .onTapGesture (count: 1) {
                         timeRemaining = 30.0
-                        startTimer()
                         randomNum = Int.random(in: 0...NumberList.numbers.count - 1 )
                     }
             }
@@ -180,6 +197,7 @@ struct NumberGameView: View {
         if question == answer {
             SPConfetti.startAnimating(.centerWidthToUp, particles: [.triangle, .arc], duration: 1)
             SoundManager.instance.playSound(sound: .win)
+            score += 10
             withAnimation(.easeInOut) {
                 showPopUp.toggle()
                 rightAnswer.toggle()
@@ -197,6 +215,30 @@ struct NumberGameView: View {
         }
     }
 
+}
+
+struct ratingView: View {
+    @State private var isSpinning = false
+    let number: Int
+    
+    var body: some View {
+        HStack{
+            ForEach(0..<number,  id: \.self) { i in
+                Image(systemName: "star.fill")
+                    .font(.system(size: 40))
+                    .foregroundStyle(EllipticalGradient(
+                        colors:[Color.red, Color.yellow],
+                        center: .center,
+                        startRadiusFraction: 0.0,
+                        endRadiusFraction: 0.5))
+                    .hueRotation(.degrees(isSpinning ? 0 : 360))
+                    .animation(.linear(duration: 1.5).repeatForever(autoreverses: true).delay(0.2), value: isSpinning)
+                    .onAppear() {
+                        isSpinning.toggle()
+                    }
+            }
+        }
+    }
 }
 
 
