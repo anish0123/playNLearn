@@ -1,27 +1,25 @@
-
-//  NumberGameViewWithSpeech.swift
+//
+//  ColorGameModeWithSpeech.swift
 //  PlayNLearn
 //
-//  Created by Anish Maharjan on 5.4.2023.
+//  Created by Anish Maharjan on 21.4.2023.
+//
 
 import SwiftUI
 import ConfettiSwiftUI
 import SPConfetti
 
-struct NumberGameViewWithSpeech: View {
+struct ColorGameModeWithSpeech: View {
     @StateObject var speechRecognizer = SpeechRecognizer()
+    @State private var score: Int = 0
+    @State private var timeRemaining : Double = 30
     @State private var output = ""
-    @State private var number: Int = 0
-    @State private var numberMap = ["one": 1, "two": 2, "three": 3, "four": 4, "five": 5, "six": 6, "seven": 7, "eight": 8, "nine": 9, "ten": 10, "eleven": 11, "twelve": 12, "thirteen": 13, "fourteen": 14, "fifteen": 15, "sixteen":                                 16, "seventeen": 17, "eighteen": 18, "nineteen": 19, "twenty": 20]
-    @State private var game = NumberGameWithSpeech()
-    @State public var timeRemaining = 30.0
-    @State private var score  = 0
     @State private var showPopUp: Bool = false
     @State private var rightAnswer: Bool = false
-    @State private var isRecording = false
+    @State private var colorId = ColorGame.allColor[Int.random(in: 0...5)]
+    
     var body: some View {
         ZStack {
-            
             Image("giraffeneck")
                 .resizable()
                 .aspectRatio(contentMode: .fill)
@@ -30,7 +28,6 @@ struct NumberGameViewWithSpeech: View {
                 .padding(.leading, 150)
             
             VStack {
-                
                 HStack {
                     if (score > 50) {
                         ratingView(number: 5)
@@ -63,11 +60,11 @@ struct NumberGameViewWithSpeech: View {
                             .foregroundColor(timeRemaining > 8 ? .green : .red)
                             .rotationEffect(.degrees(-90))
                         
-                        Text("\(game.correctAnswer)")
+                        Text(" ")
                             .font(.system(size: 80, weight: .bold))
                             .frame(width: 150,height: 150)
                             .padding()
-                            .background(Color.white)
+                            .background(colorId.color)
                             .clipShape(Circle())
                         
                     }
@@ -83,7 +80,6 @@ struct NumberGameViewWithSpeech: View {
                                 withAnimation(.easeInOut) {
                                     showPopUp.toggle()
                                 }
-                                game = NumberGameWithSpeech()
                                 timeRemaining = 30
                                 
                             }
@@ -92,10 +88,8 @@ struct NumberGameViewWithSpeech: View {
                         RunLoop.current.add(timer, forMode: .common)
                     }
                     Spacer()
-                    Text(output)
-                    
+                    Text("\(colorId.name)")
                 }
-                
                 Spacer()
                 Divider()
                 
@@ -103,7 +97,7 @@ struct NumberGameViewWithSpeech: View {
                     Button (action : {
                         
                         print("Long gesture ended")
-                        stopRecording()
+                         stopRecording()
                     }) {
                         ZStack {
                             Image(systemName: "mic.circle")
@@ -122,8 +116,8 @@ struct NumberGameViewWithSpeech: View {
                     
                 )
                 Button{
-                    game = NumberGameWithSpeech()
                     timeRemaining = 30
+                    colorId = ColorGame.allColor[Int.random(in: 0...5)]
                 } label: {
                     Text("Skip")
                         .frame(width: 150, height: 50)
@@ -139,66 +133,63 @@ struct NumberGameViewWithSpeech: View {
                         show: $showPopUp, answer: $rightAnswer,
                         timeRemaining: $timeRemaining)
         }
+        
     }
     
-    func startRecording() {
+    private func startRecording() {
         speechRecognizer.resetTranscript()
         speechRecognizer.startTranscribing()
     }
     
-    func stopRecording() {
+    private func stopRecording() {
         // Turning off the speech recognition
         speechRecognizer.stopTranscribing()
         // Processing the output
         output = speechRecognizer.transcript
         // converting string using dictionary
         print("output: \(output) ")
-        if(game.correctAnswer < 9 ) {
-            number = numberMap[output.lowercased()] ?? 0
-            print("number:\(number)")
-        } else {
-            number = Int(output) ?? 0
-        }
-        print("output we got \(number). Type of output \(type(of: output))")
-        let result = game.checkAnswer(answer: number)
-        if( result == .right) {
-            print("Correct")
+        
+        if(colorId.name.lowercased() == output.lowercased()) {
             score += 10
             SPConfetti.startAnimating(.centerWidthToUp, particles: [.triangle, .arc], duration: 1)
             withAnimation(.easeInOut) {
                 showPopUp.toggle()
                 rightAnswer.toggle()
             }
-            
         } else {
             score = 0
-            output = ""
-            withAnimation(.easeInOut) {
-                showPopUp.toggle()
-                
-                Rectangle()
-                    .fill(Color("lightGreen"))
-                    .frame(width: 110, height: 50)
-                    .cornerRadius(20)
-                    .overlay{
-                        Label("Skip", systemImage: "forward")
-                            .font(.system(size: 20))
-                    }
-                    .onTapGesture (count: 1) {
-                        game = NumberGameWithSpeech()
-                    }
-            }
+                        withAnimation(.easeInOut) {
+                            showPopUp.toggle()
+                            
+                            Rectangle()
+                                .fill(Color("lightGreen"))
+                                .frame(width: 110, height: 50)
+                                .cornerRadius(20)
+                                .overlay{
+                                    Label("Skip", systemImage: "forward")
+                                        .font(.system(size: 20))
+                                }
+                                .onTapGesture (count: 1) {
+                                    colorId = ColorGame.allColor[Int.random(in: 1...6)]
+                                }
+                        }
         }
+        
         //call nextquestion function with a 1 second delay
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-            game = NumberGameWithSpeech()
             timeRemaining = 30
+            colorId = ColorGame.allColor[Int.random(in: 0...5)]
         }
     }
+    
+    
 }
 
-struct NumberGameViewWithSpeech_Previews: PreviewProvider {
+
+
+
+struct ColorGameModeWithSpeech_Previews: PreviewProvider {
     static var previews: some View {
-        NumberGameViewWithSpeech()
+        ColorGameModeWithSpeech()
     }
 }
