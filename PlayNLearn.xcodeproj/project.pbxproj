@@ -38,6 +38,7 @@
 		F8967F8629EEC5FB00F1EA49 /* PlayNLearn.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F8967F8429EEC5FB00F1EA49 /* PlayNLearn.xcdatamodeld */; };
 		F8967F8829EEC66C00F1EA49 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8967F8729EEC66C00F1EA49 /* Persistence.swift */; };
 		F8967F8B29F2BB5900F1EA49 /* ColorGameModeWithSpeech.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8967F8A29F2BB5900F1EA49 /* ColorGameModeWithSpeech.swift */; };
+		F8967F8F29F46FFB00F1EA49 /* ShapeGameModeWithSpeech.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8967F8E29F46FFB00F1EA49 /* ShapeGameModeWithSpeech.swift */; };
 		F8C628B929EAE73C000FEFEF /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C628B829EAE73C000FEFEF /* SettingsView.swift */; };
 		F8EED87929DABCE400D3E3C3 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = F8EED87829DABCE400D3E3C3 /* .gitignore */; };
 /* End PBXBuildFile section */
@@ -92,6 +93,7 @@
 		F8967F8529EEC5FB00F1EA49 /* PlayNLearn.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PlayNLearn.xcdatamodel; sourceTree = "<group>"; };
 		F8967F8729EEC66C00F1EA49 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		F8967F8A29F2BB5900F1EA49 /* ColorGameModeWithSpeech.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorGameModeWithSpeech.swift; sourceTree = "<group>"; };
+		F8967F8E29F46FFB00F1EA49 /* ShapeGameModeWithSpeech.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShapeGameModeWithSpeech.swift; sourceTree = "<group>"; };
 		F8C628B829EAE73C000FEFEF /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		F8EED87829DABCE400D3E3C3 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -208,6 +210,7 @@
 				F8646C5729DD7B1C00D85449 /* NumberGameViewWithSpeech.swift */,
 				F8C628B829EAE73C000FEFEF /* SettingsView.swift */,
 				F8967F8A29F2BB5900F1EA49 /* ColorGameModeWithSpeech.swift */,
+				F8967F8E29F46FFB00F1EA49 /* ShapeGameModeWithSpeech.swift */,
 			);
 			path = PlayNLearn;
 			sourceTree = "<group>";
@@ -418,6 +421,7 @@
 				6AF7151F29EAA4E9006ED404 /* ShapeGameView.swift in Sources */,
 				6AF7152529ED7A9F006ED404 /* ShapeList.swift in Sources */,
 				F8646C5829DD7B1C00D85449 /* NumberGameViewWithSpeech.swift in Sources */,
+				F8967F8F29F46FFB00F1EA49 /* ShapeGameModeWithSpeech.swift in Sources */,
 				6AB9249929EFEDA90049E359 /* OptionContainer.swift in Sources */,
 				6AB9249529ED34B10049E359 /* ColorGameTouchModeView.swift in Sources */,
 				F8967F8B29F2BB5900F1EA49 /* ColorGameModeWithSpeech.swift in Sources */,

@@ -92,7 +92,12 @@ struct ContentView: View {
             }
            
         } else if titleName == "Shape Game" {
-            game = .shapeGame
+            if voiceMode == true {
+                game = .shapeGameVoiceMode
+            } else {
+                game = .shapeGame
+            }
+            
             
         }else if  titleName == "Color Game" {
             if voiceMode == true {
@@ -136,6 +141,7 @@ enum Destination {
     case shapeGame
     case colorGame
     case colorGameVoiceMode
+    case shapeGameVoiceMode
     
     func getView() -> AnyView {
         switch self {
@@ -149,6 +155,8 @@ enum Destination {
             return AnyView(ColorGameTouchModeView())
         case .colorGameVoiceMode:
             return AnyView(ColorGameModeWithSpeech())
+        case .shapeGameVoiceMode:
+            return AnyView(ShapeGameModeWithSpeech())
         }
         
     }
