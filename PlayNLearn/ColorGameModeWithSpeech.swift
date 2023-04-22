@@ -16,7 +16,7 @@ struct ColorGameModeWithSpeech: View {
     @State private var output = ""
     @State private var showPopUp: Bool = false
     @State private var rightAnswer: Bool = false
-    @State private var colorId = ColorGame.allColor[Int.random(in: 0...5)]
+    @State private var colorId = ColorGame.allColor[Int.random(in: 0...ColorGame.allColor.count - 1)]
     
     var body: some View {
         ZStack {
@@ -43,11 +43,8 @@ struct ColorGameModeWithSpeech: View {
                     
                 }
                 .padding(.bottom,50)
-                
                 Spacer()
-                
                 Group {
-                    
                     ZStack {
                         Circle()
                             .stroke(lineWidth: 20)
@@ -72,23 +69,10 @@ struct ColorGameModeWithSpeech: View {
                     .opacity(0.8)
                     .padding(70)
                     .onAppear {
-                        let timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { _ in
-                            if timeRemaining > 0 {
-                                timeRemaining -= 1.0
-                            } else {
-                                score = 0
-                                withAnimation(.easeInOut) {
-                                    showPopUp.toggle()
-                                }
-                                timeRemaining = 30
-                                
-                            }
-                            
-                        }
-                        RunLoop.current.add(timer, forMode: .common)
+                        startTimer()
                     }
                     Spacer()
-                    Text("\(colorId.name)")
+                    Text("\(output)")
                 }
                 Spacer()
                 Divider()
@@ -97,7 +81,7 @@ struct ColorGameModeWithSpeech: View {
                     Button (action : {
                         
                         print("Long gesture ended")
-                         stopRecording()
+                        stopRecording()
                     }) {
                         ZStack {
                             Image(systemName: "mic.circle")
@@ -116,8 +100,17 @@ struct ColorGameModeWithSpeech: View {
                     
                 )
                 Button{
-                    timeRemaining = 30
-                    colorId = ColorGame.allColor[Int.random(in: 0...5)]
+                    checkAnswer()
+                } label: {
+                    Text("Submit Answer")
+                        .frame(width: 150, height: 50)
+                        .background(Color(.white))
+                        .foregroundColor(.black)
+                        .font(.system(size: 20, weight: .bold, design: .default))
+                        .cornerRadius(10)
+                }
+                Button{
+                    nextQuestion()
                 } label: {
                     Text("Skip")
                         .frame(width: 150, height: 50)
@@ -137,6 +130,7 @@ struct ColorGameModeWithSpeech: View {
     }
     
     private func startRecording() {
+        output = ""
         speechRecognizer.resetTranscript()
         speechRecognizer.startTranscribing()
     }
@@ -149,6 +143,27 @@ struct ColorGameModeWithSpeech: View {
         // converting string using dictionary
         print("output: \(output) ")
         
+    }
+    
+    func startTimer(){
+        let timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { _ in
+            
+            if timeRemaining > 0 {
+                timeRemaining -= 1
+            } else {
+               nextQuestion()
+            }
+        }
+        RunLoop.current.add(timer, forMode: .common)
+    }
+    
+    func nextQuestion() {
+        colorId = ColorGame.allColor[Int.random(in: 0...ColorGame.allColor.count - 1)]
+        timeRemaining = 30
+        output = ""
+    }
+    
+    func checkAnswer() {
         if(colorId.name.lowercased() == output.lowercased()) {
             score += 10
             SPConfetti.startAnimating(.centerWidthToUp, particles: [.triangle, .arc], duration: 1)
@@ -158,27 +173,26 @@ struct ColorGameModeWithSpeech: View {
             }
         } else {
             score = 0
-                        withAnimation(.easeInOut) {
-                            showPopUp.toggle()
-                            
-                            Rectangle()
-                                .fill(Color("lightGreen"))
-                                .frame(width: 110, height: 50)
-                                .cornerRadius(20)
-                                .overlay{
-                                    Label("Skip", systemImage: "forward")
-                                        .font(.system(size: 20))
-                                }
-                                .onTapGesture (count: 1) {
-                                    colorId = ColorGame.allColor[Int.random(in: 1...6)]
-                                }
-                        }
+            withAnimation(.easeInOut) {
+                showPopUp.toggle()
+                
+                Rectangle()
+                    .fill(Color("lightGreen"))
+                    .frame(width: 110, height: 50)
+                    .cornerRadius(20)
+                    .overlay{
+                        Label("Skip", systemImage: "forward")
+                            .font(.system(size: 20))
+                    }
+                    .onTapGesture (count: 1) {
+                        nextQuestion()
+                    }
+            }
         }
         
         //call nextquestion function with a 1 second delay
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-            timeRemaining = 30
-            colorId = ColorGame.allColor[Int.random(in: 0...5)]
+            nextQuestion()
         }
     }
     
