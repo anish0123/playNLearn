@@ -75,23 +75,10 @@ struct ShapeGameModeWithSpeech: View {
                     .opacity(0.8)
                     .padding(70)
                     .onAppear {
-                        let timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { _ in
-                            if timeRemaining > 0 {
-                                timeRemaining -= 1.0
-                            } else {
-                                score = 0
-                                withAnimation(.easeInOut) {
-                                    showPopUp.toggle()
-                                }
-                                timeRemaining = 30
-                                
-                            }
-                            
-                        }
-                        RunLoop.current.add(timer, forMode: .common)
+                        startTimer()
                     }
                     Spacer()
-                    Text("\(shapes[randomNum].answer)")
+                    Text("\(output)")
                 }
                 Spacer()
                 Divider()
@@ -119,8 +106,17 @@ struct ShapeGameModeWithSpeech: View {
                     
                 )
                 Button{
-                    timeRemaining = 30
-                    randomNum = Int.random(in: 0...ShapeList.shapes.count - 1 )
+                    checkAnswer()
+                } label: {
+                    Text("Submit Answer")
+                        .frame(width: 150, height: 50)
+                        .background(Color(.white))
+                        .foregroundColor(.black)
+                        .font(.system(size: 20, weight: .bold, design: .default))
+                        .cornerRadius(10)
+                }
+                Button{
+                    nextQuestion()
                 } label: {
                     Text("Skip")
                         .frame(width: 150, height: 50)
@@ -151,7 +147,33 @@ struct ShapeGameModeWithSpeech: View {
         output = speechRecognizer.transcript
         // converting string using dictionary
         print("output: \(output) ")
+    }
+    
+    private func startTimer() {
+        let timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { _ in
+            if timeRemaining > 0 {
+                timeRemaining -= 1.0
+            } else {
+                score = 0
+                withAnimation(.easeInOut) {
+                    showPopUp.toggle()
+                }
+                timeRemaining = 30
+                
+            }
+            
+        }
+        RunLoop.current.add(timer, forMode: .common)
         
+    }
+    
+    private func nextQuestion() {
+        timeRemaining = 30
+        randomNum = Int.random(in: 0...ShapeList.shapes.count - 1 )
+        output = ""
+    }
+    
+    private func checkAnswer() {
         if(shapes[randomNum].answer == output.lowercased()) {
             score += 10
             SPConfetti.startAnimating(.centerWidthToUp, particles: [.triangle, .arc], duration: 1)
@@ -173,18 +195,17 @@ struct ShapeGameModeWithSpeech: View {
                             .font(.system(size: 20))
                     }
                     .onTapGesture (count: 1) {
-                        randomNum = Int.random(in: 0...ShapeList.shapes.count - 1 )
+                        nextQuestion()
                     }
             }
         }
         
         //call nextquestion function with a 1 second delay
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-            timeRemaining = 30
-            randomNum = Int.random(in: 0...ShapeList.shapes.count - 1 )
+            nextQuestion()
         }
+        
     }
-    
     
 }
 

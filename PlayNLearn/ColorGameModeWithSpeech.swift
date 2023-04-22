@@ -145,25 +145,28 @@ struct ColorGameModeWithSpeech: View {
         
     }
     
-    func startTimer(){
+    private func startTimer(){
         let timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { _ in
-            
             if timeRemaining > 0 {
                 timeRemaining -= 1
             } else {
-               nextQuestion()
+                score = 0
+                withAnimation(.easeInOut) {
+                    showPopUp.toggle()
+                }
+                timeRemaining = 30
             }
         }
         RunLoop.current.add(timer, forMode: .common)
     }
     
-    func nextQuestion() {
+    private func nextQuestion() {
         colorId = ColorGame.allColor[Int.random(in: 0...ColorGame.allColor.count - 1)]
         timeRemaining = 30
         output = ""
     }
     
-    func checkAnswer() {
+    private func checkAnswer() {
         if(colorId.name.lowercased() == output.lowercased()) {
             score += 10
             SPConfetti.startAnimating(.centerWidthToUp, particles: [.triangle, .arc], duration: 1)
@@ -189,7 +192,6 @@ struct ColorGameModeWithSpeech: View {
                     }
             }
         }
-        
         //call nextquestion function with a 1 second delay
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
             nextQuestion()
@@ -198,9 +200,6 @@ struct ColorGameModeWithSpeech: View {
     
     
 }
-
-
-
 
 struct ColorGameModeWithSpeech_Previews: PreviewProvider {
     static var previews: some View {
