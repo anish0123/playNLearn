@@ -12,7 +12,7 @@ struct NumberGameViewWithSpeech: View {
     @StateObject var speechRecognizer = SpeechRecognizer()
     @State private var output = ""
     @State private var number: Int = 0
-    @State private var numberMap = ["one": 1, "two": 2, "three": 3, "four": 4, "five": 5, "six": 6, "seven": 7, "eight": 8, "nine": 9, "ten": 10, "eleven": 11, "twelve": 12, "thirteen": 13, "fourteen": 14, "fifteen": 15, "sixteen":                                 16, "seventeen": 17, "eighteen": 18, "nineteen": 19, "twenty": 20]
+    @State private var numberMap = NumberGameWithSpeech.allNumbers
     @State private var game = NumberGameWithSpeech()
     @State public var timeRemaining = 30.0
     @State private var score  = 0
@@ -75,21 +75,7 @@ struct NumberGameViewWithSpeech: View {
                     .opacity(0.8)
                     .padding(70)
                     .onAppear {
-                        let timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { _ in
-                            if timeRemaining > 0 {
-                                timeRemaining -= 1.0
-                            } else {
-                                score = 0
-                                withAnimation(.easeInOut) {
-                                    showPopUp.toggle()
-                                }
-                                game = NumberGameWithSpeech()
-                                timeRemaining = 30
-                                
-                            }
-                            
-                        }
-                        RunLoop.current.add(timer, forMode: .common)
+                        startTimer()
                     }
                     Spacer()
                     Text(output)
@@ -122,10 +108,19 @@ struct NumberGameViewWithSpeech: View {
                     
                 )
                 Button{
-                    game = NumberGameWithSpeech()
-                    timeRemaining = 30
+                    checkAnswer()
                 } label: {
-                    Text("Skip")
+                    Text("Submit Answer")
+                        .frame(width: 150, height: 50)
+                        .background(Color(.white))
+                        .foregroundColor(.black)
+                        .font(.system(size: 20, weight: .bold, design: .default))
+                        .cornerRadius(10)
+                }
+                Button{
+                    nextQuestion()
+                } label: {
+                    Label("Skip", systemImage: "forward")
                         .frame(width: 150, height: 50)
                         .background(Color(.white))
                         .foregroundColor(.black)
@@ -160,6 +155,33 @@ struct NumberGameViewWithSpeech: View {
             number = Int(output) ?? 0
         }
         print("output we got \(number). Type of output \(type(of: output))")
+    }
+    
+    private func startTimer() {
+        let timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { _ in
+            if timeRemaining > 0 {
+                timeRemaining -= 1.0
+            } else {
+                score = 0
+                withAnimation(.easeInOut) {
+                    showPopUp.toggle()
+                }
+                game = NumberGameWithSpeech()
+                timeRemaining = 30
+                
+            }
+            
+        }
+        RunLoop.current.add(timer, forMode: .common)
+    }
+    
+    private func nextQuestion() {
+        game = NumberGameWithSpeech()
+        timeRemaining = 30
+        output = ""
+    }
+    
+    private func checkAnswer() {
         let result = game.checkAnswer(answer: number)
         if( result == .right) {
             print("Correct")
@@ -185,14 +207,13 @@ struct NumberGameViewWithSpeech: View {
                             .font(.system(size: 20))
                     }
                     .onTapGesture (count: 1) {
-                        game = NumberGameWithSpeech()
+                        nextQuestion()
                     }
             }
         }
         //call nextquestion function with a 1 second delay
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-            game = NumberGameWithSpeech()
-            timeRemaining = 30
+            nextQuestion()
         }
     }
 }

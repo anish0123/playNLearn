@@ -118,7 +118,7 @@ struct ShapeGameModeWithSpeech: View {
                 Button{
                     nextQuestion()
                 } label: {
-                    Text("Skip")
+                    Label("Skip", systemImage: "forward")
                         .frame(width: 150, height: 50)
                         .background(Color(.white))
                         .foregroundColor(.black)
