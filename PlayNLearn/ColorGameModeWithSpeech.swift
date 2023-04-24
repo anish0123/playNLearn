@@ -17,6 +17,7 @@ struct ColorGameModeWithSpeech: View {
     @State private var showPopUp: Bool = false
     @State private var rightAnswer: Bool = false
     @State private var colorId = ColorGame.allColor[Int.random(in: 0...ColorGame.allColor.count - 1)]
+    @State private var isRecording = false
     
     var body: some View {
         ZStack {
@@ -84,11 +85,21 @@ struct ColorGameModeWithSpeech: View {
                         stopRecording()
                     }) {
                         ZStack {
-                            Image(systemName: "mic.circle")
-                                .frame(height: 100)
+                            (isRecording ?  AnyView(LottieView(fileName: "mic yellow")
+                                .frame(height: 150)
                                 .foregroundColor(.orange)
-                                .font(.system(size: 100))
+                                
                                 .padding()
+                            )
+                             
+                             :   AnyView (Image(systemName: "mic")
+                                .frame(height: 150)
+                                .foregroundColor(.orange)
+                                .font(.system(size: 60))
+                                .padding()
+                             )
+                             
+                            )
                         }
                     }
                 }
@@ -133,6 +144,7 @@ struct ColorGameModeWithSpeech: View {
         output = ""
         speechRecognizer.resetTranscript()
         speechRecognizer.startTranscribing()
+        isRecording.toggle()
     }
     
     private func stopRecording() {
@@ -142,7 +154,7 @@ struct ColorGameModeWithSpeech: View {
         output = speechRecognizer.transcript
         // converting string using dictionary
         print("output: \(output) ")
-        
+        isRecording.toggle()
     }
     
     private func startTimer(){

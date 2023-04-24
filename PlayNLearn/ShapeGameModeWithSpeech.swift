@@ -18,6 +18,7 @@ struct ShapeGameModeWithSpeech: View {
     @State private var rightAnswer: Bool = false
     var shapes: [Shapes] = ShapeList.shapes
     @State private var randomNum = Int.random(in: 0...ShapeList.shapes.count - 1 )
+    @State private var isRecording = false
     
     var body: some View {
         ZStack {
@@ -90,11 +91,21 @@ struct ShapeGameModeWithSpeech: View {
                         stopRecording()
                     }) {
                         ZStack {
-                            Image(systemName: "mic.circle")
-                                .frame(height: 100)
+                            (isRecording ?  AnyView(LottieView(fileName: "mic yellow")
+                                .frame(height: 150)
                                 .foregroundColor(.orange)
-                                .font(.system(size: 100))
+                                
                                 .padding()
+                            )
+                             
+                             :   AnyView (Image(systemName: "mic")
+                                .frame(height: 150)
+                                .foregroundColor(.orange)
+                                .font(.system(size: 60))
+                                .padding()
+                             )
+                             
+                            )
                         }
                     }
                 }
@@ -138,6 +149,7 @@ struct ShapeGameModeWithSpeech: View {
     private func startRecording() {
         speechRecognizer.resetTranscript()
         speechRecognizer.startTranscribing()
+        isRecording.toggle()
     }
     
     private func stopRecording() {
@@ -147,6 +159,7 @@ struct ShapeGameModeWithSpeech: View {
         output = speechRecognizer.transcript
         // converting string using dictionary
         print("output: \(output) ")
+        isRecording.toggle()
     }
     
     private func startTimer() {

@@ -86,17 +86,29 @@ struct NumberGameViewWithSpeech: View {
                 Divider()
                 
                 HStack {
+                    
                     Button (action : {
                         
                         print("Long gesture ended")
                         stopRecording()
                     }) {
                         ZStack {
-                            Image(systemName: "mic.circle")
-                                .frame(height: 100)
+                            (isRecording ?  AnyView(LottieView(fileName: "mic yellow")
+                                .frame(height: 150)
                                 .foregroundColor(.orange)
-                                .font(.system(size: 100))
+                                
                                 .padding()
+                            )
+                             
+                             :   AnyView (Image(systemName: "mic")
+                                .frame(height: 150)
+                                .foregroundColor(.orange)
+                                .font(.system(size: 60))
+                                .padding()
+                             )
+                             
+                            )
+                            
                         }
                     }
                 }
@@ -137,8 +149,10 @@ struct NumberGameViewWithSpeech: View {
     }
     
     func startRecording() {
+        print(String(Locale.preferredLanguages[0].prefix(2)))
         speechRecognizer.resetTranscript()
         speechRecognizer.startTranscribing()
+        isRecording.toggle()
     }
     
     func stopRecording() {
@@ -155,6 +169,7 @@ struct NumberGameViewWithSpeech: View {
             number = Int(output) ?? 0
         }
         print("output we got \(number). Type of output \(type(of: output))")
+        isRecording.toggle()
     }
     
     private func startTimer() {
