@@ -1,0 +1,11 @@
+/* 
+  Localizable.strings
+  PlayNLearn
+
+  Created by Anish Maharjan on 24.4.2023.
+  
+*/
+"numberGame" = "Numero Peli";
+"colorGame" = "Väri Peli";
+"shapeGame" = "Muoto Peli";
+"letsPlay" = "Pelataan";

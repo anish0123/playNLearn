@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     @State public var imageName: String = "numbers"
-    @State public var titleName: String = "Number Game"
+    @State public var titleName: LocalizedStringKey = "Number Game"
     @Environment(\.managedObjectContext) private var moc
         @FetchRequest(entity: SwitchObject.entity(), sortDescriptors: []) private var objects: FetchedResults<SwitchObject>
     var voiceMode: Bool {
@@ -22,11 +22,16 @@ struct ContentView: View {
     var body: some View {
         NavigationView{
             ZStack {
-                Image("homeimage")
-                    .resizable()
-                    .aspectRatio(contentMode: .fill)
-                    .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
-                    .edgesIgnoringSafeArea(.all)
+                AsyncImage(url: URL(string: "https://users.metropolia.fi/~anishm/mad/BackgroundImages/homeimage.jpg")) { image in
+                            image
+                                .resizable()
+                                .aspectRatio(contentMode: .fill)
+                                
+                        } placeholder: {
+                            Color.gray
+                        }
+                        .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
+                        .edgesIgnoringSafeArea(.all)
                 
                 VStack {
                     ZStack {
@@ -45,12 +50,12 @@ struct ContentView: View {
                     
                     VStack {
                         HStack {
-                            ScrollViewList(title: "Number Game", titleName: $titleName, image: "numbers", imageName: $imageName)
-                            ScrollViewList(title: "Color Game", titleName: $titleName, image: "colors", imageName: $imageName)
+                            ScrollViewList(title: "numberGame", titleName: $titleName, image: "numbers", imageName: $imageName)
+                            ScrollViewList(title: "colorGame", titleName: $titleName, image: "colors", imageName: $imageName)
                         }
                         
                         HStack {
-                            ScrollViewList(title: "Shape Game", titleName: $titleName, image: "Shapes", imageName: $imageName)
+                            ScrollViewList(title: "shapeGame", titleName: $titleName, image: "Shapes", imageName: $imageName)
                             ScrollViewList(title: "Car Game", titleName: $titleName, image: "cargame", imageName: $imageName)
                         }
                     }
@@ -63,7 +68,7 @@ struct ContentView: View {
                             .frame(width: 150, height: 50)
                             .cornerRadius(20)
                             .overlay{
-                                Label("Let's play", systemImage: "play")
+                                Label("letsPlay", systemImage: "play")
                                     .font(.system(size: 20))
                             }
                     })
@@ -115,8 +120,8 @@ struct ContentView: View {
 }
 
 struct ScrollViewList: View {
-    var title: String
-    @Binding var titleName: String
+    var title: LocalizedStringKey
+    @Binding var titleName: LocalizedStringKey
     var image: String
     @Binding var imageName: String
     

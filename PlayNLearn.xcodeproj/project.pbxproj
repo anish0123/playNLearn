@@ -37,6 +37,7 @@
 		F8646C5829DD7B1C00D85449 /* NumberGameViewWithSpeech.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8646C5729DD7B1C00D85449 /* NumberGameViewWithSpeech.swift */; };
 		F86E5E7529F6E89A007D8B60 /* colors.json in Resources */ = {isa = PBXBuildFile; fileRef = F86E5E7429F6E89A007D8B60 /* colors.json */; };
 		F86E5E7729F6E960007D8B60 /* cargame.json in Resources */ = {isa = PBXBuildFile; fileRef = F86E5E7629F6E960007D8B60 /* cargame.json */; };
+		F86E5E7A29F713EA007D8B60 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F86E5E7C29F713EA007D8B60 /* Localizable.strings */; };
 		F8967F8629EEC5FB00F1EA49 /* PlayNLearn.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F8967F8429EEC5FB00F1EA49 /* PlayNLearn.xcdatamodeld */; };
 		F8967F8829EEC66C00F1EA49 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8967F8729EEC66C00F1EA49 /* Persistence.swift */; };
 		F8967F8B29F2BB5900F1EA49 /* ColorGameModeWithSpeech.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8967F8A29F2BB5900F1EA49 /* ColorGameModeWithSpeech.swift */; };
@@ -99,6 +100,8 @@
 		F8646C5729DD7B1C00D85449 /* NumberGameViewWithSpeech.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberGameViewWithSpeech.swift; sourceTree = "<group>"; };
 		F86E5E7429F6E89A007D8B60 /* colors.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = colors.json; sourceTree = "<group>"; };
 		F86E5E7629F6E960007D8B60 /* cargame.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = cargame.json; sourceTree = "<group>"; };
+		F86E5E7B29F713EA007D8B60 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		F86E5E7D29F7144E007D8B60 /* fi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fi; path = fi.lproj/Localizable.strings; sourceTree = "<group>"; };
 		F8967F8529EEC5FB00F1EA49 /* PlayNLearn.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PlayNLearn.xcdatamodel; sourceTree = "<group>"; };
 		F8967F8729EEC66C00F1EA49 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		F8967F8A29F2BB5900F1EA49 /* ColorGameModeWithSpeech.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorGameModeWithSpeech.swift; sourceTree = "<group>"; };
@@ -227,6 +230,7 @@
 				F8967F8A29F2BB5900F1EA49 /* ColorGameModeWithSpeech.swift */,
 				F8967F8E29F46FFB00F1EA49 /* ShapeGameModeWithSpeech.swift */,
 				F8967F9629F6989600F1EA49 /* LottieView.swift */,
+				F86E5E7C29F713EA007D8B60 /* Localizable.strings */,
 			);
 			path = PlayNLearn;
 			sourceTree = "<group>";
@@ -381,6 +385,7 @@
 			knownRegions = (
 				en,
 				Base,
+				fi,
 			);
 			mainGroup = 7EFE232329DA30400066B490;
 			packageReferences = (
@@ -413,6 +418,7 @@
 				F8967F9929F6D5E300F1EA49 /* Shapes.json in Resources */,
 				6A8C6E3C29E97BE800962E65 /* win.wav in Resources */,
 				F86E5E7729F6E960007D8B60 /* cargame.json in Resources */,
+				F86E5E7A29F713EA007D8B60 /* Localizable.strings in Resources */,
 				F8EED87929DABCE400D3E3C3 /* .gitignore in Resources */,
 				7EFE233429DA30410066B490 /* Assets.xcassets in Resources */,
 				F86E5E7529F6E89A007D8B60 /* colors.json in Resources */,
@@ -497,6 +503,18 @@
 			targetProxy = 7EFE234729DA30410066B490 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		F86E5E7C29F713EA007D8B60 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F86E5E7B29F713EA007D8B60 /* en */,
+				F86E5E7D29F7144E007D8B60 /* fi */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		7EFE234E29DA30410066B490 /* Debug */ = {
