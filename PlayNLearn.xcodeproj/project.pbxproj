@@ -35,6 +35,8 @@
 		F8646C5429DD79F700D85449 /* NumberGameWithSpeech.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8646C5329DD79F700D85449 /* NumberGameWithSpeech.swift */; };
 		F8646C5629DD7AF900D85449 /* SpeechRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8646C5529DD7AF900D85449 /* SpeechRecognizer.swift */; };
 		F8646C5829DD7B1C00D85449 /* NumberGameViewWithSpeech.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8646C5729DD7B1C00D85449 /* NumberGameViewWithSpeech.swift */; };
+		F86E5E7529F6E89A007D8B60 /* colors.json in Resources */ = {isa = PBXBuildFile; fileRef = F86E5E7429F6E89A007D8B60 /* colors.json */; };
+		F86E5E7729F6E960007D8B60 /* cargame.json in Resources */ = {isa = PBXBuildFile; fileRef = F86E5E7629F6E960007D8B60 /* cargame.json */; };
 		F8967F8629EEC5FB00F1EA49 /* PlayNLearn.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F8967F8429EEC5FB00F1EA49 /* PlayNLearn.xcdatamodeld */; };
 		F8967F8829EEC66C00F1EA49 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8967F8729EEC66C00F1EA49 /* Persistence.swift */; };
 		F8967F8B29F2BB5900F1EA49 /* ColorGameModeWithSpeech.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8967F8A29F2BB5900F1EA49 /* ColorGameModeWithSpeech.swift */; };
@@ -42,6 +44,8 @@
 		F8967F9229F697C900F1EA49 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = F8967F9129F697C900F1EA49 /* Lottie */; };
 		F8967F9529F6986600F1EA49 /* mic yellow.json in Resources */ = {isa = PBXBuildFile; fileRef = F8967F9429F6986600F1EA49 /* mic yellow.json */; };
 		F8967F9729F6989600F1EA49 /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8967F9629F6989600F1EA49 /* LottieView.swift */; };
+		F8967F9929F6D5E300F1EA49 /* Shapes.json in Resources */ = {isa = PBXBuildFile; fileRef = F8967F9829F6D5E300F1EA49 /* Shapes.json */; };
+		F8967F9D29F6D91D00F1EA49 /* numbers.json in Resources */ = {isa = PBXBuildFile; fileRef = F8967F9C29F6D91C00F1EA49 /* numbers.json */; };
 		F8C628B929EAE73C000FEFEF /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C628B829EAE73C000FEFEF /* SettingsView.swift */; };
 		F8EED87929DABCE400D3E3C3 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = F8EED87829DABCE400D3E3C3 /* .gitignore */; };
 /* End PBXBuildFile section */
@@ -93,12 +97,16 @@
 		F8646C5329DD79F700D85449 /* NumberGameWithSpeech.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberGameWithSpeech.swift; sourceTree = "<group>"; };
 		F8646C5529DD7AF900D85449 /* SpeechRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechRecognizer.swift; sourceTree = "<group>"; };
 		F8646C5729DD7B1C00D85449 /* NumberGameViewWithSpeech.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberGameViewWithSpeech.swift; sourceTree = "<group>"; };
+		F86E5E7429F6E89A007D8B60 /* colors.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = colors.json; sourceTree = "<group>"; };
+		F86E5E7629F6E960007D8B60 /* cargame.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = cargame.json; sourceTree = "<group>"; };
 		F8967F8529EEC5FB00F1EA49 /* PlayNLearn.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PlayNLearn.xcdatamodel; sourceTree = "<group>"; };
 		F8967F8729EEC66C00F1EA49 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		F8967F8A29F2BB5900F1EA49 /* ColorGameModeWithSpeech.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorGameModeWithSpeech.swift; sourceTree = "<group>"; };
 		F8967F8E29F46FFB00F1EA49 /* ShapeGameModeWithSpeech.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShapeGameModeWithSpeech.swift; sourceTree = "<group>"; };
 		F8967F9429F6986600F1EA49 /* mic yellow.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "mic yellow.json"; sourceTree = "<group>"; };
 		F8967F9629F6989600F1EA49 /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
+		F8967F9829F6D5E300F1EA49 /* Shapes.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Shapes.json; sourceTree = "<group>"; };
+		F8967F9C29F6D91C00F1EA49 /* numbers.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = numbers.json; sourceTree = "<group>"; };
 		F8C628B829EAE73C000FEFEF /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		F8EED87829DABCE400D3E3C3 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -273,6 +281,10 @@
 		F8967F9329F697E800F1EA49 /* Lottie Animations */ = {
 			isa = PBXGroup;
 			children = (
+				F86E5E7629F6E960007D8B60 /* cargame.json */,
+				F8967F9C29F6D91C00F1EA49 /* numbers.json */,
+				F86E5E7429F6E89A007D8B60 /* colors.json */,
+				F8967F9829F6D5E300F1EA49 /* Shapes.json */,
 				F8967F9429F6986600F1EA49 /* mic yellow.json */,
 			);
 			path = "Lottie Animations";
@@ -394,12 +406,16 @@
 			files = (
 				6A27E9AF29E0B8C5002FEC17 /* congratulation.gif in Resources */,
 				7EFE233729DA30410066B490 /* Preview Assets.xcassets in Resources */,
+				F8967F9D29F6D91D00F1EA49 /* numbers.json in Resources */,
 				6A27E9B329E0BEBF002FEC17 /* sadface.gif in Resources */,
 				6A8C6E3A29E97BC500962E65 /* lose.wav in Resources */,
 				F8967F9529F6986600F1EA49 /* mic yellow.json in Resources */,
+				F8967F9929F6D5E300F1EA49 /* Shapes.json in Resources */,
 				6A8C6E3C29E97BE800962E65 /* win.wav in Resources */,
+				F86E5E7729F6E960007D8B60 /* cargame.json in Resources */,
 				F8EED87929DABCE400D3E3C3 /* .gitignore in Resources */,
 				7EFE233429DA30410066B490 /* Assets.xcassets in Resources */,
+				F86E5E7529F6E89A007D8B60 /* colors.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -516,7 +532,6 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
-				DEAD_CODE_STRIPPING = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -577,7 +592,6 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
-				DEAD_CODE_STRIPPING = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -606,6 +620,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"PlayNLearn/Preview Content\"";
 				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
@@ -642,6 +657,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"PlayNLearn/Preview Content\"";
 				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
@@ -678,6 +694,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				MARKETING_VERSION = 1.0;
@@ -697,6 +714,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				MARKETING_VERSION = 1.0;
@@ -715,6 +733,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = fi.metropolia.PlayNLearnUITests;
@@ -732,6 +751,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = fi.metropolia.PlayNLearnUITests;

@@ -34,11 +34,12 @@ struct ContentView: View {
                             Text(titleName)
                                 .font(.system(size: 30, weight: .bold))
                             
-                            Image(imageName)
-                                .resizable()
+                            LottieView(fileName: imageName)
+                                
                                 .frame(width: 200, height: 200)
-                                .aspectRatio(contentMode: .fit)
+                                .background(Color.white)
                                 .clipShape(Circle())
+                            
                         }
                     }
                     
