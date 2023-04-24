@@ -13,7 +13,7 @@ struct SettingsView: View {
     
     var body: some View {
         VStack {
-            Toggle("Voice Mode", isOn: bindingForSwitch)
+            Toggle("voiceMode", isOn: bindingForSwitch)
             Spacer()
         }
         .padding()

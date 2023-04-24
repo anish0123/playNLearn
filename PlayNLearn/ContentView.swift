@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     @State public var imageName: String = "numbers"
-    @State public var titleName: LocalizedStringKey = "Number Game"
+    @State public var titleName: LocalizedStringKey = "numberGame"
     @Environment(\.managedObjectContext) private var moc
         @FetchRequest(entity: SwitchObject.entity(), sortDescriptors: []) private var objects: FetchedResults<SwitchObject>
     var voiceMode: Bool {
@@ -90,14 +90,14 @@ struct ContentView: View {
     
     func switchGame () -> some View {
         var game: Destination?
-        if titleName ==  "Number Game" {
+        if titleName ==  "numberGame" {
             if voiceMode == true {
                 game = .numberGameVoiceMode
             } else {
                 game = .numberGame
             }
            
-        } else if titleName == "Shape Game" {
+        } else if titleName == "shapeGame" {
             if voiceMode == true {
                 game = .shapeGameVoiceMode
             } else {
@@ -105,7 +105,7 @@ struct ContentView: View {
             }
             
             
-        }else if  titleName == "Color Game" {
+        }else if  titleName == "colorGame" {
             if voiceMode == true {
                 game = .colorGameVoiceMode
             } else {
