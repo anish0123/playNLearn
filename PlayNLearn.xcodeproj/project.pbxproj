@@ -38,6 +38,9 @@
 		F86E5E7529F6E89A007D8B60 /* colors.json in Resources */ = {isa = PBXBuildFile; fileRef = F86E5E7429F6E89A007D8B60 /* colors.json */; };
 		F86E5E7729F6E960007D8B60 /* cargame.json in Resources */ = {isa = PBXBuildFile; fileRef = F86E5E7629F6E960007D8B60 /* cargame.json */; };
 		F86E5E7A29F713EA007D8B60 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F86E5E7C29F713EA007D8B60 /* Localizable.strings */; };
+		F86E5E7F29F857AF007D8B60 /* submit.json in Resources */ = {isa = PBXBuildFile; fileRef = F86E5E7E29F857AF007D8B60 /* submit.json */; };
+		F86E5E8329F85D35007D8B60 /* playButton.json in Resources */ = {isa = PBXBuildFile; fileRef = F86E5E8229F85D35007D8B60 /* playButton.json */; };
+		F86E5E8929F86435007D8B60 /* skip.json in Resources */ = {isa = PBXBuildFile; fileRef = F86E5E8829F86435007D8B60 /* skip.json */; };
 		F8967F8629EEC5FB00F1EA49 /* PlayNLearn.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F8967F8429EEC5FB00F1EA49 /* PlayNLearn.xcdatamodeld */; };
 		F8967F8829EEC66C00F1EA49 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8967F8729EEC66C00F1EA49 /* Persistence.swift */; };
 		F8967F8B29F2BB5900F1EA49 /* ColorGameModeWithSpeech.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8967F8A29F2BB5900F1EA49 /* ColorGameModeWithSpeech.swift */; };
@@ -102,6 +105,9 @@
 		F86E5E7629F6E960007D8B60 /* cargame.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = cargame.json; sourceTree = "<group>"; };
 		F86E5E7B29F713EA007D8B60 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		F86E5E7D29F7144E007D8B60 /* fi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fi; path = fi.lproj/Localizable.strings; sourceTree = "<group>"; };
+		F86E5E7E29F857AF007D8B60 /* submit.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = submit.json; sourceTree = "<group>"; };
+		F86E5E8229F85D35007D8B60 /* playButton.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = playButton.json; sourceTree = "<group>"; };
+		F86E5E8829F86435007D8B60 /* skip.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = skip.json; sourceTree = "<group>"; };
 		F8967F8529EEC5FB00F1EA49 /* PlayNLearn.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PlayNLearn.xcdatamodel; sourceTree = "<group>"; };
 		F8967F8729EEC66C00F1EA49 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		F8967F8A29F2BB5900F1EA49 /* ColorGameModeWithSpeech.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorGameModeWithSpeech.swift; sourceTree = "<group>"; };
@@ -286,6 +292,9 @@
 			isa = PBXGroup;
 			children = (
 				F86E5E7629F6E960007D8B60 /* cargame.json */,
+				F86E5E8229F85D35007D8B60 /* playButton.json */,
+				F86E5E7E29F857AF007D8B60 /* submit.json */,
+				F86E5E8829F86435007D8B60 /* skip.json */,
 				F8967F9C29F6D91C00F1EA49 /* numbers.json */,
 				F86E5E7429F6E89A007D8B60 /* colors.json */,
 				F8967F9829F6D5E300F1EA49 /* Shapes.json */,
@@ -410,13 +419,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				6A27E9AF29E0B8C5002FEC17 /* congratulation.gif in Resources */,
+				F86E5E7F29F857AF007D8B60 /* submit.json in Resources */,
 				7EFE233729DA30410066B490 /* Preview Assets.xcassets in Resources */,
 				F8967F9D29F6D91D00F1EA49 /* numbers.json in Resources */,
 				6A27E9B329E0BEBF002FEC17 /* sadface.gif in Resources */,
 				6A8C6E3A29E97BC500962E65 /* lose.wav in Resources */,
+				F86E5E8929F86435007D8B60 /* skip.json in Resources */,
 				F8967F9529F6986600F1EA49 /* mic yellow.json in Resources */,
 				F8967F9929F6D5E300F1EA49 /* Shapes.json in Resources */,
 				6A8C6E3C29E97BE800962E65 /* win.wav in Resources */,
+				F86E5E8329F85D35007D8B60 /* playButton.json in Resources */,
 				F86E5E7729F6E960007D8B60 /* cargame.json in Resources */,
 				F86E5E7A29F713EA007D8B60 /* Localizable.strings in Resources */,
 				F8EED87929DABCE400D3E3C3 /* .gitignore in Resources */,

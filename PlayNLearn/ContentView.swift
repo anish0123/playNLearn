@@ -65,14 +65,19 @@ struct ContentView: View {
                     NavigationLink(destination: switchGame(), label: {
                         Rectangle()
                             .fill(Color("lightGreen"))
-                            .frame(width: 150, height: 50)
+                            .frame(width: 200, height: 60)
                             .cornerRadius(20)
                             .overlay{
-                                Label("letsPlay", systemImage: "play")
-                                    .font(.system(size: 20))
+                                HStack{
+                                   Text("Let's Play")
+                                        .font(.system(size: 20))
+                                        .padding([.leading],10)
+                                    LottieView(fileName: "playButton")
+                                }
+                                
                             }
                     })
-                    .padding(30)
+                    .padding([.bottom], 40)
                 }
                 .toolbar {
                     HStack{
