@@ -8,7 +8,9 @@ import SwiftUI
 import ConfettiSwiftUI
 import SPConfetti
 
+// This struct is created as view for number game that can played using speech to text feature
 struct NumberGameViewWithSpeech: View {
+    // Initialising vairbales needed for the view
     @StateObject var speechRecognizer = SpeechRecognizer()
     @State private var output = ""
     @State private var number: Int = 0
@@ -147,14 +149,16 @@ struct NumberGameViewWithSpeech: View {
         }
     }
     
+    // Method to start recording the input given by the user
     func startRecording() {
-        print(String(Locale.preferredLanguages[0].prefix(2)))
-        print(numberMap)
+        //reseting the transcript of speech recognizer
         speechRecognizer.resetTranscript()
+        // Starting the speech recognizer
         speechRecognizer.startTranscribing()
         isRecording.toggle()
     }
     
+    // Method to stop recording the input given by the user and process it
     func stopRecording() {
         // Turning off the speech recognition
         speechRecognizer.stopTranscribing()
@@ -177,6 +181,7 @@ struct NumberGameViewWithSpeech: View {
         isRecording.toggle()
     }
     
+    // Method to start the timer of the game so after 30 seconds the game is over if user doesnot answer
     private func startTimer() {
         let timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { _ in
             if timeRemaining > 0 {
@@ -195,12 +200,14 @@ struct NumberGameViewWithSpeech: View {
         RunLoop.current.add(timer, forMode: .common)
     }
     
+    // Method for getting next question
     private func nextQuestion() {
         game = NumberGameWithSpeech()
         timeRemaining = 30
         output = ""
     }
     
+    // Method for checking the answer given by the user
     private func checkAnswer() {
         let result = game.checkAnswer(answer: number)
         if( result == .right) {

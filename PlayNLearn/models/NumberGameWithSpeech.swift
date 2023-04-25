@@ -8,10 +8,12 @@
 import Foundation
 import SwiftUI
 
+// Enum for cases of getting right and wrong answer
 enum GuessResult {
     case right, wrong
 }
 
+// Struct created to have number games random number in range of lowest and highest number
 struct NumberGameWithSpeech {
     let low: Int
     let high: Int
@@ -23,6 +25,7 @@ struct NumberGameWithSpeech {
         self.correctAnswer = Int.random(in: low...high)
     }
     
+    // Method to check the output given by the user it it's correct or not
     func checkAnswer(answer:Int) -> GuessResult {
         print("Correct Answer: \(correctAnswer)")
         print("Answer: \(answer)")

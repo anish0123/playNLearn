@@ -38,3 +38,11 @@
 "black" = "musta";
 "orange" = "oranssi";
 "purple" = "purppura";
+"circle" = "ympyrä";
+"diamond" = "timantti";
+"heart" = "sydän";
+"triangle" = "kolmio";
+"square" = "neliö";
+"rectangle" = "suorakulmio";
+"star" = "tähti";
+"*" = "tähti";

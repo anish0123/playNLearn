@@ -39,4 +39,16 @@
 "black" = "black";
 "orange" = "orange";
 "purple" = "purple";
+"circle" = "circle";
+"diamond" = "diamond";
+"heart" = "heart";
+"triangle" = "triangle";
+"square" = "square";
+"rectangle" = "rectangle";
+"star" = "star";
+"*" = "star";
+
+
+
+
 

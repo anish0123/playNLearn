@@ -8,7 +8,7 @@
 import SwiftUI
 import ConfettiSwiftUI
 import SPConfetti
-
+// This struct is created as view for color game that can played using speech to text feature
 struct ColorGameModeWithSpeech: View {
     @StateObject var speechRecognizer = SpeechRecognizer()
     @State private var score: Int = 0
@@ -140,6 +140,7 @@ struct ColorGameModeWithSpeech: View {
         
     }
     
+    // Method to start recording the input given by the user
     private func startRecording() {
         output = ""
         speechRecognizer.resetTranscript()
@@ -147,6 +148,7 @@ struct ColorGameModeWithSpeech: View {
         isRecording.toggle()
     }
     
+    // Method to stop recording the input given by the user and process it
     private func stopRecording() {
         // Turning off the speech recognition
         speechRecognizer.stopTranscribing()
@@ -157,6 +159,7 @@ struct ColorGameModeWithSpeech: View {
         isRecording.toggle()
     }
     
+    // Method to start the timer of the game so after 30 seconds the game is over if user doesnot answer
     private func startTimer(){
         let timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { _ in
             if timeRemaining > 0 {
@@ -172,12 +175,14 @@ struct ColorGameModeWithSpeech: View {
         RunLoop.current.add(timer, forMode: .common)
     }
     
+    // Method for getting next question
     private func nextQuestion() {
         colorId = ColorGame.allColor[Int.random(in: 0...ColorGame.allColor.count - 1)]
         timeRemaining = 30
         output = ""
     }
     
+    // Method for checking the answer given by the user
     private func checkAnswer() {
         if(colorId.name.stringValue() == output.lowercased()) {
             score += 10

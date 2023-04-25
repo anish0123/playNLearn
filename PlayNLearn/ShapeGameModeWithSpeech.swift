@@ -8,8 +8,9 @@
 import SwiftUI
 import ConfettiSwiftUI
 import SPConfetti
-
+// This struct is created as view for shape game that can played using speech to text feature
 struct ShapeGameModeWithSpeech: View {
+    // Initialising vairbales needed for the view
     @StateObject var speechRecognizer = SpeechRecognizer()
     @State private var score: Int = 0
     @State private var timeRemaining : Double = 30
@@ -146,12 +147,16 @@ struct ShapeGameModeWithSpeech: View {
         
     }
     
+    // Method to start recording the input given by the user
     private func startRecording() {
+        // Reseting the transcript of the speech recognizer
         speechRecognizer.resetTranscript()
+        // Turning on the speech recognizer
         speechRecognizer.startTranscribing()
         isRecording.toggle()
     }
     
+    // Method to stop recording the input given by the user and process it
     private func stopRecording() {
         // Turning off the speech recognition
         speechRecognizer.stopTranscribing()
@@ -162,6 +167,7 @@ struct ShapeGameModeWithSpeech: View {
         isRecording.toggle()
     }
     
+    // Method to start the timer of the game so after 30 seconds the game is over if user doesnot answer
     private func startTimer() {
         let timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { _ in
             if timeRemaining > 0 {
@@ -180,14 +186,21 @@ struct ShapeGameModeWithSpeech: View {
         
     }
     
+    // Method for getting next question
     private func nextQuestion() {
         timeRemaining = 30
         randomNum = Int.random(in: 0...ShapeList.shapes.count - 1 )
         output = ""
     }
     
+    // Method for checking the answer given by the user
     private func checkAnswer() {
-        if(shapes[randomNum].answer == output.lowercased()) {
+        if(String(Locale.preferredLanguages[0].prefix(2)) == "fi") {
+            if(output == "*") {
+                output = "tähti"
+            }
+        }
+        if(shapes[randomNum].answer.stringValue() == output.lowercased()) {
             score += 10
             SPConfetti.startAnimating(.centerWidthToUp, particles: [.triangle, .arc], duration: 1)
             withAnimation(.easeInOut) {
