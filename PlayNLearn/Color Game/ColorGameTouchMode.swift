@@ -10,8 +10,9 @@ import SwiftUI
 struct ColorGame {
     let id: Int
     let color: Color
-    let name: String
+    let name: LocalizedStringKey
 }
+
 
 extension ColorGame {
     static let allColor = [
@@ -23,3 +24,4 @@ extension ColorGame {
         ColorGame(id: 6,color: Color("colorgamePurple"), name: "purple"),
     ]
 }
+

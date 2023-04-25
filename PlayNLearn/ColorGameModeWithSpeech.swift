@@ -179,7 +179,7 @@ struct ColorGameModeWithSpeech: View {
     }
     
     private func checkAnswer() {
-        if(colorId.name.lowercased() == output.lowercased()) {
+        if(colorId.name.stringValue() == output.lowercased()) {
             score += 10
             SPConfetti.startAnimating(.centerWidthToUp, particles: [.triangle, .arc], duration: 1)
             withAnimation(.easeInOut) {
