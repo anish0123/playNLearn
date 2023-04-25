@@ -122,7 +122,7 @@ struct NumberGameViewWithSpeech: View {
                 Button{
                     checkAnswer()
                 } label: {
-                    Text("Submit Answer")
+                    Text("submitAnswer")
                         .frame(width: 150, height: 50)
                         .background(Color(.white))
                         .foregroundColor(.black)
@@ -132,7 +132,7 @@ struct NumberGameViewWithSpeech: View {
                 Button{
                     nextQuestion()
                 } label: {
-                    Label("Skip", systemImage: "forward")
+                    Label("skip", systemImage: "forward")
                         .frame(width: 150, height: 50)
                         .background(Color(.white))
                         .foregroundColor(.black)
