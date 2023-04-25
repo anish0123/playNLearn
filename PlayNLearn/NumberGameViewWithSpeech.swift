@@ -12,7 +12,7 @@ struct NumberGameViewWithSpeech: View {
     @StateObject var speechRecognizer = SpeechRecognizer()
     @State private var output = ""
     @State private var number: Int = 0
-    @State private var numberMap = NumberGameWithSpeech.allNumbers
+    @State private var numberMap = NumbersForVoice.numbers
     @State private var game = NumberGameWithSpeech()
     @State public var timeRemaining = 30.0
     @State private var score  = 0
@@ -78,8 +78,7 @@ struct NumberGameViewWithSpeech: View {
                         startTimer()
                     }
                     Spacer()
-                    Text(output)
-                    
+                        Text(output)
                 }
                 
                 Spacer()
@@ -150,6 +149,7 @@ struct NumberGameViewWithSpeech: View {
     
     func startRecording() {
         print(String(Locale.preferredLanguages[0].prefix(2)))
+        print(numberMap)
         speechRecognizer.resetTranscript()
         speechRecognizer.startTranscribing()
         isRecording.toggle()
@@ -163,8 +163,13 @@ struct NumberGameViewWithSpeech: View {
         // converting string using dictionary
         print("output: \(output) ")
         if(game.correctAnswer < 9 ) {
-            number = numberMap[output.lowercased()] ?? 0
-            print("number:\(number)")
+            // number = numberMap[output.lowercased()] ?? 0
+            numberMap.forEach{ num in
+                if(output.lowercased() == num.writtenNumbers.stringValue()) {
+                    number = num.numbers
+                }
+                print("number:\(number)")
+            }
         } else {
             number = Int(output) ?? 0
         }
