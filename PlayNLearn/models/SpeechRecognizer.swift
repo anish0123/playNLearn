@@ -3,6 +3,9 @@ import AVFoundation
 import Speech
 import SwiftUI
 
+/* This file created for using speech recognizer in the application
+ source: https://developer.apple.com/tutorials/app-dev-training/transcribing-speech-to-text
+ */
 /// A helper for transcribing speech to text using SFSpeechRecognizer and AVAudioEngine.
 actor SpeechRecognizer: ObservableObject {
     enum RecognizerError: Error {

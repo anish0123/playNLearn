@@ -8,40 +8,34 @@
 import Foundation
 import SwiftUI
 
-// Enum for cases of getting right and wrong answer
-enum GuessResult {
-    case right, wrong
-}
-
-// Struct created to have number games random number in range of lowest and highest number
-struct NumberGameWithSpeech {
-    let low: Int
-    let high: Int
-    let correctAnswer: Int
-    
-    init(low: Int = 0, high: Int = 20) {
-        self.low = low
-        self.high = high
-        self.correctAnswer = Int.random(in: low...high)
-    }
-    
-    // Method to check the output given by the user it it's correct or not
-    func checkAnswer(answer:Int) -> GuessResult {
-        print("Correct Answer: \(correctAnswer)")
-        print("Answer: \(answer)")
-        if(answer == correctAnswer) {
-            return .right
-        } else {
-            return .wrong
-        }
-    }
-    
-}
-
+// Struct designed to contain the number itself and it's written form as localized string key
 struct NumbersForVoice {
     let writtenNumbers : LocalizedStringKey
-    let numbers : Int
+    let number : Int
 }
+
+// Extension for introducing number for number game with speech
+extension NumbersForVoice {
+    static let numbers = [
+        NumbersForVoice(writtenNumbers: "one", number: 1),
+        NumbersForVoice(writtenNumbers: "two", number: 2),
+        NumbersForVoice(writtenNumbers: "three", number: 3),
+        NumbersForVoice(writtenNumbers: "four", number: 4),
+        NumbersForVoice(writtenNumbers: "five", number: 5),
+        NumbersForVoice(writtenNumbers: "six", number: 6),
+        NumbersForVoice(writtenNumbers: "seven", number: 7),
+        NumbersForVoice(writtenNumbers: "eight", number: 8),
+        NumbersForVoice(writtenNumbers: "nine", number: 9),
+        NumbersForVoice(writtenNumbers: "ten", number: 10),
+    
+    ]
+}
+
+
+/*
+ All of the bottom extensions are used for chaning localized string key to string
+ Source: https://stackoverflow.com/questions/60841915/how-to-change-localizedstringkey-to-string-in-swiftui
+ */
 
 extension LocalizedStringKey {
     var stringKey: String? {
@@ -69,19 +63,4 @@ extension LocalizedStringKey {
 }
 
 
-extension NumbersForVoice {
-    static let numbers = [
-        NumbersForVoice(writtenNumbers: "one", numbers: 1),
-        NumbersForVoice(writtenNumbers: "two", numbers: 2),
-        NumbersForVoice(writtenNumbers: "three", numbers: 3),
-        NumbersForVoice(writtenNumbers: "four", numbers: 4),
-        NumbersForVoice(writtenNumbers: "five", numbers: 5),
-        NumbersForVoice(writtenNumbers: "six", numbers: 6),
-        NumbersForVoice(writtenNumbers: "seven", numbers: 7),
-        NumbersForVoice(writtenNumbers: "eight", numbers: 8),
-        NumbersForVoice(writtenNumbers: "nine", numbers: 9),
-        NumbersForVoice(writtenNumbers: "ten", numbers: 10),
-    
-    ]
-}
 
