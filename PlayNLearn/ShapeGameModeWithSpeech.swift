@@ -120,23 +120,35 @@ struct ShapeGameModeWithSpeech: View {
                 Button{
                     checkAnswer()
                 } label: {
-                    Text("submitAnswer")
-                        .frame(width: 150, height: 50)
-                        .background(Color(.white))
-                        .foregroundColor(.black)
-                        .font(.system(size: 20, weight: .bold, design: .default))
-                        .cornerRadius(10)
+                    Group {
+                        Text("submitAnswer")
+                            .frame(width: 150)
+                        LottieView(fileName: "submit", loopMode: .loop)
+                    }
                 }
+                .frame(width: 200, height: 50)
+                .background(Color(.orange))
+                .foregroundColor(.white)
+                .font(.system(size: 25, weight: .bold, design: .default))
+                .disabled(output == "")
+                .opacity(output == "" ? 0.4 : 1)
+                .cornerRadius(10)
+                
                 Button{
                     nextQuestion()
                 } label: {
-                    Label("skip", systemImage: "forward")
-                        .frame(width: 150, height: 50)
-                        .background(Color(.white))
-                        .foregroundColor(.black)
-                        .font(.system(size: 20, weight: .bold, design: .default))
-                        .cornerRadius(10)
+                    Text("Skip")
+                        .frame(width: 150)
+                    LottieView(fileName: "skip", loopMode: .loop)
+                    
+                        
                 }
+                .font(.system(size: 25, weight: .bold, design: .default))
+                .frame(width: 200, height: 50)
+                .background(Color(.orange))
+                .foregroundColor(.white)
+                .font(.system(size: 20, weight: .bold, design: .default))
+                .cornerRadius(10)
             }
             .padding(50)
             PopUpWindow(title: rightAnswer ? "Correct Answer" : "Incorrect Answer",
