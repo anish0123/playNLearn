@@ -148,13 +148,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		6A27E9B429E17A9B002FEC17 /* gifImages */ = {
+		6A27E9B429E17A9B002FEC17 /* GifImages */ = {
 			isa = PBXGroup;
 			children = (
 				6A27E9AE29E0B8C5002FEC17 /* congratulation.gif */,
 				6A27E9B229E0BEBF002FEC17 /* sadface.gif */,
 			);
-			path = gifImages;
+			path = GifImages;
 			sourceTree = "<group>";
 		};
 		6A8C6E3829E97BA500962E65 /* Sound */ = {
@@ -165,32 +165,6 @@
 				6A8C6E3B29E97BE800962E65 /* win.wav */,
 			);
 			path = Sound;
-			sourceTree = "<group>";
-		};
-		6AB9249A29EFEEF90049E359 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				6AB9249B29EFEF2F0049E359 /* ColorViewModel.swift */,
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		6AB924B729F1445F0049E359 /* Color Game */ = {
-			isa = PBXGroup;
-			children = (
-				6AB9249229ED34610049E359 /* ColorGameTouchMode.swift */,
-				6AB9249429ED34B10049E359 /* ColorGameTouchModeView.swift */,
-			);
-			path = "Color Game";
-			sourceTree = "<group>";
-		};
-		6AF7151D29EAA4D1006ED404 /* ShapeGame */ = {
-			isa = PBXGroup;
-			children = (
-				6AF7151E29EAA4E9006ED404 /* ShapeGameView.swift */,
-				6AF7152429ED7A9F006ED404 /* ShapeList.swift */,
-			);
-			path = ShapeGame;
 			sourceTree = "<group>";
 		};
 		7EFE232329DA30400066B490 = {
@@ -217,26 +191,15 @@
 		7EFE232E29DA30400066B490 /* PlayNLearn */ = {
 			isa = PBXGroup;
 			children = (
+				F86E5E8A29F95CAF007D8B60 /* Views */,
 				F8967F9329F697E800F1EA49 /* Lottie Animations */,
-				6AB924B729F1445F0049E359 /* Color Game */,
-				6AB9249A29EFEEF90049E359 /* ViewModel */,
 				F8967F8929EECB7500F1EA49 /* Core Data */,
-				6AF7151D29EAA4D1006ED404 /* ShapeGame */,
 				6A8C6E3829E97BA500962E65 /* Sound */,
-				6A27E9B429E17A9B002FEC17 /* gifImages */,
-				F8646C5029DD79AA00D85449 /* models */,
+				6A27E9B429E17A9B002FEC17 /* GifImages */,
+				F8646C5029DD79AA00D85449 /* Models */,
 				7EFE232F29DA30400066B490 /* PlayNLearnApp.swift */,
-				7EFE233129DA30400066B490 /* ContentView.swift */,
-				7EFE233329DA30410066B490 /* Assets.xcassets */,
-				7EFE233529DA30410066B490 /* Preview Content */,
-				6AF6787A29DAAC9F001DBC83 /* NumberGameView.swift */,
-				6AB9249629ED3C430049E359 /* DragObjectForColorGame.swift */,
-				F8646C5729DD7B1C00D85449 /* NumberGameViewWithSpeech.swift */,
-				F8C628B829EAE73C000FEFEF /* SettingsView.swift */,
-				F8967F8A29F2BB5900F1EA49 /* ColorGameModeWithSpeech.swift */,
-				F8967F8E29F46FFB00F1EA49 /* ShapeGameModeWithSpeech.swift */,
-				F8967F9629F6989600F1EA49 /* LottieView.swift */,
 				F86E5E7C29F713EA007D8B60 /* Localizable.strings */,
+				7EFE233529DA30410066B490 /* Preview Content */,
 			);
 			path = PlayNLearn;
 			sourceTree = "<group>";
@@ -244,6 +207,7 @@
 		7EFE233529DA30410066B490 /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
+				7EFE233329DA30410066B490 /* Assets.xcassets */,
 				7EFE233629DA30410066B490 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
@@ -266,17 +230,37 @@
 			path = PlayNLearnUITests;
 			sourceTree = "<group>";
 		};
-		F8646C5029DD79AA00D85449 /* models */ = {
+		F8646C5029DD79AA00D85449 /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				6A7BFA9829E0B4FC003E5A4C /* GifImage.swift */,
+				6AB9249B29EFEF2F0049E359 /* ColorViewModel.swift */,
 				6A7BFA8A29DF62B9003E5A4C /* PopUpWindow.swift */,
+				6AB9249229ED34610049E359 /* ColorGameTouchMode.swift */,
+				6AF7152429ED7A9F006ED404 /* ShapeList.swift */,
 				6A97E92129DB0D5F00150080 /* NumbersList.swift */,
 				F8646C5329DD79F700D85449 /* NumberGameWithSpeech.swift */,
 				F8646C5529DD7AF900D85449 /* SpeechRecognizer.swift */,
 				6AB9249829EFEDA90049E359 /* OptionContainer.swift */,
 			);
-			path = models;
+			path = Models;
+			sourceTree = "<group>";
+		};
+		F86E5E8A29F95CAF007D8B60 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				7EFE233129DA30400066B490 /* ContentView.swift */,
+				6AF6787A29DAAC9F001DBC83 /* NumberGameView.swift */,
+				6AB9249629ED3C430049E359 /* DragObjectForColorGame.swift */,
+				F8646C5729DD7B1C00D85449 /* NumberGameViewWithSpeech.swift */,
+				6AB9249429ED34B10049E359 /* ColorGameTouchModeView.swift */,
+				F8C628B829EAE73C000FEFEF /* SettingsView.swift */,
+				F8967F8A29F2BB5900F1EA49 /* ColorGameModeWithSpeech.swift */,
+				6AF7151E29EAA4E9006ED404 /* ShapeGameView.swift */,
+				F8967F8E29F46FFB00F1EA49 /* ShapeGameModeWithSpeech.swift */,
+				F8967F9629F6989600F1EA49 /* LottieView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		F8967F8929EECB7500F1EA49 /* Core Data */ = {
