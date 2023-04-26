@@ -69,7 +69,7 @@ struct ContentView: View {
                             .cornerRadius(20)
                             .overlay{
                                 HStack{
-                                   Text("Let's Play")
+                                   Text("letsPlay")
                                         .font(.system(size: 20))
                                         .padding([.leading],10)
                                     LottieView(fileName: "playButton")

@@ -156,7 +156,7 @@ struct NumberGameView: View {
                     .frame(width: 110, height: 50)
                     .cornerRadius(20)
                     .overlay{
-                        Label("Skip", systemImage: "forward")
+                        Label("skip", systemImage: "forward")
                             .font(.system(size: 20))
                     }
                     .onTapGesture (count: 1) {

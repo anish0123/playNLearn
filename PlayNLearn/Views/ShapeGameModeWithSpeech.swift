@@ -137,7 +137,7 @@ struct ShapeGameModeWithSpeech: View {
                 Button{
                     nextQuestion()
                 } label: {
-                    Text("Skip")
+                    Text("skip")
                         .frame(width: 150)
                     LottieView(fileName: "skip", loopMode: .loop)
                     

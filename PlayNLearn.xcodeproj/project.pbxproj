@@ -32,7 +32,7 @@
 		7EFE234129DA30410066B490 /* PlayNLearnTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EFE234029DA30410066B490 /* PlayNLearnTests.swift */; };
 		7EFE234B29DA30410066B490 /* PlayNLearnUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EFE234A29DA30410066B490 /* PlayNLearnUITests.swift */; };
 		7EFE234D29DA30410066B490 /* PlayNLearnUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EFE234C29DA30410066B490 /* PlayNLearnUITestsLaunchTests.swift */; };
-		F8646C5429DD79F700D85449 /* NumberGameWithSpeech.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8646C5329DD79F700D85449 /* NumberGameWithSpeech.swift */; };
+		F8646C5429DD79F700D85449 /* NumbersListForVoiceMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8646C5329DD79F700D85449 /* NumbersListForVoiceMode.swift */; };
 		F8646C5629DD7AF900D85449 /* SpeechRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8646C5529DD7AF900D85449 /* SpeechRecognizer.swift */; };
 		F8646C5829DD7B1C00D85449 /* NumberGameViewWithSpeech.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8646C5729DD7B1C00D85449 /* NumberGameViewWithSpeech.swift */; };
 		F86E5E7529F6E89A007D8B60 /* colors.json in Resources */ = {isa = PBXBuildFile; fileRef = F86E5E7429F6E89A007D8B60 /* colors.json */; };
@@ -41,6 +41,7 @@
 		F86E5E7F29F857AF007D8B60 /* submit.json in Resources */ = {isa = PBXBuildFile; fileRef = F86E5E7E29F857AF007D8B60 /* submit.json */; };
 		F86E5E8329F85D35007D8B60 /* playButton.json in Resources */ = {isa = PBXBuildFile; fileRef = F86E5E8229F85D35007D8B60 /* playButton.json */; };
 		F86E5E8929F86435007D8B60 /* skip.json in Resources */ = {isa = PBXBuildFile; fileRef = F86E5E8829F86435007D8B60 /* skip.json */; };
+		F86E5E9129F9638D007D8B60 /* next.json in Resources */ = {isa = PBXBuildFile; fileRef = F86E5E9029F9638C007D8B60 /* next.json */; };
 		F8967F8629EEC5FB00F1EA49 /* PlayNLearn.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F8967F8429EEC5FB00F1EA49 /* PlayNLearn.xcdatamodeld */; };
 		F8967F8829EEC66C00F1EA49 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8967F8729EEC66C00F1EA49 /* Persistence.swift */; };
 		F8967F8B29F2BB5900F1EA49 /* ColorGameModeWithSpeech.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8967F8A29F2BB5900F1EA49 /* ColorGameModeWithSpeech.swift */; };
@@ -98,7 +99,7 @@
 		7EFE234629DA30410066B490 /* PlayNLearnUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PlayNLearnUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7EFE234A29DA30410066B490 /* PlayNLearnUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayNLearnUITests.swift; sourceTree = "<group>"; };
 		7EFE234C29DA30410066B490 /* PlayNLearnUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayNLearnUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		F8646C5329DD79F700D85449 /* NumberGameWithSpeech.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberGameWithSpeech.swift; sourceTree = "<group>"; };
+		F8646C5329DD79F700D85449 /* NumbersListForVoiceMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumbersListForVoiceMode.swift; sourceTree = "<group>"; };
 		F8646C5529DD7AF900D85449 /* SpeechRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechRecognizer.swift; sourceTree = "<group>"; };
 		F8646C5729DD7B1C00D85449 /* NumberGameViewWithSpeech.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberGameViewWithSpeech.swift; sourceTree = "<group>"; };
 		F86E5E7429F6E89A007D8B60 /* colors.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = colors.json; sourceTree = "<group>"; };
@@ -108,6 +109,7 @@
 		F86E5E7E29F857AF007D8B60 /* submit.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = submit.json; sourceTree = "<group>"; };
 		F86E5E8229F85D35007D8B60 /* playButton.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = playButton.json; sourceTree = "<group>"; };
 		F86E5E8829F86435007D8B60 /* skip.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = skip.json; sourceTree = "<group>"; };
+		F86E5E9029F9638C007D8B60 /* next.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = next.json; sourceTree = "<group>"; };
 		F8967F8529EEC5FB00F1EA49 /* PlayNLearn.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PlayNLearn.xcdatamodel; sourceTree = "<group>"; };
 		F8967F8729EEC66C00F1EA49 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		F8967F8A29F2BB5900F1EA49 /* ColorGameModeWithSpeech.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorGameModeWithSpeech.swift; sourceTree = "<group>"; };
@@ -239,7 +241,7 @@
 				6AB9249229ED34610049E359 /* ColorGameTouchMode.swift */,
 				6AF7152429ED7A9F006ED404 /* ShapeList.swift */,
 				6A97E92129DB0D5F00150080 /* NumbersList.swift */,
-				F8646C5329DD79F700D85449 /* NumberGameWithSpeech.swift */,
+				F8646C5329DD79F700D85449 /* NumbersListForVoiceMode.swift */,
 				F8646C5529DD7AF900D85449 /* SpeechRecognizer.swift */,
 				6AB9249829EFEDA90049E359 /* OptionContainer.swift */,
 			);
@@ -286,6 +288,7 @@
 				F86E5E7629F6E960007D8B60 /* cargame.json */,
 				F86E5E8229F85D35007D8B60 /* playButton.json */,
 				F86E5E7E29F857AF007D8B60 /* submit.json */,
+				F86E5E9029F9638C007D8B60 /* next.json */,
 				F86E5E8829F86435007D8B60 /* skip.json */,
 				F8967F9C29F6D91C00F1EA49 /* numbers.json */,
 				F86E5E7429F6E89A007D8B60 /* colors.json */,
@@ -426,6 +429,7 @@
 				F8EED87929DABCE400D3E3C3 /* .gitignore in Resources */,
 				7EFE233429DA30410066B490 /* Assets.xcassets in Resources */,
 				F86E5E7529F6E89A007D8B60 /* colors.json in Resources */,
+				F86E5E9129F9638D007D8B60 /* next.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -450,7 +454,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F8646C5429DD79F700D85449 /* NumberGameWithSpeech.swift in Sources */,
+				F8646C5429DD79F700D85449 /* NumbersListForVoiceMode.swift in Sources */,
 				6A97E92229DB0D5F00150080 /* NumbersList.swift in Sources */,
 				6AF6787B29DAAC9F001DBC83 /* NumberGameView.swift in Sources */,
 				F8967F8829EEC66C00F1EA49 /* Persistence.swift in Sources */,

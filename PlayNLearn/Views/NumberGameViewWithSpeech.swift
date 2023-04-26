@@ -12,7 +12,7 @@ import SPConfetti
 struct NumberGameViewWithSpeech: View {
     // Initialising vairbales needed for the view
     @StateObject var speechRecognizer = SpeechRecognizer()
-    @State private var output = "test"
+    @State private var output = ""
     @State private var number: Int = 0
     @State private var choosenNumber = NumbersForVoice.numbers[Int.random(in: 0...NumbersForVoice.numbers.count - 1)]
     @State public var timeRemaining = 30.0
@@ -140,9 +140,9 @@ struct NumberGameViewWithSpeech: View {
                 Button{
                     nextQuestion()
                 } label: {
-                    Text("Skip")
+                    Text("skip")
                         .frame(width: 150)
-                    LottieView(fileName: "skip", loopMode: .loop)
+                    LottieView(fileName: "next", loopMode: .loop)
                     
                         
                 }
