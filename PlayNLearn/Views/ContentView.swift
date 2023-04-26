@@ -159,7 +159,7 @@ enum Destination {
         case .numberGame:
             return AnyView(NumberGameView(randomNum: 2))
         case .numberGameVoiceMode:
-            return AnyView(NumberGameViewWithSpeech())
+            return AnyView(NumberGameViewWithSpeech(choosenNumber: NumbersForVoice(number: 1, writtenNumber: "one")))
         case .shapeGame:
             return AnyView(ShapeGameView(randomNum: 2))
         case .colorGame:

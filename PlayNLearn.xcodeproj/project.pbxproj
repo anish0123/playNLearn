@@ -53,6 +53,7 @@
 		F8967F9D29F6D91D00F1EA49 /* numbers.json in Resources */ = {isa = PBXBuildFile; fileRef = F8967F9C29F6D91C00F1EA49 /* numbers.json */; };
 		F8C628B929EAE73C000FEFEF /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C628B829EAE73C000FEFEF /* SettingsView.swift */; };
 		F8EED87929DABCE400D3E3C3 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = F8EED87829DABCE400D3E3C3 /* .gitignore */; };
+		F8F0DA0529F968CF005ADF2A /* NumberViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F0DA0429F968CF005ADF2A /* NumberViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -120,6 +121,7 @@
 		F8967F9C29F6D91C00F1EA49 /* numbers.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = numbers.json; sourceTree = "<group>"; };
 		F8C628B829EAE73C000FEFEF /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		F8EED87829DABCE400D3E3C3 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		F8F0DA0429F968CF005ADF2A /* NumberViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -269,6 +271,7 @@
 			isa = PBXGroup;
 			children = (
 				6AB9249B29EFEF2F0049E359 /* ColorViewModel.swift */,
+				F8F0DA0429F968CF005ADF2A /* NumberViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -475,6 +478,7 @@
 				6AB9249529ED34B10049E359 /* ColorGameTouchModeView.swift in Sources */,
 				F8967F8B29F2BB5900F1EA49 /* ColorGameModeWithSpeech.swift in Sources */,
 				F8967F9729F6989600F1EA49 /* LottieView.swift in Sources */,
+				F8F0DA0529F968CF005ADF2A /* NumberViewModel.swift in Sources */,
 				6A7BFA8B29DF62B9003E5A4C /* PopUpWindow.swift in Sources */,
 				6A8C6E3729E974B200962E65 /* SoundManager.swift in Sources */,
 			);

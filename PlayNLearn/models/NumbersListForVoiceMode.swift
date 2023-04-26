@@ -9,28 +9,14 @@ import Foundation
 import SwiftUI
 
 // Struct designed to contain the number itself and it's written form as localized string key
-struct NumbersForVoice {
-    let writtenNumbers : LocalizedStringKey
+struct NumbersForVoice: Codable {
     let number : Int
-}
-
-// Extension for introducing number for number game with speech
-extension NumbersForVoice {
-    static let numbers = [
-        NumbersForVoice(writtenNumbers: "one", number: 1),
-        NumbersForVoice(writtenNumbers: "two", number: 2),
-        NumbersForVoice(writtenNumbers: "three", number: 3),
-        NumbersForVoice(writtenNumbers: "four", number: 4),
-        NumbersForVoice(writtenNumbers: "five", number: 5),
-        NumbersForVoice(writtenNumbers: "six", number: 6),
-        NumbersForVoice(writtenNumbers: "seven", number: 7),
-        NumbersForVoice(writtenNumbers: "eight", number: 8),
-        NumbersForVoice(writtenNumbers: "nine", number: 9),
-        NumbersForVoice(writtenNumbers: "ten", number: 10),
+    let writtenNumber : String
     
-    ]
+    var localizedDescription: LocalizedStringKey {
+        return LocalizedStringKey(writtenNumber)
+    }
 }
-
 
 /*
  All of the bottom extensions are used for chaning localized string key to string
