@@ -17,8 +17,11 @@ struct ShapeGameModeWithSpeech: View {
     @State private var output = ""
     @State private var showPopUp: Bool = false
     @State private var rightAnswer: Bool = false
-    var shapes: [Shapes] = ShapeList.shapes
-    @State private var randomNum = Int.random(in: 0...ShapeList.shapes.count - 1 )
+    // var shapes: [Shapes] = ShapeList.shapes
+    // @State private var randomNum = Int.random(in: 0...ShapeList.shapes.count - 1 )
+    @State var shapes = [Shapes]()
+    @State var choosenShape: Shapes
+    @State var imageName: String
     @State private var isRecording = false
     
     var body: some View {
@@ -65,16 +68,20 @@ struct ShapeGameModeWithSpeech: View {
                         
                         Circle()
                             .fill(.white)
-                            .frame(width: 180, height: 180)
-                        
-                        Image(shapes[randomNum].question)
-                            .resizable()
-                            .frame(width: 120, height: 120)
-                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 200, height: 200)
+            
+                        AsyncImage(url: URL(string: "https://users.metropolia.fi/~anishm/mad/shapes/\( imageName)")) { image in
+                                                    image
+                                                        .resizable()
+                                                        .aspectRatio(contentMode: .fill)
+                                                        .frame(width: 120, height: 120)
+                                                        
+                                                } placeholder: {
+                                                    
+                                                }
                         
                     }
-                    .frame(width: 200)
-                    .opacity(0.8)
+                    .frame(width: 300)
                     .padding(70)
                     .onAppear {
                         startTimer()
@@ -95,7 +102,7 @@ struct ShapeGameModeWithSpeech: View {
                             (isRecording ?  AnyView(LottieView(fileName: "mic yellow")
                                 .frame(height: 150)
                                 .foregroundColor(.orange)
-                                
+                                                    
                                 .padding()
                             )
                              
@@ -141,7 +148,7 @@ struct ShapeGameModeWithSpeech: View {
                         .frame(width: 150)
                     LottieView(fileName: "skip", loopMode: .loop)
                     
-                        
+                    
                 }
                 .font(.system(size: 25, weight: .bold, design: .default))
                 .frame(width: 200, height: 50)
@@ -155,6 +162,14 @@ struct ShapeGameModeWithSpeech: View {
                         buttonText: rightAnswer ? "Continue" : "Retry",
                         show: $showPopUp, answer: $rightAnswer,
                         timeRemaining: $timeRemaining)
+        }
+        .onAppear() {
+            apiCall().getShapes { (shapes) in
+                self.shapes = shapes
+                choosenShape = shapes[Int.random(in: 0...shapes.count - 1)]
+                imageName = choosenShape.description
+                
+            }
         }
         
     }
@@ -190,7 +205,8 @@ struct ShapeGameModeWithSpeech: View {
                     showPopUp.toggle()
                 }
                 timeRemaining = 30
-                
+                choosenShape = shapes[Int.random(in: 0...shapes.count - 1)]
+                imageName = choosenShape.description
             }
             
         }
@@ -201,7 +217,8 @@ struct ShapeGameModeWithSpeech: View {
     // Method for getting next question
     private func nextQuestion() {
         timeRemaining = 30
-        randomNum = Int.random(in: 0...ShapeList.shapes.count - 1 )
+        choosenShape = shapes[Int.random(in: 0...shapes.count - 1)]
+        imageName = choosenShape.description
         output = ""
     }
     
@@ -212,15 +229,17 @@ struct ShapeGameModeWithSpeech: View {
                 output = "tähti"
             }
         }
-        if(shapes[randomNum].answer.stringValue() == output.lowercased()) {
+        if(choosenShape.answer.stringValue() == output.lowercased()) {
             score += 10
             SPConfetti.startAnimating(.centerWidthToUp, particles: [.triangle, .arc], duration: 1)
+            SoundManager.instance.playSound(sound: .win)
             withAnimation(.easeInOut) {
                 showPopUp.toggle()
                 rightAnswer.toggle()
             }
         } else {
             score = 0
+            SoundManager.instance.playSound(sound: .lose)
             withAnimation(.easeInOut) {
                 showPopUp.toggle()
                 
@@ -249,6 +268,10 @@ struct ShapeGameModeWithSpeech: View {
 
 struct ShapeGameModeWithSpeech_Previews: PreviewProvider {
     static var previews: some View {
-        ShapeGameModeWithSpeech()
+        ShapeGameModeWithSpeech( choosenShape: Shapes(question: "circle", option: [
+            "circle",
+            "star",
+            "diamond"
+        ], description: "circle"), imageName: "circle")
     }
 }

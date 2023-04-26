@@ -167,7 +167,11 @@ enum Destination {
         case .colorGameVoiceMode:
             return AnyView(ColorGameModeWithSpeech())
         case .shapeGameVoiceMode:
-            return AnyView(ShapeGameModeWithSpeech())
+            return AnyView(ShapeGameModeWithSpeech(choosenShape: Shapes(question: "circle", option: [
+                "circle",
+                "star",
+                "diamond"
+            ], description: "circle"), imageName: "circle"))
         }
         
     }

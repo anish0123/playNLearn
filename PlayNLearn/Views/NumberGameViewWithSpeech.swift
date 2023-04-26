@@ -232,6 +232,7 @@ struct NumberGameViewWithSpeech: View {
             print("Correct")
             score += 10
             SPConfetti.startAnimating(.centerWidthToUp, particles: [.triangle, .arc], duration: 1)
+            SoundManager.instance.playSound(sound: .win)
             withAnimation(.easeInOut) {
                 showPopUp.toggle()
                 rightAnswer.toggle()
@@ -240,6 +241,7 @@ struct NumberGameViewWithSpeech: View {
         } else {
             score = 0
             output = ""
+            SoundManager.instance.playSound(sound: .lose)
             withAnimation(.easeInOut) {
                 showPopUp.toggle()
                 
