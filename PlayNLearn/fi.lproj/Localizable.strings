@@ -1,0 +1,48 @@
+/* 
+  Localizable.strings
+  PlayNLearn
+
+  Created by Anish Maharjan on 24.4.2023.
+  
+*/
+"numberGame" = "Numero Peli";
+"colorGame" = "Väri Peli";
+"shapeGame" = "Muoto Peli";
+"letsPlay" = "Pelataan";
+"voiceMode" = "Puhetila";
+"submitAnswer" = "Lähetä";
+"skip" = "Ohita";
+"one" = "yksi";
+"two" = "kaksi";
+"three" = "kolme";
+"four" = "neljä";
+"five" = "viisi";
+"six" = "kuusi";
+"seven" = "seitsemän";
+"eight" = "kahdeksan";
+"nine" = "yhdeksän";
+"ten" = "kymmenen";
+"eleven" = "yksitoista";
+"twelve" = "kaksitoista";
+"thirteen" = "kolmetoista";
+"fourteen" = "neljätoista";
+"fifteen" = "viisitoista";
+"sixteen" = "kuusitoista";
+"seventeen" = "seitsemäntoista";
+"eighteen" = "kahdeksantoista";
+"nineteen" = "yhdeksäntoista";
+"twenty" = "kaksikymmentä";
+"red" = "punainen";
+"blue" = "sininen";
+"green" = "vihreä";
+"black" = "musta";
+"orange" = "oranssi";
+"purple" = "purppura";
+"circle" = "ympyrä";
+"diamond" = "timantti";
+"heart" = "sydän";
+"triangle" = "kolmio";
+"square" = "neliö";
+"rectangle" = "suorakulmio";
+"star" = "tähti";
+"*" = "tähti";

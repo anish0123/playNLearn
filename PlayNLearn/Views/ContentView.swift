@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     @State public var imageName: String = "numbers"
-    @State public var titleName: String = "Number Game"
+    @State public var titleName: LocalizedStringKey = "numberGame"
     @Environment(\.managedObjectContext) private var moc
         @FetchRequest(entity: SwitchObject.entity(), sortDescriptors: []) private var objects: FetchedResults<SwitchObject>
     var voiceMode: Bool {
@@ -22,11 +22,16 @@ struct ContentView: View {
     var body: some View {
         NavigationView{
             ZStack {
-                Image("homeimage")
-                    .resizable()
-                    .aspectRatio(contentMode: .fill)
-                    .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
-                    .edgesIgnoringSafeArea(.all)
+                AsyncImage(url: URL(string: "https://users.metropolia.fi/~anishm/mad/BackgroundImages/homeimage.jpg")) { image in
+                            image
+                                .resizable()
+                                .aspectRatio(contentMode: .fill)
+                                
+                        } placeholder: {
+                            Color.gray
+                        }
+                        .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
+                        .edgesIgnoringSafeArea(.all)
                 
                 VStack {
                     ZStack {
@@ -34,22 +39,23 @@ struct ContentView: View {
                             Text(titleName)
                                 .font(.system(size: 30, weight: .bold))
                             
-                            Image(imageName)
-                                .resizable()
+                            LottieView(fileName: imageName)
+                                
                                 .frame(width: 200, height: 200)
-                                .aspectRatio(contentMode: .fit)
+                                .background(Color.white)
                                 .clipShape(Circle())
+                            
                         }
                     }
                     
                     VStack {
                         HStack {
-                            ScrollViewList(title: "Number Game", titleName: $titleName, image: "numbers", imageName: $imageName)
-                            ScrollViewList(title: "Color Game", titleName: $titleName, image: "colors", imageName: $imageName)
+                            ScrollViewList(title: "numberGame", titleName: $titleName, image: "numbers", imageName: $imageName)
+                            ScrollViewList(title: "colorGame", titleName: $titleName, image: "colors", imageName: $imageName)
                         }
                         
                         HStack {
-                            ScrollViewList(title: "Shape Game", titleName: $titleName, image: "Shapes", imageName: $imageName)
+                            ScrollViewList(title: "shapeGame", titleName: $titleName, image: "Shapes", imageName: $imageName)
                             ScrollViewList(title: "Car Game", titleName: $titleName, image: "cargame", imageName: $imageName)
                         }
                     }
@@ -59,14 +65,19 @@ struct ContentView: View {
                     NavigationLink(destination: switchGame(), label: {
                         Rectangle()
                             .fill(Color("lightGreen"))
-                            .frame(width: 150, height: 50)
+                            .frame(width: 200, height: 60)
                             .cornerRadius(20)
                             .overlay{
-                                Label("Let's play", systemImage: "play")
-                                    .font(.system(size: 20))
+                                HStack{
+                                   Text("letsPlay")
+                                        .font(.system(size: 20))
+                                        .padding([.leading],10)
+                                    LottieView(fileName: "playButton")
+                                }
+                                
                             }
                     })
-                    .padding(30)
+                    .padding([.bottom], 40)
                 }
                 .toolbar {
                     HStack{
@@ -84,18 +95,28 @@ struct ContentView: View {
     
     func switchGame () -> some View {
         var game: Destination?
-        if titleName ==  "Number Game" {
+        if titleName ==  "numberGame" {
             if voiceMode == true {
                 game = .numberGameVoiceMode
             } else {
                 game = .numberGame
             }
            
-        } else if titleName == "Shape Game" {
-            game = .shapeGame
+        } else if titleName == "shapeGame" {
+            if voiceMode == true {
+                game = .shapeGameVoiceMode
+            } else {
+                game = .shapeGame
+            }
             
-        }else if  titleName == "Color Game" {
-            game = .colorGame
+            
+        }else if  titleName == "colorGame" {
+            if voiceMode == true {
+                game = .colorGameVoiceMode
+            } else {
+                game = .colorGame
+            }
+           
         }
         
         
@@ -104,8 +125,8 @@ struct ContentView: View {
 }
 
 struct ScrollViewList: View {
-    var title: String
-    @Binding var titleName: String
+    var title: LocalizedStringKey
+    @Binding var titleName: LocalizedStringKey
     var image: String
     @Binding var imageName: String
     
@@ -130,6 +151,8 @@ enum Destination {
     case numberGameVoiceMode
     case shapeGame
     case colorGame
+    case colorGameVoiceMode
+    case shapeGameVoiceMode
     
     func getView() -> AnyView {
         switch self {
@@ -140,7 +163,12 @@ enum Destination {
         case .shapeGame:
             return AnyView(ShapeGameView(randomNum: 2))
         case .colorGame:
-            return AnyView(ColorGameTouchModeView())        }
+            return AnyView(ColorGameTouchModeView())
+        case .colorGameVoiceMode:
+            return AnyView(ColorGameModeWithSpeech())
+        case .shapeGameVoiceMode:
+            return AnyView(ShapeGameModeWithSpeech())
+        }
         
     }
 }

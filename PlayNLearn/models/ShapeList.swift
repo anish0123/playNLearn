@@ -11,7 +11,7 @@ struct Shapes: Identifiable {
     let id = UUID()
     let question: String
     let option: [String]
-    let answer: String
+    let answer: LocalizedStringKey
     
 }
 

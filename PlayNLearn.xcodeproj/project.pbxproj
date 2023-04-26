@@ -32,11 +32,25 @@
 		7EFE234129DA30410066B490 /* PlayNLearnTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EFE234029DA30410066B490 /* PlayNLearnTests.swift */; };
 		7EFE234B29DA30410066B490 /* PlayNLearnUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EFE234A29DA30410066B490 /* PlayNLearnUITests.swift */; };
 		7EFE234D29DA30410066B490 /* PlayNLearnUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EFE234C29DA30410066B490 /* PlayNLearnUITestsLaunchTests.swift */; };
-		F8646C5429DD79F700D85449 /* NumberGameWithSpeech.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8646C5329DD79F700D85449 /* NumberGameWithSpeech.swift */; };
+		F8646C5429DD79F700D85449 /* NumbersListForVoiceMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8646C5329DD79F700D85449 /* NumbersListForVoiceMode.swift */; };
 		F8646C5629DD7AF900D85449 /* SpeechRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8646C5529DD7AF900D85449 /* SpeechRecognizer.swift */; };
 		F8646C5829DD7B1C00D85449 /* NumberGameViewWithSpeech.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8646C5729DD7B1C00D85449 /* NumberGameViewWithSpeech.swift */; };
+		F86E5E7529F6E89A007D8B60 /* colors.json in Resources */ = {isa = PBXBuildFile; fileRef = F86E5E7429F6E89A007D8B60 /* colors.json */; };
+		F86E5E7729F6E960007D8B60 /* cargame.json in Resources */ = {isa = PBXBuildFile; fileRef = F86E5E7629F6E960007D8B60 /* cargame.json */; };
+		F86E5E7A29F713EA007D8B60 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F86E5E7C29F713EA007D8B60 /* Localizable.strings */; };
+		F86E5E7F29F857AF007D8B60 /* submit.json in Resources */ = {isa = PBXBuildFile; fileRef = F86E5E7E29F857AF007D8B60 /* submit.json */; };
+		F86E5E8329F85D35007D8B60 /* playButton.json in Resources */ = {isa = PBXBuildFile; fileRef = F86E5E8229F85D35007D8B60 /* playButton.json */; };
+		F86E5E8929F86435007D8B60 /* skip.json in Resources */ = {isa = PBXBuildFile; fileRef = F86E5E8829F86435007D8B60 /* skip.json */; };
+		F86E5E9129F9638D007D8B60 /* next.json in Resources */ = {isa = PBXBuildFile; fileRef = F86E5E9029F9638C007D8B60 /* next.json */; };
 		F8967F8629EEC5FB00F1EA49 /* PlayNLearn.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F8967F8429EEC5FB00F1EA49 /* PlayNLearn.xcdatamodeld */; };
 		F8967F8829EEC66C00F1EA49 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8967F8729EEC66C00F1EA49 /* Persistence.swift */; };
+		F8967F8B29F2BB5900F1EA49 /* ColorGameModeWithSpeech.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8967F8A29F2BB5900F1EA49 /* ColorGameModeWithSpeech.swift */; };
+		F8967F8F29F46FFB00F1EA49 /* ShapeGameModeWithSpeech.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8967F8E29F46FFB00F1EA49 /* ShapeGameModeWithSpeech.swift */; };
+		F8967F9229F697C900F1EA49 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = F8967F9129F697C900F1EA49 /* Lottie */; };
+		F8967F9529F6986600F1EA49 /* mic yellow.json in Resources */ = {isa = PBXBuildFile; fileRef = F8967F9429F6986600F1EA49 /* mic yellow.json */; };
+		F8967F9729F6989600F1EA49 /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8967F9629F6989600F1EA49 /* LottieView.swift */; };
+		F8967F9929F6D5E300F1EA49 /* Shapes.json in Resources */ = {isa = PBXBuildFile; fileRef = F8967F9829F6D5E300F1EA49 /* Shapes.json */; };
+		F8967F9D29F6D91D00F1EA49 /* numbers.json in Resources */ = {isa = PBXBuildFile; fileRef = F8967F9C29F6D91C00F1EA49 /* numbers.json */; };
 		F8C628B929EAE73C000FEFEF /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C628B829EAE73C000FEFEF /* SettingsView.swift */; };
 		F8EED87929DABCE400D3E3C3 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = F8EED87829DABCE400D3E3C3 /* .gitignore */; };
 /* End PBXBuildFile section */
@@ -85,11 +99,25 @@
 		7EFE234629DA30410066B490 /* PlayNLearnUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PlayNLearnUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7EFE234A29DA30410066B490 /* PlayNLearnUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayNLearnUITests.swift; sourceTree = "<group>"; };
 		7EFE234C29DA30410066B490 /* PlayNLearnUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayNLearnUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		F8646C5329DD79F700D85449 /* NumberGameWithSpeech.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberGameWithSpeech.swift; sourceTree = "<group>"; };
+		F8646C5329DD79F700D85449 /* NumbersListForVoiceMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumbersListForVoiceMode.swift; sourceTree = "<group>"; };
 		F8646C5529DD7AF900D85449 /* SpeechRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechRecognizer.swift; sourceTree = "<group>"; };
 		F8646C5729DD7B1C00D85449 /* NumberGameViewWithSpeech.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberGameViewWithSpeech.swift; sourceTree = "<group>"; };
+		F86E5E7429F6E89A007D8B60 /* colors.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = colors.json; sourceTree = "<group>"; };
+		F86E5E7629F6E960007D8B60 /* cargame.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = cargame.json; sourceTree = "<group>"; };
+		F86E5E7B29F713EA007D8B60 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		F86E5E7D29F7144E007D8B60 /* fi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fi; path = fi.lproj/Localizable.strings; sourceTree = "<group>"; };
+		F86E5E7E29F857AF007D8B60 /* submit.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = submit.json; sourceTree = "<group>"; };
+		F86E5E8229F85D35007D8B60 /* playButton.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = playButton.json; sourceTree = "<group>"; };
+		F86E5E8829F86435007D8B60 /* skip.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = skip.json; sourceTree = "<group>"; };
+		F86E5E9029F9638C007D8B60 /* next.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = next.json; sourceTree = "<group>"; };
 		F8967F8529EEC5FB00F1EA49 /* PlayNLearn.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PlayNLearn.xcdatamodel; sourceTree = "<group>"; };
 		F8967F8729EEC66C00F1EA49 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
+		F8967F8A29F2BB5900F1EA49 /* ColorGameModeWithSpeech.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorGameModeWithSpeech.swift; sourceTree = "<group>"; };
+		F8967F8E29F46FFB00F1EA49 /* ShapeGameModeWithSpeech.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShapeGameModeWithSpeech.swift; sourceTree = "<group>"; };
+		F8967F9429F6986600F1EA49 /* mic yellow.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "mic yellow.json"; sourceTree = "<group>"; };
+		F8967F9629F6989600F1EA49 /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
+		F8967F9829F6D5E300F1EA49 /* Shapes.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Shapes.json; sourceTree = "<group>"; };
+		F8967F9C29F6D91C00F1EA49 /* numbers.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = numbers.json; sourceTree = "<group>"; };
 		F8C628B829EAE73C000FEFEF /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		F8EED87829DABCE400D3E3C3 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -101,6 +129,7 @@
 			files = (
 				6A7BFA9229E041D7003E5A4C /* ConfettiSwiftUI in Frameworks */,
 				6A7BFA9529E0516E003E5A4C /* SPConfetti in Frameworks */,
+				F8967F9229F697C900F1EA49 /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -121,13 +150,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		6A27E9B429E17A9B002FEC17 /* gifImages */ = {
+		6A27E9B429E17A9B002FEC17 /* GifImages */ = {
 			isa = PBXGroup;
 			children = (
 				6A27E9AE29E0B8C5002FEC17 /* congratulation.gif */,
 				6A27E9B229E0BEBF002FEC17 /* sadface.gif */,
 			);
-			path = gifImages;
+			path = GifImages;
 			sourceTree = "<group>";
 		};
 		6A8C6E3829E97BA500962E65 /* Sound */ = {
@@ -138,32 +167,6 @@
 				6A8C6E3B29E97BE800962E65 /* win.wav */,
 			);
 			path = Sound;
-			sourceTree = "<group>";
-		};
-		6AB9249A29EFEEF90049E359 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				6AB9249B29EFEF2F0049E359 /* ColorViewModel.swift */,
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		6AB924B729F1445F0049E359 /* Color Game */ = {
-			isa = PBXGroup;
-			children = (
-				6AB9249229ED34610049E359 /* ColorGameTouchMode.swift */,
-				6AB9249429ED34B10049E359 /* ColorGameTouchModeView.swift */,
-			);
-			path = "Color Game";
-			sourceTree = "<group>";
-		};
-		6AF7151D29EAA4D1006ED404 /* ShapeGame */ = {
-			isa = PBXGroup;
-			children = (
-				6AF7151E29EAA4E9006ED404 /* ShapeGameView.swift */,
-				6AF7152429ED7A9F006ED404 /* ShapeList.swift */,
-			);
-			path = ShapeGame;
 			sourceTree = "<group>";
 		};
 		7EFE232329DA30400066B490 = {
@@ -190,21 +193,16 @@
 		7EFE232E29DA30400066B490 /* PlayNLearn */ = {
 			isa = PBXGroup;
 			children = (
-				6AB924B729F1445F0049E359 /* Color Game */,
-				6AB9249A29EFEEF90049E359 /* ViewModel */,
+				F86E5E8B29F95E75007D8B60 /* ViewModels */,
+				F86E5E8A29F95CAF007D8B60 /* Views */,
+				F8967F9329F697E800F1EA49 /* Lottie Animations */,
 				F8967F8929EECB7500F1EA49 /* Core Data */,
-				6AF7151D29EAA4D1006ED404 /* ShapeGame */,
 				6A8C6E3829E97BA500962E65 /* Sound */,
-				6A27E9B429E17A9B002FEC17 /* gifImages */,
-				F8646C5029DD79AA00D85449 /* models */,
+				6A27E9B429E17A9B002FEC17 /* GifImages */,
+				F8646C5029DD79AA00D85449 /* Models */,
 				7EFE232F29DA30400066B490 /* PlayNLearnApp.swift */,
-				7EFE233129DA30400066B490 /* ContentView.swift */,
-				7EFE233329DA30410066B490 /* Assets.xcassets */,
+				F86E5E7C29F713EA007D8B60 /* Localizable.strings */,
 				7EFE233529DA30410066B490 /* Preview Content */,
-				6AF6787A29DAAC9F001DBC83 /* NumberGameView.swift */,
-				6AB9249629ED3C430049E359 /* DragObjectForColorGame.swift */,
-				F8646C5729DD7B1C00D85449 /* NumberGameViewWithSpeech.swift */,
-				F8C628B829EAE73C000FEFEF /* SettingsView.swift */,
 			);
 			path = PlayNLearn;
 			sourceTree = "<group>";
@@ -212,6 +210,7 @@
 		7EFE233529DA30410066B490 /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
+				7EFE233329DA30410066B490 /* Assets.xcassets */,
 				7EFE233629DA30410066B490 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
@@ -234,17 +233,44 @@
 			path = PlayNLearnUITests;
 			sourceTree = "<group>";
 		};
-		F8646C5029DD79AA00D85449 /* models */ = {
+		F8646C5029DD79AA00D85449 /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				6A7BFA9829E0B4FC003E5A4C /* GifImage.swift */,
 				6A7BFA8A29DF62B9003E5A4C /* PopUpWindow.swift */,
+				6AB9249229ED34610049E359 /* ColorGameTouchMode.swift */,
+				6AF7152429ED7A9F006ED404 /* ShapeList.swift */,
 				6A97E92129DB0D5F00150080 /* NumbersList.swift */,
-				F8646C5329DD79F700D85449 /* NumberGameWithSpeech.swift */,
+				F8646C5329DD79F700D85449 /* NumbersListForVoiceMode.swift */,
 				F8646C5529DD7AF900D85449 /* SpeechRecognizer.swift */,
 				6AB9249829EFEDA90049E359 /* OptionContainer.swift */,
 			);
-			path = models;
+			path = Models;
+			sourceTree = "<group>";
+		};
+		F86E5E8A29F95CAF007D8B60 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				7EFE233129DA30400066B490 /* ContentView.swift */,
+				6AF6787A29DAAC9F001DBC83 /* NumberGameView.swift */,
+				6AB9249629ED3C430049E359 /* DragObjectForColorGame.swift */,
+				F8646C5729DD7B1C00D85449 /* NumberGameViewWithSpeech.swift */,
+				6AB9249429ED34B10049E359 /* ColorGameTouchModeView.swift */,
+				F8C628B829EAE73C000FEFEF /* SettingsView.swift */,
+				F8967F8A29F2BB5900F1EA49 /* ColorGameModeWithSpeech.swift */,
+				6AF7151E29EAA4E9006ED404 /* ShapeGameView.swift */,
+				F8967F8E29F46FFB00F1EA49 /* ShapeGameModeWithSpeech.swift */,
+				F8967F9629F6989600F1EA49 /* LottieView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		F86E5E8B29F95E75007D8B60 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				6AB9249B29EFEF2F0049E359 /* ColorViewModel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 		F8967F8929EECB7500F1EA49 /* Core Data */ = {
@@ -254,6 +280,22 @@
 				F8967F8729EEC66C00F1EA49 /* Persistence.swift */,
 			);
 			path = "Core Data";
+			sourceTree = "<group>";
+		};
+		F8967F9329F697E800F1EA49 /* Lottie Animations */ = {
+			isa = PBXGroup;
+			children = (
+				F86E5E7629F6E960007D8B60 /* cargame.json */,
+				F86E5E8229F85D35007D8B60 /* playButton.json */,
+				F86E5E7E29F857AF007D8B60 /* submit.json */,
+				F86E5E9029F9638C007D8B60 /* next.json */,
+				F86E5E8829F86435007D8B60 /* skip.json */,
+				F8967F9C29F6D91C00F1EA49 /* numbers.json */,
+				F86E5E7429F6E89A007D8B60 /* colors.json */,
+				F8967F9829F6D5E300F1EA49 /* Shapes.json */,
+				F8967F9429F6986600F1EA49 /* mic yellow.json */,
+			);
+			path = "Lottie Animations";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -275,6 +317,7 @@
 			packageProductDependencies = (
 				6A7BFA9129E041D7003E5A4C /* ConfettiSwiftUI */,
 				6A7BFA9429E0516E003E5A4C /* SPConfetti */,
+				F8967F9129F697C900F1EA49 /* Lottie */,
 			);
 			productName = PlayNLearn;
 			productReference = 7EFE232C29DA30400066B490 /* PlayNLearn.app */;
@@ -346,11 +389,13 @@
 			knownRegions = (
 				en,
 				Base,
+				fi,
 			);
 			mainGroup = 7EFE232329DA30400066B490;
 			packageReferences = (
 				6A7BFA9029E041D7003E5A4C /* XCRemoteSwiftPackageReference "ConfettiSwiftUI" */,
 				6A7BFA9329E0516E003E5A4C /* XCRemoteSwiftPackageReference "SPConfetti" */,
+				F8967F9029F697C900F1EA49 /* XCRemoteSwiftPackageReference "lottie-ios" */,
 			);
 			productRefGroup = 7EFE232D29DA30400066B490 /* Products */;
 			projectDirPath = "";
@@ -369,12 +414,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				6A27E9AF29E0B8C5002FEC17 /* congratulation.gif in Resources */,
+				F86E5E7F29F857AF007D8B60 /* submit.json in Resources */,
 				7EFE233729DA30410066B490 /* Preview Assets.xcassets in Resources */,
+				F8967F9D29F6D91D00F1EA49 /* numbers.json in Resources */,
 				6A27E9B329E0BEBF002FEC17 /* sadface.gif in Resources */,
 				6A8C6E3A29E97BC500962E65 /* lose.wav in Resources */,
+				F86E5E8929F86435007D8B60 /* skip.json in Resources */,
+				F8967F9529F6986600F1EA49 /* mic yellow.json in Resources */,
+				F8967F9929F6D5E300F1EA49 /* Shapes.json in Resources */,
 				6A8C6E3C29E97BE800962E65 /* win.wav in Resources */,
+				F86E5E8329F85D35007D8B60 /* playButton.json in Resources */,
+				F86E5E7729F6E960007D8B60 /* cargame.json in Resources */,
+				F86E5E7A29F713EA007D8B60 /* Localizable.strings in Resources */,
 				F8EED87929DABCE400D3E3C3 /* .gitignore in Resources */,
 				7EFE233429DA30410066B490 /* Assets.xcassets in Resources */,
+				F86E5E7529F6E89A007D8B60 /* colors.json in Resources */,
+				F86E5E9129F9638D007D8B60 /* next.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -399,7 +454,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F8646C5429DD79F700D85449 /* NumberGameWithSpeech.swift in Sources */,
+				F8646C5429DD79F700D85449 /* NumbersListForVoiceMode.swift in Sources */,
 				6A97E92229DB0D5F00150080 /* NumbersList.swift in Sources */,
 				6AF6787B29DAAC9F001DBC83 /* NumberGameView.swift in Sources */,
 				F8967F8829EEC66C00F1EA49 /* Persistence.swift in Sources */,
@@ -415,8 +470,11 @@
 				6AF7151F29EAA4E9006ED404 /* ShapeGameView.swift in Sources */,
 				6AF7152529ED7A9F006ED404 /* ShapeList.swift in Sources */,
 				F8646C5829DD7B1C00D85449 /* NumberGameViewWithSpeech.swift in Sources */,
+				F8967F8F29F46FFB00F1EA49 /* ShapeGameModeWithSpeech.swift in Sources */,
 				6AB9249929EFEDA90049E359 /* OptionContainer.swift in Sources */,
 				6AB9249529ED34B10049E359 /* ColorGameTouchModeView.swift in Sources */,
+				F8967F8B29F2BB5900F1EA49 /* ColorGameModeWithSpeech.swift in Sources */,
+				F8967F9729F6989600F1EA49 /* LottieView.swift in Sources */,
 				6A7BFA8B29DF62B9003E5A4C /* PopUpWindow.swift in Sources */,
 				6A8C6E3729E974B200962E65 /* SoundManager.swift in Sources */,
 			);
@@ -453,6 +511,18 @@
 			targetProxy = 7EFE234729DA30410066B490 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		F86E5E7C29F713EA007D8B60 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F86E5E7B29F713EA007D8B60 /* en */,
+				F86E5E7D29F7144E007D8B60 /* fi */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		7EFE234E29DA30410066B490 /* Debug */ = {
@@ -576,6 +646,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"PlayNLearn/Preview Content\"";
 				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
@@ -612,6 +683,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"PlayNLearn/Preview Content\"";
 				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
@@ -648,6 +720,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				MARKETING_VERSION = 1.0;
@@ -667,6 +740,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				MARKETING_VERSION = 1.0;
@@ -685,6 +759,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = fi.metropolia.PlayNLearnUITests;
@@ -702,6 +777,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = fi.metropolia.PlayNLearnUITests;
@@ -771,6 +847,14 @@
 				minimumVersion = 1.0.0;
 			};
 		};
+		F8967F9029F697C900F1EA49 /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -783,6 +867,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 6A7BFA9329E0516E003E5A4C /* XCRemoteSwiftPackageReference "SPConfetti" */;
 			productName = SPConfetti;
+		};
+		F8967F9129F697C900F1EA49 /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F8967F9029F697C900F1EA49 /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
 		};
 /* End XCSwiftPackageProductDependency section */
 

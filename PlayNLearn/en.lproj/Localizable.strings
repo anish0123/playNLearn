@@ -1,0 +1,54 @@
+/* 
+  Localizable.strings
+  PlayNLearn
+
+  Created by Anish Maharjan on 24.4.2023.
+  
+*/
+"numberGame" = "Number Game";
+"colorGame" = "Color Game";
+"shapeGame" = "Shape Game";
+"letsPlay" = "Let's Play";
+"settingsView" = "Settings View";
+"voiceMode" = "Voice Mode";
+"submitAnswer" = "Submit";
+"skip" = "Skip";
+"one" = "one";
+"two" = "two";
+"three" = "three";
+"four" = "four";
+"five" = "five";
+"six" = "six";
+"seven" = "seven";
+"eight" = "eight";
+"nine" = "nine";
+"ten" = "ten";
+"eleven" = "eleven";
+"twelve" = "twelve";
+"thirteen" = "thirteen";
+"fourteen" = "fourteen";
+"fifteen" = "fifteen";
+"sixteen" = "sixteen";
+"seventeen" = "seventeen";
+"eighteen" = "eighteen";
+"nineteen" = "nineteen";
+"twenty" = "twenty";
+"red" = "red";
+"blue" = "blue";
+"green" = "green";
+"black" = "black";
+"orange" = "orange";
+"purple" = "purple";
+"circle" = "circle";
+"diamond" = "diamond";
+"heart" = "heart";
+"triangle" = "triangle";
+"square" = "square";
+"rectangle" = "rectangle";
+"star" = "star";
+"*" = "star";
+
+
+
+
+
