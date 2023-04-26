@@ -10,6 +10,8 @@ import ConfettiSwiftUI
 import SPConfetti
 
 struct NumberGameView: View {
+    @State private var showingAlert = false
+    @State var myIntArray = [2]
     @State private var isSpinning = false
     @State var showPopUp: Bool = false
     @State private var rightAnswer: Bool = false
@@ -17,8 +19,8 @@ struct NumberGameView: View {
     @State var randomNum: Int
     @State private var counter = 0
     @State var timeRemaining = 30.0
-    @State private var score  = 10
-   
+    @State private var score  = 0
+    @State private var animate = false
 
     var body: some View {
         
@@ -46,6 +48,7 @@ struct NumberGameView: View {
                     }
                 }
                 
+                
                 Group {
                     
                     ZStack {
@@ -66,7 +69,6 @@ struct NumberGameView: View {
                             .padding()
                             .background(Color.white)
                             .clipShape(Circle())
-                        
                     }
                     .frame(width: 200)
                     .opacity(0.9)
@@ -97,7 +99,6 @@ struct NumberGameView: View {
                                     .padding()
                                     .onTapGesture (count: 1) {
                                         checkAnswer(numbers[randomNum].question, numbers[randomNum].option[0])
-
                                     }
                                 
                                 Text("\(numbers[randomNum].option[1])")
@@ -161,7 +162,7 @@ struct NumberGameView: View {
                     }
                     .onTapGesture (count: 1) {
                         timeRemaining = 30.0
-                        randomNum = Int.random(in: 0...NumberList.numbers.count - 1 )
+                        nextQuestion()
                     }
             }
             .padding(50)
@@ -170,6 +171,13 @@ struct NumberGameView: View {
                         buttonText: rightAnswer ? "Continue" : "Retry", 
                         show: $showPopUp, answer: $rightAnswer,
                         timeRemaining: $timeRemaining)
+        }
+        .alert(isPresented:$showingAlert) {
+            Alert(
+                title: Text("Game Over"),
+                message: Text("Play Again"),
+                dismissButton: .default(Text("Continue"))
+            )
         }
     }
     
@@ -180,16 +188,27 @@ struct NumberGameView: View {
                 timeRemaining -= 1
                 
             } else {
-                randomNum = Int.random(in: 0...NumberList.numbers.count - 1 )
-                timeRemaining = 30
+                nextQuestion()
             }
         }
         RunLoop.current.add(timer, forMode: .common)
     }
     
     func nextQuestion() {
+        var number: Int
         timeRemaining = 30.0
-        randomNum = Int.random(in: 0...NumberList.numbers.count - 1 )
+        number = Int.random(in: 0...NumberList.numbers.count - 1 )
+        
+        repeat{
+            number = Int.random(in: 0...NumberList.numbers.count - 1 )
+            if myIntArray.count == 15 {
+                showingAlert = true
+                myIntArray.removeAll()
+            }
+        } while myIntArray.contains(numbers[number].question)
+        
+        randomNum = number
+        myIntArray.append(numbers[randomNum].question)
     }
     
     func checkAnswer(_ question: Int, _ answer: Int) {

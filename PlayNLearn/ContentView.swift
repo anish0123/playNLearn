@@ -3,13 +3,17 @@
 //  PlayNLearn
 //
 //  Created by Ritesh Ghimire on 3.4.2023.
-//
 
 import SwiftUI
 
 struct ContentView: View {
     @State public var imageName: String = "numbers"
     @State public var titleName: String = "Number Game"
+    @Environment(\.managedObjectContext) private var moc
+        @FetchRequest(entity: SwitchObject.entity(), sortDescriptors: []) private var objects: FetchedResults<SwitchObject>
+    var voiceMode: Bool {
+        return objects.first?.switchState ?? false
+    }
     @State private var showNumberGame = false
     @State private var showShapeGame = false
     @State private var selectedDestination: Destination?
@@ -29,27 +33,50 @@ struct ContentView: View {
                             Text(titleName)
                                 .font(.system(size: 30, weight: .bold))
                             
-                            Image(imageName)
-                                .resizable()
-                                .frame(width: 200, height: 200)
-                                .aspectRatio(contentMode: .fit)
-                                .clipShape(Circle())
+                            if imageName == "numbers" {
+                                GifImage("numbers")
+                                    .frame(width: 200, height: 200)
+                                    .aspectRatio(contentMode: .fit)
+                                    .clipShape(Circle())
+                            }
+                            
+                            if imageName == "shapes" {
+                                GifImage("shapes")
+                                    .frame(width: 200, height: 200)
+                                    .aspectRatio(contentMode: .fit)
+                                    .clipShape(Circle())
+                            }
+
+                            if imageName == "colors" {
+                                GifImage("colors")
+                                    .frame(width: 200, height: 200)
+                                    .aspectRatio(contentMode: .fit)
+                                    .clipShape(Circle())
+                            }
+
+                            if imageName == "xylophone" {
+                                GifImage("xylophone")
+                                    .frame(width: 200, height: 200)
+                                    .aspectRatio(contentMode: .fit)
+                                    .clipShape(Circle())
+                            }
+
                         }
                     }
                     
-                        VStack {
-                            HStack {
-                                ScrollViewList(title: "Number Game", titleName: $titleName, image: "numbers", imageName: $imageName)
-                                ScrollViewList(title: "Color Game", titleName: $titleName, image: "colors", imageName: $imageName)
-                            }
-                            
-                            HStack {
-                                ScrollViewList(title: "Shape Game", titleName: $titleName, image: "Shapes", imageName: $imageName)
-                                ScrollViewList(title: "Car Game", titleName: $titleName, image: "cargame", imageName: $imageName)
-                            }
+                    VStack {
+                        HStack {
+                            ScrollViewList(title: "Number Game", titleName: $titleName, image: "numbers", imageName: $imageName)
+                            ScrollViewList(title: "Color Game", titleName: $titleName, image: "colors", imageName: $imageName)
                         }
-                        .frame(width: UIScreen.main.bounds.width , height: 420)
-                        .cornerRadius(30)
+                        
+                        HStack {
+                            ScrollViewList(title: "Shape Game", titleName: $titleName, image: "shapes", imageName: $imageName)
+                            ScrollViewList(title: "Sound", titleName: $titleName, image: "xylophone", imageName: $imageName)
+                        }
+                    }
+                    .frame(width: UIScreen.main.bounds.width , height: 420)
+                    .cornerRadius(30)
 
                     NavigationLink(destination: switchGame(), label: {
                         Rectangle()
@@ -61,18 +88,16 @@ struct ContentView: View {
                                     .font(.system(size: 20))
                             }
                     })
-
-                    
+                    .padding(30)
                 }
-                .padding(30)
-            }
-            .toolbar {
-                HStack{
-                    NavigationLink(destination: SettingsView()){
-                        Label("", systemImage: "line.horizontal.3")
-                            .font(.system(size: 18))
-                            .foregroundColor(.black)
-                        
+                .toolbar {
+                    HStack{
+                        NavigationLink(destination: SettingsView()){
+                            Label("", systemImage: "line.horizontal.3")
+                                .font(.system(size: 18))
+                                .foregroundColor(.black)
+                            
+                        }
                     }
                 }
             }
@@ -82,10 +107,20 @@ struct ContentView: View {
     func switchGame () -> some View {
         var game: Destination?
         if titleName ==  "Number Game" {
-            game = .numberGame
+            if voiceMode == true {
+                game = .numberGameVoiceMode
+            } else {
+                game = .numberGame
+            }
+           
         } else if titleName == "Shape Game" {
             game = .shapeGame
+            
+        }else if  titleName == "Color Game" {
+            game = .colorGame
         }
+        
+        
         return game?.getView()
     }
 }
@@ -95,7 +130,6 @@ struct ScrollViewList: View {
     @Binding var titleName: String
     var image: String
     @Binding var imageName: String
-    @State private var checkBoolean = SettingsView().voiceMode
     
     var body: some View {
         Image(image)
@@ -103,6 +137,7 @@ struct ScrollViewList: View {
             .frame(width: 120, height: 120)
             .aspectRatio(contentMode: .fit)
             .clipShape(Rectangle())
+            .border(Color.black, width: 2)
             .padding()
             .opacity(0.9)
             .onTapGesture (count: 1) {
@@ -115,14 +150,20 @@ struct ScrollViewList: View {
 //open the specific game selected by the user
 enum Destination {
     case numberGame
+    case numberGameVoiceMode
     case shapeGame
+    case colorGame
     
     func getView() -> AnyView {
         switch self {
         case .numberGame:
-            return AnyView(NumberGameView(randomNum: 2))
+            return AnyView(NumberGameView(randomNum: 1))
+        case .numberGameVoiceMode:
+            return AnyView(NumberGameViewWithSpeech())
         case .shapeGame:
-            return AnyView(ShapeGameView(randomNum: 2))
+            return AnyView(ShapeGameView(randomNum: 1))
+        case .colorGame:
+            return AnyView(ColorGameTouchModeView())
         }
     }
 }

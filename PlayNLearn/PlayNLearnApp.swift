@@ -9,9 +9,11 @@ import SwiftUI
 
 @main
 struct PlayNLearnApp: App {
+    let persistenceContainer = PersistenceController.shared
     var body: some Scene {
         WindowGroup {
-            ContentView(imageName: "numbers")
+            ContentView()
+                .environment(\.managedObjectContext, persistenceContainer.container.viewContext)
         }
     }
 }
