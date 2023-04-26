@@ -191,6 +191,7 @@
 		7EFE232E29DA30400066B490 /* PlayNLearn */ = {
 			isa = PBXGroup;
 			children = (
+				F86E5E8B29F95E75007D8B60 /* ViewModels */,
 				F86E5E8A29F95CAF007D8B60 /* Views */,
 				F8967F9329F697E800F1EA49 /* Lottie Animations */,
 				F8967F8929EECB7500F1EA49 /* Core Data */,
@@ -234,7 +235,6 @@
 			isa = PBXGroup;
 			children = (
 				6A7BFA9829E0B4FC003E5A4C /* GifImage.swift */,
-				6AB9249B29EFEF2F0049E359 /* ColorViewModel.swift */,
 				6A7BFA8A29DF62B9003E5A4C /* PopUpWindow.swift */,
 				6AB9249229ED34610049E359 /* ColorGameTouchMode.swift */,
 				6AF7152429ED7A9F006ED404 /* ShapeList.swift */,
@@ -261,6 +261,14 @@
 				F8967F9629F6989600F1EA49 /* LottieView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		F86E5E8B29F95E75007D8B60 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				6AB9249B29EFEF2F0049E359 /* ColorViewModel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 		F8967F8929EECB7500F1EA49 /* Core Data */ = {
