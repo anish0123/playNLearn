@@ -10,6 +10,7 @@ import ConfettiSwiftUI
 import SPConfetti
 // This struct is created as view for color game that can played using speech to text feature
 struct ColorGameModeWithSpeech: View {
+    // Initialising variables that are needed to run this view.
     @StateObject var speechRecognizer = SpeechRecognizer()
     @State private var score: Int = 0
     @State private var timeRemaining : Double = 30

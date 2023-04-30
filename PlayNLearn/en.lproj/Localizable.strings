@@ -5,6 +5,8 @@
   Created by Anish Maharjan on 24.4.2023.
   
 */
+
+// Localizing varibales in english language
 "numberGame" = "Number Game";
 "colorGame" = "Color Game";
 "shapeGame" = "Shape Game";

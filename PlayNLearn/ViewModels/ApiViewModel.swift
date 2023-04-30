@@ -25,7 +25,7 @@ class apiCall {
         .resume()
     }
     
-    // Method to call the fetch request
+    // Method to call the fetch request for getting shapes from the api
     func getShapes(completion:@escaping ([Shapes]) -> ()) {
         guard let url = URL(string: "https://users.metropolia.fi/~anishm/mad/Json/shapes.json") else { return }
         

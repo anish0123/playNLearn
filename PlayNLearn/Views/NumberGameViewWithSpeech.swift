@@ -14,7 +14,6 @@ struct NumberGameViewWithSpeech: View {
     @StateObject var speechRecognizer = SpeechRecognizer()
     @State private var output = ""
     @State private var number: Int = 0
-    // @State private var choosenNumber = NumbersForVoice.numbers[Int.random(in: 0...NumbersForVoice.numbers.count - 1)]
     @State var numbersForVoice = [NumbersForVoice]()
     @State var choosenNumber: NumbersForVoice
     @State public var timeRemaining = 30.0

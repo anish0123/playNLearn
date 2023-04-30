@@ -5,6 +5,7 @@
   Created by Anish Maharjan on 24.4.2023.
   
 */
+// Localising variables in finnish language
 "numberGame" = "Numero Peli";
 "colorGame" = "Väri Peli";
 "shapeGame" = "Muoto Peli";

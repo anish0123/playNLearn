@@ -9,17 +9,20 @@ import SwiftUI
 import Lottie
 import UIKit
 
+// This view is created to display lottie animations in other views.
 struct LottieView: UIViewRepresentable {
+    // Initialising variables
     typealias UIViewType = UIView
-    
      var fileName : String
     var loopMode: LottieLoopMode = .loop
 
+    // Method for creating the lottie animation view
         func makeUIView(context: UIViewRepresentableContext<LottieView>) -> UIView {
             let view = UIView()
             return view
         }
     
+    // Method for updating varibales if there is any changes in relatable variables.
     func updateUIView(_ uiView: UIView, context: UIViewRepresentableContext<LottieView>) {
             uiView.subviews.forEach({ $0.removeFromSuperview() })
             let animationView = LottieAnimationView()
@@ -36,9 +39,6 @@ struct LottieView: UIViewRepresentable {
             animationView.loopMode = loopMode
             animationView.play()
         }
-    
-    
-    
 }
 
 

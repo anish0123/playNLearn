@@ -17,8 +17,6 @@ struct ShapeGameModeWithSpeech: View {
     @State private var output = ""
     @State private var showPopUp: Bool = false
     @State private var rightAnswer: Bool = false
-    // var shapes: [Shapes] = ShapeList.shapes
-    // @State private var randomNum = Int.random(in: 0...ShapeList.shapes.count - 1 )
     @State var shapes = [Shapes]()
     @State var choosenShape: Shapes
     @State var imageName: String
