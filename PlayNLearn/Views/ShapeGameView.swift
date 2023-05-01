@@ -113,18 +113,19 @@ struct ShapeGameView: View {
                     }
                     .padding()
                 
-                Rectangle()
-                    .fill(Color("lightGreen"))
-                    .frame(width: 110, height: 50)
-                    .cornerRadius(20)
-                    .overlay{
-                        Label("skip", systemImage: "forward")
-                            .font(.system(size: 20))
-                    }
-                    .onTapGesture (count: 1) {
-                        timeRemaining = 30.0
-                        randomNum = Int.random(in: 0...ShapeList.shapes.count - 1 )
-                    }
+                Button{
+                    nextQuestion()
+                } label: {
+                    Text("skip")
+                        .frame(width: 120)
+                    LottieView(fileName: "next", loopMode: .loop)
+                }
+                .font(.system(size: 25, weight: .bold, design: .default))
+                .frame(width: 200, height: 50)
+                .background(Color(.orange))
+                .foregroundColor(.white)
+                .font(.system(size: 20, weight: .bold, design: .default))
+                .cornerRadius(10)
             }
             .padding(80)
             

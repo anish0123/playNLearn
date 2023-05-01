@@ -26,6 +26,11 @@ struct NumberList {
         Numbers(question: 07, option: [70,07,77,76], answer: 07),
         Numbers(question: 08, option: [80,08,88,89], answer: 08),
         Numbers(question: 09, option: [09,90,91,99], answer: 09),
-        Numbers(question: 10, option: [10,11,01,13], answer: 10)
+        Numbers(question: 10, option: [10,11,01,13], answer: 10),
+        Numbers(question: 11, option: [12,11,01,15], answer: 11),
+        Numbers(question: 12, option: [21,11,01,16], answer: 12),
+        Numbers(question: 13, option: [31,11,01,18], answer: 13),
+        Numbers(question: 14, option: [10,11,14,41], answer: 14),
+        Numbers(question: 15, option: [10,15,11,51], answer: 15)
     ]
 }

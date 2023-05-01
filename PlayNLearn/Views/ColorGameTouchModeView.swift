@@ -9,6 +9,7 @@ import SwiftUI
 import SPConfetti
 
 struct ColorGameTouchModeView: View {
+    @State private var showingAlert = false
     @State var showPopUp: Bool = false
     @State private var rightAnswer: Bool = false
     @State var timeRemaining = 30.0
@@ -40,6 +41,13 @@ struct ColorGameTouchModeView: View {
     
     var body: some View {
         ZStack{
+            
+            Image("giraffeneck")
+                .resizable()
+                .aspectRatio(contentMode: .fill)
+                .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
+                .edgesIgnoringSafeArea(.all)
+            
             LazyVGrid(columns: gridItems,spacing: 100){
                 ForEach(viewModel.optionContainers, id: \.id) { colorGame in
                     OptionContainer(
@@ -48,6 +56,8 @@ struct ColorGameTouchModeView: View {
                     )
                 }
             }
+            
+            
             if let currentObject = viewModel.currentObject {
                 DragObjectForColorGame(
                     colorGame: currentObject,
@@ -57,6 +67,7 @@ struct ColorGameTouchModeView: View {
                 .opacity(viewModel.draggableObjectOpacity)
                 
             }
+            
             PopUpWindow(title: rightAnswer ? "Correct Answer" : "Incorrect Answer",
                         buttonText: rightAnswer ? "Continue" : "Retry",
                         show: $showPopUp, answer: $rightAnswer,
@@ -65,6 +76,14 @@ struct ColorGameTouchModeView: View {
         .onAppear{
             viewModel.setupGame()
         }
+        .alert(isPresented:$showingAlert) {
+            Alert(
+                title: Text("Game Over"),
+                message: Text("Play Again"),
+                dismissButton: .default(Text("Continue"))
+            )
+        }
+
     }
 
 }

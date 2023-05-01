@@ -43,10 +43,8 @@ class ColorViewModel: ObservableObject {
         
     }
     func gameOver(){
-        SoundManager.instance.playSound(sound: .lose)
-        withAnimation(.easeInOut) {
-            showPopUp.toggle()
-        }
+        objects = Array(ColorGame.allColor.shuffled().prefix(6))
+        nextRound()
     }
         
     func prepareObjects(){

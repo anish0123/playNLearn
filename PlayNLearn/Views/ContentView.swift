@@ -3,7 +3,6 @@
 //  PlayNLearn
 //
 //  Created by Ritesh Ghimire on 3.4.2023.
-//
 
 import SwiftUI
 
@@ -44,7 +43,7 @@ struct ContentView: View {
                                 .frame(width: 200, height: 200)
                                 .background(Color.white)
                                 .clipShape(Circle())
-                            
+
                         }
                     }
                     
@@ -55,7 +54,7 @@ struct ContentView: View {
                         }
                         
                         HStack {
-                            ScrollViewList(title: "shapeGame", titleName: $titleName, image: "Shapes", imageName: $imageName)
+                            ScrollViewList(title: "shapeGame", titleName: $titleName, image: "shapes", imageName: $imageName)
                             ScrollViewList(title: "Car Game", titleName: $titleName, image: "cargame", imageName: $imageName)
                         }
                     }
@@ -65,13 +64,14 @@ struct ContentView: View {
                     NavigationLink(destination: switchGame(), label: {
                         Rectangle()
                             .fill(Color("lightGreen"))
-                            .frame(width: 200, height: 60)
+                            .frame(width: 230, height: 60)
                             .cornerRadius(20)
                             .overlay{
                                 HStack{
-                                   Text("letsPlay")
-                                        .font(.system(size: 20))
-                                        .padding([.leading],10)
+                                   Text("Let's Play")
+                                        .font(.system(size: 20, weight: .bold))
+                                        .foregroundColor(Color.black)
+                                        .padding([.leading],20)
                                     LottieView(fileName: "playButton")
                                 }
                                 
@@ -136,6 +136,7 @@ struct ScrollViewList: View {
             .frame(width: 120, height: 120)
             .aspectRatio(contentMode: .fit)
             .clipShape(Rectangle())
+            .border(Color.black, width: 2)
             .padding()
             .opacity(0.9)
             .onTapGesture (count: 1) {
@@ -157,11 +158,11 @@ enum Destination {
     func getView() -> AnyView {
         switch self {
         case .numberGame:
-            return AnyView(NumberGameView(randomNum: 2))
+            return AnyView(NumberGameView(randomNum: 1))
         case .numberGameVoiceMode:
             return AnyView(NumberGameViewWithSpeech())
         case .shapeGame:
-            return AnyView(ShapeGameView(randomNum: 2))
+            return AnyView(ShapeGameView(randomNum: 1))
         case .colorGame:
             return AnyView(ColorGameTouchModeView())
         case .colorGameVoiceMode:
@@ -169,7 +170,6 @@ enum Destination {
         case .shapeGameVoiceMode:
             return AnyView(ShapeGameModeWithSpeech())
         }
-        
     }
 }
 
