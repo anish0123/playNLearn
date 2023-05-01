@@ -6,6 +6,7 @@
 
 import SwiftUI
 
+// This view is created as a landing page of the app. In this page user is able to choose games to play and navigate to settings menu to change the mode.
 struct ContentView: View {
     @State public var imageName: String = "numbers"
     @State public var titleName: LocalizedStringKey = "numberGame"
@@ -39,8 +40,7 @@ struct ContentView: View {
                                 .font(.system(size: 30, weight: .bold))
                             
                             LottieView(fileName: imageName)
-                                
-                                .frame(width: 200, height: 200)
+                                .frame(width: 400, height: 200)
                                 .background(Color.white)
                                 .clipShape(Circle())
 
@@ -160,7 +160,7 @@ enum Destination {
         case .numberGame:
             return AnyView(NumberGameView(randomNum: 1))
         case .numberGameVoiceMode:
-            return AnyView(NumberGameViewWithSpeech())
+            return AnyView(NumberGameViewWithSpeech(choosenNumber: NumbersForVoice(number: 1, writtenNumber: "one")))
         case .shapeGame:
             return AnyView(ShapeGameView(randomNum: 1))
         case .colorGame:
@@ -168,7 +168,11 @@ enum Destination {
         case .colorGameVoiceMode:
             return AnyView(ColorGameModeWithSpeech())
         case .shapeGameVoiceMode:
-            return AnyView(ShapeGameModeWithSpeech())
+            return AnyView(ShapeGameModeWithSpeech(choosenShape: Shapes(question: "circle", option: [
+                "circle",
+                "star",
+                "diamond"
+            ], description: "circle"), imageName: "circle"))
         }
     }
 }

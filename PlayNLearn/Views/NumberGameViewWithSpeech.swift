@@ -14,7 +14,8 @@ struct NumberGameViewWithSpeech: View {
     @StateObject var speechRecognizer = SpeechRecognizer()
     @State private var output = ""
     @State private var number: Int = 0
-    @State private var choosenNumber = NumbersForVoice.numbers[Int.random(in: 0...NumbersForVoice.numbers.count - 1)]
+    @State var numbersForVoice = [NumbersForVoice]()
+    @State var choosenNumber: NumbersForVoice
     @State public var timeRemaining = 30.0
     @State private var score  = 0
     @State private var showPopUp: Bool = false
@@ -159,6 +160,13 @@ struct NumberGameViewWithSpeech: View {
                         show: $showPopUp, answer: $rightAnswer,
                         timeRemaining: $timeRemaining)
         }
+        .onAppear() {
+            apiCall().getNumbersForVoice { (numbersForVoice) in
+                self.numbersForVoice = numbersForVoice
+                choosenNumber = numbersForVoice[Int.random(in: 0...numbersForVoice.count - 1)]
+                
+            }
+        }
     }
     
     // Method to start recording the input given by the user
@@ -180,8 +188,8 @@ struct NumberGameViewWithSpeech: View {
         print("output: \(output) ")
         if(choosenNumber.number <= 9 ) {
             // number = numberMap[output.lowercased()] ?? 0
-            print("choosenNumber: ", choosenNumber.writtenNumbers.stringValue())
-                if(output.lowercased() == choosenNumber.writtenNumbers.stringValue()) {
+            print("choosenNumber: ", choosenNumber.localizedDescription.stringValue())
+                if(output.lowercased() == choosenNumber.localizedDescription.stringValue()) {
                     number = choosenNumber.number
                 }
         } else {
@@ -201,7 +209,7 @@ struct NumberGameViewWithSpeech: View {
                 withAnimation(.easeInOut) {
                     showPopUp.toggle()
                 }
-                choosenNumber = NumbersForVoice.numbers[Int.random(in: 0...NumbersForVoice.numbers.count - 1)]
+                choosenNumber = numbersForVoice[Int.random(in: 0...numbersForVoice.count - 1)]
                 timeRemaining = 30
                 
             }
@@ -212,7 +220,7 @@ struct NumberGameViewWithSpeech: View {
     
     // Method for getting next question
     private func nextQuestion() {
-        choosenNumber = NumbersForVoice.numbers[Int.random(in: 0...NumbersForVoice.numbers.count - 1)]
+        choosenNumber = numbersForVoice[Int.random(in: 0...numbersForVoice.count - 1)]
         timeRemaining = 30
         output = ""
     }
@@ -223,6 +231,7 @@ struct NumberGameViewWithSpeech: View {
             print("Correct")
             score += 10
             SPConfetti.startAnimating(.centerWidthToUp, particles: [.triangle, .arc], duration: 1)
+            SoundManager.instance.playSound(sound: .win)
             withAnimation(.easeInOut) {
                 showPopUp.toggle()
                 rightAnswer.toggle()
@@ -231,6 +240,7 @@ struct NumberGameViewWithSpeech: View {
         } else {
             score = 0
             output = ""
+            SoundManager.instance.playSound(sound: .lose)
             withAnimation(.easeInOut) {
                 showPopUp.toggle()
                 
@@ -256,6 +266,6 @@ struct NumberGameViewWithSpeech: View {
 
 struct NumberGameViewWithSpeech_Previews: PreviewProvider {
     static var previews: some View {
-        NumberGameViewWithSpeech()
+        NumberGameViewWithSpeech(choosenNumber: NumbersForVoice(number: 1, writtenNumber: "one"))
     }
 }

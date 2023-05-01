@@ -10,6 +10,7 @@ import ConfettiSwiftUI
 import SPConfetti
 // This struct is created as view for color game that can played using speech to text feature
 struct ColorGameModeWithSpeech: View {
+    // Initialising variables that are needed to run this view.
     @StateObject var speechRecognizer = SpeechRecognizer()
     @State private var score: Int = 0
     @State private var timeRemaining : Double = 30
@@ -199,12 +200,14 @@ struct ColorGameModeWithSpeech: View {
         if(colorId.name.stringValue() == output.lowercased()) {
             score += 10
             SPConfetti.startAnimating(.centerWidthToUp, particles: [.triangle, .arc], duration: 1)
+            SoundManager.instance.playSound(sound: .win)
             withAnimation(.easeInOut) {
                 showPopUp.toggle()
                 rightAnswer.toggle()
             }
         } else {
             score = 0
+            SoundManager.instance.playSound(sound: .lose)
             withAnimation(.easeInOut) {
                 showPopUp.toggle()
                 

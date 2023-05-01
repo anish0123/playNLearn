@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+// This view is created for users to select the mode for the game: touch mode or voice mode
 struct SettingsView: View {
     @Environment(\.managedObjectContext) private var moc
     @FetchRequest(entity: SwitchObject.entity(), sortDescriptors: []) private var objects: FetchedResults<SwitchObject>
