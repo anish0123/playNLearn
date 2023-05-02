@@ -1,6 +1,12 @@
 # Play N Learn
 
-Play N Learn is an iOS App created using Xcode with progtamming language Swift. This app is created to help young children of age group 2-4 years learn a variety of skills in a fun and engaging way. This app is created as a school project for our course while learning about Swift and SwiftUI. This app was built following scrum practice with a weekly sprint review. This application consists of three small games such as : number game, colour game and a shape game. ![Home Page](https://users.metropolia.fi/~riteshg/readmeImages/homePage.png) Users can choose the game from the homescreen. The application has two play modes : touch & voice
+Play N Learn is an iOS App created using Xcode with progtamming language Swift. This app is created to help young children of age group 2-4 years learn a variety of skills in a fun and engaging way. This app is created as a school project for our course while learning about Swift and SwiftUI. This app was built following scrum practice with a weekly sprint review. This application consists of three small games such as : number game, colour game and a shape game. ![Home Page](https://users.metropolia.fi/~riteshg/readmeImages/homePage.png)
+<img
+  src="https://users.metropolia.fi/~riteshg/readmeImages/homePage.png"
+  alt="HomePage"
+  title="Home Page"
+  style="display: inline-block; margin: 0 auto; max-width: 300px">
+  Users can choose the game from the homescreen. The application has two play modes : touch & voice
 
 
 # Number game:
