@@ -9,6 +9,7 @@ import Foundation
 import CoreData
 
 // Persistence Controller class introduced to get the data from managed object context
+// source: https://www.hackingwithswift.com/books/ios-swiftui/how-to-combine-core-data-and-swiftui
 struct PersistenceController {
     static let shared = PersistenceController()
 

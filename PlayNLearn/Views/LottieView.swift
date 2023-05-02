@@ -10,6 +10,7 @@ import Lottie
 import UIKit
 
 // This view is created to display lottie animations in other views.
+// Source : https://www.hackingwithswift.com/forums/swiftui/how-to-switch-animations-with-lottie-in-swiftui/1704
 struct LottieView: UIViewRepresentable {
     // Initialising variables
     typealias UIViewType = UIView

@@ -200,6 +200,7 @@ struct NumberGameViewWithSpeech: View {
     }
     
     // Method to start the timer of the game so after 30 seconds the game is over if user doesnot answer
+    // Source : https://marcgg.com/blog/2020/05/06/circular-progressbar-clock-swiftui/
     private func startTimer() {
         let timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { _ in
             if timeRemaining > 0 {

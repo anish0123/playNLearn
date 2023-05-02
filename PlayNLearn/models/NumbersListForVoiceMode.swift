@@ -13,6 +13,8 @@ struct NumbersForVoice: Codable {
     let number : Int
     let writtenNumber : String
     
+    // Converting string into localizedStringKey with codable protocol
+    // Source: https://stackoverflow.com/questions/73272549/how-to-make-localizedstingkey-type-conform-to-codable-protocol-in-swift
     var localizedDescription: LocalizedStringKey {
         return LocalizedStringKey(writtenNumber)
     }
