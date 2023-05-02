@@ -11,6 +11,7 @@ import SPConfetti
 // This struct is created as view for color game that can played by selecting the right color
 struct ColorGameTouchModeView: View {
     @State private var showingAlert = false
+    @State private var score  = 0
     @State var showPopUp: Bool = false
     @State private var rightAnswer: Bool = false
     @State var timeRemaining = 30.0
@@ -42,6 +43,19 @@ struct ColorGameTouchModeView: View {
     
     var body: some View {
         ZStack{
+            HStack {
+                if (score > 50) {
+                    ratingView(number: 5)
+                } else if (score > 40) {
+                    ratingView(number: 4)
+                } else if (score > 30) {
+                    ratingView(number: 3)
+                } else if (score > 20) {
+                    ratingView(number: 2)
+                } else if ( score > 10) {
+                    ratingView(number: 1)
+                }
+            }
             
             Image("giraffeneck")
                 .resizable()
