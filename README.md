@@ -61,5 +61,6 @@ This game is played by the user by choosing the correct shape displayed and can 
 - Circular Progress Bar & Timer [marcgg](https://marcgg.com/blog/2020/05/06/circular-progressbar-clock-swiftui)
 - Lottie Animations [Lottie Animation](https://lottiefiles.com/)
 - Updating lottie animation as per user selection [Hacking with swift](https://www.hackingwithswift.com/forums/swiftui/how-to-switch-animations-with-lottie-in-swiftui/1704)
+- Core Data [Hacking with swift](https://www.hackingwithswift.com/books/ios-swiftui/how-to-combine-core-data-and-swiftui)
 
 
