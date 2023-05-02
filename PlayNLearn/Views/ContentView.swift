@@ -85,7 +85,6 @@ struct ContentView: View {
                             Label("", systemImage: "line.horizontal.3")
                                 .font(.system(size: 18))
                                 .foregroundColor(.black)
-                            
                         }
                     }
                 }

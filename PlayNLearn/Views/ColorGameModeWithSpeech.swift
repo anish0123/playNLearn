@@ -133,7 +133,7 @@ struct ColorGameModeWithSpeech: View {
                 } label: {
                     Text("skip")
                         .frame(width: 150)
-                    LottieView(fileName: "skip", loopMode: .loop)
+                    LottieView(fileName: "next", loopMode: .loop)
                     
                         
                 }

@@ -16,7 +16,6 @@ class apiCall {
         
         URLSession.shared.dataTask(with: url) { (data, _, _) in
             let numbersForVoice = try! JSONDecoder().decode([NumbersForVoice].self, from: data!)
-            print(numbersForVoice)
             
             DispatchQueue.main.async {
                 completion(numbersForVoice)
@@ -31,7 +30,6 @@ class apiCall {
         
         URLSession.shared.dataTask(with: url) { (data, _, _) in
             let shapes = try! JSONDecoder().decode([Shapes].self, from: data!)
-            print(shapes)
             
             DispatchQueue.main.async {
                 completion(shapes)

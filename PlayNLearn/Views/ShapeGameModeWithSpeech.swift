@@ -54,32 +54,27 @@ struct ShapeGameModeWithSpeech: View {
                     
                     ZStack {
                         Circle()
-                            .stroke(lineWidth: 20)
+                            .stroke(lineWidth: 35)
                             .opacity(0.3)
                             .foregroundColor(.white)
                         
                         Circle()
                             .trim(from: 0.0, to: CGFloat(1 - timeRemaining/30.0))
-                            .stroke(style: StrokeStyle(lineWidth: 20.0))
+                            .stroke(style: StrokeStyle(lineWidth: 35.0))
                             .foregroundColor(timeRemaining > 8 ? .green : .red)
                             .rotationEffect(.degrees(-90))
                         
                         Circle()
                             .fill(.white)
                             .frame(width: 200, height: 200)
-            
-                        AsyncImage(url: URL(string: "https://users.metropolia.fi/~anishm/mad/shapes/\( imageName)")) { image in
-                                                    image
-                                                        .resizable()
-                                                        .aspectRatio(contentMode: .fill)
-                                                        .frame(width: 120, height: 120)
-                                                        
-                                                } placeholder: {
-                                                    
-                                                }
+                        
+                        Image(imageName)
+                            .resizable()
+                            .frame(width: 150, height: 130)
+                            .aspectRatio(contentMode: .fit)
                         
                     }
-                    .frame(width: 300)
+                    .frame(width: 200)
                     .padding(70)
                     .onAppear {
                         startTimer()
@@ -144,9 +139,9 @@ struct ShapeGameModeWithSpeech: View {
                 } label: {
                     Text("skip")
                         .frame(width: 150)
-                    LottieView(fileName: "skip", loopMode: .loop)
+                    LottieView(fileName: "next", loopMode: .loop)
                     
-                    
+                        
                 }
                 .font(.system(size: 25, weight: .bold, design: .default))
                 .frame(width: 200, height: 50)
