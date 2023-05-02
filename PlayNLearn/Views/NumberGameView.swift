@@ -9,7 +9,9 @@ import SwiftUI
 import ConfettiSwiftUI
 import SPConfetti
 
+// This struct is created as view for number game that can played by selecting the provided option
 struct NumberGameView: View {
+    //Initialising vairbales needed for the view
     @State private var showingAlert = false
     @State var myIntArray = [2]
     @State private var isSpinning = false
@@ -152,6 +154,7 @@ struct NumberGameView: View {
                     }
                 .padding()
                 
+                //button to skip the current question
                 Button{
                     nextQuestion()
                 } label: {
@@ -184,6 +187,7 @@ struct NumberGameView: View {
         }
     }
     
+    // Method to start the timer of the game so after 30 seconds the game is over if user doesnot answer
     func startTimer(){
         let timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { i in
             
@@ -197,11 +201,13 @@ struct NumberGameView: View {
         RunLoop.current.add(timer, forMode: .common)
     }
     
+    //Shows the nextQuestion to the user
     func nextQuestion() {
         var number: Int
         timeRemaining = 30.0
         number = Int.random(in: 0...NumberList.numbers.count - 1 )
         
+        //shows the unique question each time
         repeat{
             number = Int.random(in: 0...NumberList.numbers.count - 1 )
             if myIntArray.count == 15 {
@@ -214,6 +220,7 @@ struct NumberGameView: View {
         myIntArray.append(numbers[randomNum].question)
     }
     
+    // Checks if the selected option is correct
     func checkAnswer(_ question: Int, _ answer: Int) {
         
         if question == answer {
@@ -239,6 +246,7 @@ struct NumberGameView: View {
 
 }
 
+//Displays the star (no. of stars depends on the passed value)
 struct ratingView: View {
     @State private var isSpinning = false
     let number: Int

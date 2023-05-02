@@ -93,6 +93,7 @@ struct ContentView: View {
         }
     }
     
+    //switch the game to voice or touch mode as selected by the user
     func switchGame () -> some View {
         var game: Destination?
         if titleName ==  "numberGame" {
@@ -118,12 +119,11 @@ struct ContentView: View {
             }
            
         }
-        
-        
         return game?.getView()
     }
 }
 
+//Shows the game icon
 struct ScrollViewList: View {
     var title: LocalizedStringKey
     @Binding var titleName: LocalizedStringKey

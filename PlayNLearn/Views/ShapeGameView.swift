@@ -8,12 +8,17 @@
 import SwiftUI
 import SPConfetti
 
+// This struct is created as view for shape game that can played by selecting the provided option
 struct ShapeGameView: View {
+    // Initialising vairbales needed for the view
+    @State private var showingAlert = false
     @State var showPopUp: Bool = false
+    @State var myShapeArray = ["diamond"]
     @State private var rightAnswer: Bool = false
     @State private var timeRemaining = 30.0
     @State var randomNum: Int
     var shapes: [Shapes] = ShapeList.shapes
+    @State private var score  = 0
     
     var body: some View {
         
@@ -25,6 +30,21 @@ struct ShapeGameView: View {
                 .edgesIgnoringSafeArea(.all)
             
             VStack {
+                
+                HStack {
+                    if (score > 50) {
+                        ratingView(number: 5)
+                    } else if (score > 40) {
+                        ratingView(number: 4)
+                    } else if (score > 30) {
+                        ratingView(number: 3)
+                    } else if (score > 20) {
+                        ratingView(number: 2)
+                    } else if ( score > 10) {
+                        ratingView(number: 1)
+                    }
+                }
+                
                 Group {
                     
                     ZStack {
@@ -113,6 +133,7 @@ struct ShapeGameView: View {
                     }
                     .padding()
                 
+                //button to skip the current question
                 Button{
                     nextQuestion()
                 } label: {
@@ -133,11 +154,19 @@ struct ShapeGameView: View {
                         buttonText: rightAnswer ? "Continue" : "Retry",
                         show: $showPopUp, answer: $rightAnswer,
                         timeRemaining: $timeRemaining)
-            
-            
+        }
+        .alert(isPresented:$showingAlert) {
+            Alert(
+                title: Text("Game Over"),
+                message: Text("Play Again"),
+                dismissButton: .default(Text("Continue")){
+                    nextQuestion()
+                }
+            )
         }
     }
     
+    // Method to start the timer of the game so after 30 seconds the game is over if user doesnot answer
     func startTimer(){
         let timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { _ in
             
@@ -151,11 +180,27 @@ struct ShapeGameView: View {
         RunLoop.current.add(timer, forMode: .common)
     }
     
+    //Method for getting next question
     func nextQuestion(){
+        var number: Int
         timeRemaining = 30.0
-        randomNum = Int.random(in: 0...ShapeList.shapes.count - 1 )
+        number = Int.random(in: 0...ShapeList.shapes.count - 1 )
+        
+        //shows the unique question each time
+        repeat{
+            number = Int.random(in: 0...ShapeList.shapes.count - 1 )
+            if myShapeArray.count == 7 {
+                showingAlert = true
+                myShapeArray.removeAll()
+            }
+        } while myShapeArray.contains(shapes[number].question)
+        
+        randomNum = number
+        
+        myShapeArray.append(shapes[number].question)
     }
     
+    //Checks if the selected option is correct
     func checkAnswer(_ question: String, _ answer: String) {
         
         if question == answer {
@@ -166,7 +211,7 @@ struct ShapeGameView: View {
                 rightAnswer.toggle()
             }
             
-        }else {
+        } else {
             SoundManager.instance.playSound(sound: .lose)
             withAnimation(.easeInOut) {
                 showPopUp.toggle()

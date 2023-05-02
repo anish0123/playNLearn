@@ -19,15 +19,16 @@ struct Shapes: Identifiable,Codable {
     
 }
 
- struct ShapeList {
- static let shapes = [
- Shapes(question: "circle", option: ["circle", "star", "diamond"], description: "circle"),
- Shapes(question: "diamond", option: ["heart", "rectangle", "diamond"], description: "diamond" ),
- Shapes(question: "heart", option: ["heart", "star", "diamond"], description: "heart"),
- Shapes(question: "triangle", option: ["diamond", "square", "triangle"], description: "triangle"),
- Shapes(question: "square", option: ["rectangle", "square", "circle"], description: "square"),
- Shapes(question: "rectangle", option: ["square", "rectangle", "diamond"], description: "rectangle"),
- Shapes(question: "star", option: ["star", "heart", "diamond"], description: "star")
- ]
- }
+//list of all available shapes for the game
+struct ShapeList {
+     static let shapes = [
+         Shapes(question: "circle", option: ["circle", "star", "diamond"], description: "circle"),
+         Shapes(question: "diamond", option: ["heart", "rectangle", "diamond"], description: "diamond" ),
+         Shapes(question: "heart", option: ["heart", "star", "diamond"], description: "heart"),
+         Shapes(question: "triangle", option: ["diamond", "square", "triangle"], description: "triangle"),
+         Shapes(question: "square", option: ["rectangle", "square", "circle"], description: "square"),
+         Shapes(question: "rectangle", option: ["square", "rectangle", "diamond"], description: "rectangle"),
+         Shapes(question: "star", option: ["star", "heart", "diamond"], description: "star")
+     ]
+}
  

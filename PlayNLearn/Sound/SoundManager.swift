@@ -18,6 +18,7 @@ class SoundManager {
         case lose
     }
     
+    //play the sound based on the passed enum value
     func playSound(sound: SoundOption) {
         
         guard let url = Bundle.main.url(forResource: sound.rawValue, withExtension: ".wav") else {return}

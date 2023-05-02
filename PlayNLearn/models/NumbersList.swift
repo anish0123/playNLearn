@@ -15,6 +15,7 @@ struct Numbers: Identifiable {
     
 }
 
+//question, option and answer stored in an array
 struct NumberList {
     static let numbers = [
         Numbers(question: 01, option: [01,10,11,12], answer: 01),

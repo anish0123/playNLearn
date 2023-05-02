@@ -8,6 +8,7 @@
 import SwiftUI
 import SPConfetti
 
+// This struct is created as view for color game that can played by selecting the right color
 struct ColorGameTouchModeView: View {
     @State private var showingAlert = false
     @State var showPopUp: Bool = false
