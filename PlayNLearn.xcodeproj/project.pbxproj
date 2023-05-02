@@ -17,6 +17,14 @@
 		6A7BFA9229E041D7003E5A4C /* ConfettiSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 6A7BFA9129E041D7003E5A4C /* ConfettiSwiftUI */; };
 		6A7BFA9529E0516E003E5A4C /* SPConfetti in Frameworks */ = {isa = PBXBuildFile; productRef = 6A7BFA9429E0516E003E5A4C /* SPConfetti */; };
 		6A7BFA9929E0B4FC003E5A4C /* GifImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A7BFA9829E0B4FC003E5A4C /* GifImage.swift */; };
+		6A89AA712A01406100E4EBB4 /* XylophoneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A89AA702A01406000E4EBB4 /* XylophoneView.swift */; };
+		6A89AA792A01482000E4EBB4 /* B.wav in Resources */ = {isa = PBXBuildFile; fileRef = 6A89AA722A01481800E4EBB4 /* B.wav */; };
+		6A89AA7A2A01482000E4EBB4 /* A.wav in Resources */ = {isa = PBXBuildFile; fileRef = 6A89AA732A01481A00E4EBB4 /* A.wav */; };
+		6A89AA7B2A01482000E4EBB4 /* D.wav in Resources */ = {isa = PBXBuildFile; fileRef = 6A89AA742A01481B00E4EBB4 /* D.wav */; };
+		6A89AA7C2A01482000E4EBB4 /* F.wav in Resources */ = {isa = PBXBuildFile; fileRef = 6A89AA752A01481D00E4EBB4 /* F.wav */; };
+		6A89AA7D2A01482000E4EBB4 /* E.wav in Resources */ = {isa = PBXBuildFile; fileRef = 6A89AA762A01481E00E4EBB4 /* E.wav */; };
+		6A89AA7E2A01482000E4EBB4 /* C.wav in Resources */ = {isa = PBXBuildFile; fileRef = 6A89AA772A01481F00E4EBB4 /* C.wav */; };
+		6A89AA7F2A01482000E4EBB4 /* G.wav in Resources */ = {isa = PBXBuildFile; fileRef = 6A89AA782A01482000E4EBB4 /* G.wav */; };
 		6A8C6E3729E974B200962E65 /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A8C6E3629E974B200962E65 /* SoundManager.swift */; };
 		6A8C6E3A29E97BC500962E65 /* lose.wav in Resources */ = {isa = PBXBuildFile; fileRef = 6A8C6E3929E97BC500962E65 /* lose.wav */; };
 		6A8C6E3C29E97BE800962E65 /* win.wav in Resources */ = {isa = PBXBuildFile; fileRef = 6A8C6E3B29E97BE800962E65 /* win.wav */; };
@@ -87,6 +95,14 @@
 		6A5AFBBE29F7C5EE00A469D9 /* xylophone.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = xylophone.gif; sourceTree = "<group>"; };
 		6A7BFA8A29DF62B9003E5A4C /* PopUpWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpWindow.swift; sourceTree = "<group>"; };
 		6A7BFA9829E0B4FC003E5A4C /* GifImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GifImage.swift; sourceTree = "<group>"; };
+		6A89AA702A01406000E4EBB4 /* XylophoneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XylophoneView.swift; sourceTree = "<group>"; };
+		6A89AA722A01481800E4EBB4 /* B.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = B.wav; sourceTree = "<group>"; };
+		6A89AA732A01481A00E4EBB4 /* A.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = A.wav; sourceTree = "<group>"; };
+		6A89AA742A01481B00E4EBB4 /* D.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = D.wav; sourceTree = "<group>"; };
+		6A89AA752A01481D00E4EBB4 /* F.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = F.wav; sourceTree = "<group>"; };
+		6A89AA762A01481E00E4EBB4 /* E.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = E.wav; sourceTree = "<group>"; };
+		6A89AA772A01481F00E4EBB4 /* C.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = C.wav; sourceTree = "<group>"; };
+		6A89AA782A01482000E4EBB4 /* G.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = G.wav; sourceTree = "<group>"; };
 		6A8C6E3629E974B200962E65 /* SoundManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
 		6A8C6E3929E97BC500962E65 /* lose.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = lose.wav; sourceTree = "<group>"; };
 		6A8C6E3B29E97BE800962E65 /* win.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = win.wav; sourceTree = "<group>"; };
@@ -179,6 +195,13 @@
 			isa = PBXGroup;
 			children = (
 				6A8C6E3629E974B200962E65 /* SoundManager.swift */,
+				6A89AA732A01481A00E4EBB4 /* A.wav */,
+				6A89AA722A01481800E4EBB4 /* B.wav */,
+				6A89AA772A01481F00E4EBB4 /* C.wav */,
+				6A89AA742A01481B00E4EBB4 /* D.wav */,
+				6A89AA762A01481E00E4EBB4 /* E.wav */,
+				6A89AA752A01481D00E4EBB4 /* F.wav */,
+				6A89AA782A01482000E4EBB4 /* G.wav */,
 				6A8C6E3929E97BC500962E65 /* lose.wav */,
 				6A8C6E3B29E97BE800962E65 /* win.wav */,
 			);
@@ -277,6 +300,7 @@
 				6AF7151E29EAA4E9006ED404 /* ShapeGameView.swift */,
 				F8967F8E29F46FFB00F1EA49 /* ShapeGameModeWithSpeech.swift */,
 				F8967F9629F6989600F1EA49 /* LottieView.swift */,
+				6A89AA702A01406000E4EBB4 /* XylophoneView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -432,8 +456,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				6A27E9AF29E0B8C5002FEC17 /* congratulation.gif in Resources */,
+				6A89AA7E2A01482000E4EBB4 /* C.wav in Resources */,
+				6A89AA7B2A01482000E4EBB4 /* D.wav in Resources */,
 				F86E5E7F29F857AF007D8B60 /* submit.json in Resources */,
+				6A89AA7C2A01482000E4EBB4 /* F.wav in Resources */,
 				7EFE233729DA30410066B490 /* Preview Assets.xcassets in Resources */,
+				6A89AA7F2A01482000E4EBB4 /* G.wav in Resources */,
+				6A89AA792A01482000E4EBB4 /* B.wav in Resources */,
+				F8967F9D29F6D91D00F1EA49 /* numbers.json in Resources */,
 				6A27E9B329E0BEBF002FEC17 /* sadface.gif in Resources */,
 				6A8C6E3A29E97BC500962E65 /* lose.wav in Resources */,
 				F86E5E8929F86435007D8B60 /* skip.json in Resources */,
@@ -448,11 +478,13 @@
 				F86E5E7729F6E960007D8B60 /* cargame.json in Resources */,
 				F802DF522A0156F600566DFC /* numbers.json in Resources */,
 				F86E5E7A29F713EA007D8B60 /* Localizable.strings in Resources */,
+				6A89AA7A2A01482000E4EBB4 /* A.wav in Resources */,
 				F8EED87929DABCE400D3E3C3 /* .gitignore in Resources */,
 				6A5AFBBD29F7C3A500A469D9 /* numbers.gif in Resources */,
 				6A5AFBB929F6CD7D00A469D9 /* shapes.gif in Resources */,
 				7EFE233429DA30410066B490 /* Assets.xcassets in Resources */,
 				F86E5E7529F6E89A007D8B60 /* colors.json in Resources */,
+				6A89AA7D2A01482000E4EBB4 /* E.wav in Resources */,
 				F86E5E9129F9638D007D8B60 /* next.json in Resources */,
 				F802DF562A01581400566DFC /* shapes.json in Resources */,
 			);
@@ -502,6 +534,7 @@
 				F8967F9729F6989600F1EA49 /* LottieView.swift in Sources */,
 				F8F0DA0529F968CF005ADF2A /* ApiViewModel.swift in Sources */,
 				6A7BFA8B29DF62B9003E5A4C /* PopUpWindow.swift in Sources */,
+				6A89AA712A01406100E4EBB4 /* XylophoneView.swift in Sources */,
 				6A8C6E3729E974B200962E65 /* SoundManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
