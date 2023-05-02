@@ -53,5 +53,13 @@ This game is played by the user by choosing the correct color displayed and can 
 This game is played by the user by choosing the correct shape displayed and can also be played by using voice mode. Correct/Incorrect animation is diplayed after the user's selection by both tap & voice in the respective mode. The game has a time limit and an timer animation for that. The skip button is available for skiping current color & also a back button to navigate into main menu.
 </p>
 
+# Credits:
+- Speech to text [iOS App Dev Tutorials](https://developer.apple.com/tutorials/app-dev-training/transcribing-speech-to-text)
+- Fetching JSON from Api [dev.to](https://dev.to/tprezioso/how-to-fetch-json-data-from-apis-in-swiftui-29pk)
+- Apply codable protocol to LocalizedStringKey [StackOverFlow](https://stackoverflow.com/questions/73272549/how-to-make-localizedstingkey-type-conform-to-codable-protocol-in-swift)
+- Comverting LocalizedStringKey into String [StackOverFlow](https://stackoverflow.com/questions/60841915/how-to-change-localizedstringkey-to-string-in-swiftui)
+- Circular Progress Bar & Timer [marcgg](https://marcgg.com/blog/2020/05/06/circular-progressbar-clock-swiftui)
+- Lottie Animations [Lottie Animation](https://lottiefiles.com/)
+- Updating lottie animation as per user selection [Hacking with swift](https://www.hackingwithswift.com/forums/swiftui/how-to-switch-animations-with-lottie-in-swiftui/1704)
 
 
