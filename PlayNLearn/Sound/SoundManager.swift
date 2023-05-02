@@ -31,4 +31,18 @@ class SoundManager {
         }
         
     }
+    
+    //play sound for the xylophone based on the passed value
+    func playSound(sound: String) {
+        
+        guard let url = Bundle.main.url(forResource: sound, withExtension: ".wav") else {return}
+        
+        do {
+            player = try AVAudioPlayer(contentsOf: url)
+            player?.play()
+        } catch let error {
+            print("Error playing sound. \(error.localizedDescription)")
+        }
+        
+    }
 }

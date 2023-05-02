@@ -55,7 +55,7 @@ struct ContentView: View {
                         
                         HStack {
                             ScrollViewList(title: "shapeGame", titleName: $titleName, image: "shapes", imageName: $imageName)
-                            ScrollViewList(title: "Car Game", titleName: $titleName, image: "cargame", imageName: $imageName)
+                            ScrollViewList(title: "Xylophone", titleName: $titleName, image: "xylophone", imageName: $imageName)
                         }
                     }
                     .frame(width: UIScreen.main.bounds.width , height: 420)
@@ -102,7 +102,7 @@ struct ContentView: View {
             } else {
                 game = .numberGame
             }
-           
+            
         } else if titleName == "shapeGame" {
             if voiceMode == true {
                 game = .shapeGameVoiceMode
@@ -117,8 +117,11 @@ struct ContentView: View {
             } else {
                 game = .colorGame
             }
-           
+            
+        }else if titleName == "Xylophone" {
+            game = .Xylophone
         }
+        
         return game?.getView()
     }
 }
@@ -154,6 +157,7 @@ enum Destination {
     case colorGame
     case colorGameVoiceMode
     case shapeGameVoiceMode
+    case Xylophone
     
     func getView() -> AnyView {
         switch self {
@@ -167,6 +171,8 @@ enum Destination {
             return AnyView(ColorGameTouchModeView())
         case .colorGameVoiceMode:
             return AnyView(ColorGameModeWithSpeech())
+        case .Xylophone:
+            return AnyView(XylophoneView())
         case .shapeGameVoiceMode:
             return AnyView(ShapeGameModeWithSpeech(choosenShape: Shapes(question: "circle", option: [
                 "circle",
