@@ -80,13 +80,26 @@ struct ContentView: View {
                     .padding([.bottom], 40)
                 }
                 .toolbar {
-                    HStack{
-                        NavigationLink(destination: SettingsView()){
-                            Label("", systemImage: "line.horizontal.3")
-                                .font(.system(size: 18))
-                                .foregroundColor(.black)
+                    ToolbarItem(placement: .navigationBarLeading){
+                        HStack{
+                            NavigationLink(destination: HoplopUsingAPI()){
+                                Label("", systemImage: "mappin.and.ellipse")
+                                    .font(.system(size: 20))
+                                    .foregroundColor(.black)
+                            }
                         }
                     }
+                    
+                    ToolbarItem(placement: .navigationBarTrailing){
+                        HStack{
+                            NavigationLink(destination: SettingsView()){
+                                Label("", systemImage: "line.horizontal.3")
+                                    .font(.system(size: 18))
+                                    .foregroundColor(.black)
+                            }
+                        }
+                    }
+                    
                 }
             }
         }
