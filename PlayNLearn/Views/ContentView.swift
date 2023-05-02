@@ -139,7 +139,7 @@ struct ScrollViewList: View {
             .frame(width: 120, height: 120)
             .aspectRatio(contentMode: .fit)
             .clipShape(Rectangle())
-            .border(Color.black, width: 2)
+            .border(LinearGradient(gradient: Gradient(colors: [.red, .yellow, .green, .blue, .purple]), startPoint: .top, endPoint: .bottom), width: 2)
             .padding()
             .opacity(0.9)
             .onTapGesture (count: 1) {
