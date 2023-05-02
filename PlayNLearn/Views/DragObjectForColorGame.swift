@@ -22,7 +22,7 @@ struct DragObjectForColorGame<Draggable: Gesture>: View {
             .gesture(gesture)
     }
 }
-
+//for the circle to drag
 struct DragObjectForColorGame_Previews: PreviewProvider {
     static var previews: some View {
         DragObjectForColorGame(

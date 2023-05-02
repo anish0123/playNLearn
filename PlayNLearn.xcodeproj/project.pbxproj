@@ -52,7 +52,6 @@
 		F8646C5629DD7AF900D85449 /* SpeechRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8646C5529DD7AF900D85449 /* SpeechRecognizer.swift */; };
 		F8646C5829DD7B1C00D85449 /* NumberGameViewWithSpeech.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8646C5729DD7B1C00D85449 /* NumberGameViewWithSpeech.swift */; };
 		F86E5E7529F6E89A007D8B60 /* colors.json in Resources */ = {isa = PBXBuildFile; fileRef = F86E5E7429F6E89A007D8B60 /* colors.json */; };
-		F86E5E7729F6E960007D8B60 /* cargame.json in Resources */ = {isa = PBXBuildFile; fileRef = F86E5E7629F6E960007D8B60 /* cargame.json */; };
 		F86E5E7A29F713EA007D8B60 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F86E5E7C29F713EA007D8B60 /* Localizable.strings */; };
 		F86E5E7F29F857AF007D8B60 /* submit.json in Resources */ = {isa = PBXBuildFile; fileRef = F86E5E7E29F857AF007D8B60 /* submit.json */; };
 		F86E5E8329F85D35007D8B60 /* playButton.json in Resources */ = {isa = PBXBuildFile; fileRef = F86E5E8229F85D35007D8B60 /* playButton.json */; };
@@ -134,7 +133,6 @@
 		F8646C5529DD7AF900D85449 /* SpeechRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechRecognizer.swift; sourceTree = "<group>"; };
 		F8646C5729DD7B1C00D85449 /* NumberGameViewWithSpeech.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberGameViewWithSpeech.swift; sourceTree = "<group>"; };
 		F86E5E7429F6E89A007D8B60 /* colors.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = colors.json; sourceTree = "<group>"; };
-		F86E5E7629F6E960007D8B60 /* cargame.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = cargame.json; sourceTree = "<group>"; };
 		F86E5E7B29F713EA007D8B60 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		F86E5E7D29F7144E007D8B60 /* fi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fi; path = fi.lproj/Localizable.strings; sourceTree = "<group>"; };
 		F86E5E7E29F857AF007D8B60 /* submit.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = submit.json; sourceTree = "<group>"; };
@@ -329,7 +327,6 @@
 		F8967F9329F697E800F1EA49 /* Lottie Animations */ = {
 			isa = PBXGroup;
 			children = (
-				F86E5E7629F6E960007D8B60 /* cargame.json */,
 				F86E5E8229F85D35007D8B60 /* playButton.json */,
 				F86E5E7E29F857AF007D8B60 /* submit.json */,
 				F86E5E9029F9638C007D8B60 /* next.json */,
@@ -477,7 +474,6 @@
 				6A5AFBBF29F7C5EE00A469D9 /* xylophone.gif in Resources */,
 				6A8C6E3C29E97BE800962E65 /* win.wav in Resources */,
 				F86E5E8329F85D35007D8B60 /* playButton.json in Resources */,
-				F86E5E7729F6E960007D8B60 /* cargame.json in Resources */,
 				F802DF522A0156F600566DFC /* numbers.json in Resources */,
 				F86E5E7A29F713EA007D8B60 /* Localizable.strings in Resources */,
 				6A89AA7A2A01482000E4EBB4 /* A.wav in Resources */,

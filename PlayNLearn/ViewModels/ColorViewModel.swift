@@ -46,7 +46,7 @@ class ColorViewModel: ObservableObject {
         objects = Array(ColorGame.allColor.shuffled().prefix(6))
         nextRound()
     }
-        
+     //suffling
     func prepareObjects(){
         withAnimation{
             optionContainers.shuffle()
@@ -91,7 +91,7 @@ class ColorViewModel: ObservableObject {
             return false
         }
     }
-    
+    //resets the position to the initial position
     func resetPosition(){
         currentPosition = ColorViewModel.initialPosition
     }

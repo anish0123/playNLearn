@@ -206,6 +206,7 @@ struct ShapeGameView: View {
         if question == answer {
             SPConfetti.startAnimating(.centerWidthToUp, particles: [.triangle, .arc], duration: 1)
             SoundManager.instance.playSound(sound: .win)
+            score += 10
             withAnimation(.easeInOut) {
                 showPopUp.toggle()
                 rightAnswer.toggle()

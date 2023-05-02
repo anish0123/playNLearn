@@ -26,7 +26,7 @@ struct XylophoneView: View {
                     .background(Color.brown)
                     .multilineTextAlignment(.center)
                     .opacity(0.9)
-                
+                //loop to display keys and its color
                 ForEach (0..<soundOption.count, id: \.self) { i in
                     Text(soundOption[i])
                         .font(.system(size: 40, weight: .bold))
