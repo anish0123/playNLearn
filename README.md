@@ -5,7 +5,7 @@ Play N Learn is an iOS App created using Xcode with progtamming language Swift. 
   src="https://users.metropolia.fi/~riteshg/readmeImages/homePage.png"
   alt="HomePage"
   title="Home Page"
-  style="display: inline-block; margin: 0 auto; max-width: 300px">
+  style="display: inline-block; margin: 0 auto; max-width: 300px; max-height: 200px">
   Users can choose the game from the homescreen. The application has two play modes : touch & voice
 
 
