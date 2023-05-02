@@ -117,7 +117,7 @@ struct ContentView: View {
                 game = .colorGame
             }
             
-        }else if titleName == "Xylophone" {
+        }else if titleName == "playXylophone" {
             game = .Xylophone
         }
         
