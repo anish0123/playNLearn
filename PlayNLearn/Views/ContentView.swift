@@ -55,7 +55,7 @@ struct ContentView: View {
                         
                         HStack {
                             ScrollViewList(title: "shapeGame", titleName: $titleName, image: "shapes", imageName: $imageName)
-                            ScrollViewList(title: "Car Game", titleName: $titleName, image: "cargame", imageName: $imageName)
+                            ScrollViewList(title: "playXylophone", titleName: $titleName, image: "xylophone", imageName: $imageName)
                         }
                     }
                     .frame(width: UIScreen.main.bounds.width , height: 420)
