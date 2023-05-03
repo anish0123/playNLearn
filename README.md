@@ -93,7 +93,7 @@ Implementation of mapkit in swiftui along with data from remote api enabled the 
 - Apply codable protocol to LocalizedStringKey [StackOverFlow](https://stackoverflow.com/questions/73272549/how-to-make-localizedstingkey-type-conform-to-codable-protocol-in-swift)
 - Comverting LocalizedStringKey into String [StackOverFlow](https://stackoverflow.com/questions/60841915/how-to-change-localizedstringkey-to-string-in-swiftui)
 - Circular Progress Bar & Timer [marcgg](https://marcgg.com/blog/2020/05/06/circular-progressbar-clock-swiftui)
--Colour game [https://youtu.be/ylcEQHYev1U]
+- Colour game [https://youtu.be/ylcEQHYev1U]
 - Lottie Animations [Lottie Animation](https://lottiefiles.com/)
 - Updating lottie animation as per user selection [Hacking with swift](https://www.hackingwithswift.com/forums/swiftui/how-to-switch-animations-with-lottie-in-swiftui/1704)
 - Core Data [Hacking with swift](https://www.hackingwithswift.com/books/ios-swiftui/how-to-combine-core-data-and-swiftui)
