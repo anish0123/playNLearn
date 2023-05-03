@@ -14,11 +14,13 @@
   align="left"/>
   <img src="https://user-images.githubusercontent.com/87969471/235672982-fc88e4d5-7159-42cd-aad3-a853b9205d78.png" width="200" height="400" alt="Settings Page" align = "right"
   title="Settings Page"/>
-  Play N Learn is an iOS App created using Xcode with programming language Swift. This app is created to help young children of age group 2-4 years learn a variety of skills in a fun and engaging way. This app is created as a school project for our course while learning about Swift and SwiftUI. This app was built following scrum practice with a weekly sprint review. This application consists of three small games such as : number game, colour game and a shape game.Users can choose the game from the settings. The application has two play modes : touch & voice
+  Play N Learn is an iOS App created using Xcode with programming language Swift. This app is created to help young children of age group 2-4 years learn a variety of skills in a fun and engaging way. This app is created as a school project for our course while learning about Swift and SwiftUI. This app was built following scrum practice with a weekly sprint review. This application consists of four small games such as : number game, colour game, shape game & a xylophone .Users can choose the game from the settings. The application has two play modes : touch & voice
    
 
 <br /> <br />
 <br /> <br />
+<br /> <br />
+<br /> <br /><br /> <br />
 <br /> <br />
 <br /> <br />
 # Number game:
@@ -55,11 +57,22 @@ This game is played by the user by choosing the correct shape displayed and can 
 <br /> <br />
 <br /> <br />
 <br /> <br />
-<br /> <br /><br /> <br />
+<br /> <br />
 <br /> <br />
 <br /> <br />
 <br /> <br />
 
+# Xylophone
+<img src="https://users.metropolia.fi/~riteshg/readmeImages/Xylophone.png" width="200" height="400" alt="Color Game with touch mode page"
+  title="Color Game with touch mode page" align="left" />
+This game is played by user by tapping on the notes and the sound is played for the specific notes. Also a readymate note is presented for twinkle twinkle little star in the app which user can play by following it. There's a back button implemented to navigate back to main menu.
+<br /> <br />
+<br /> <br />
+<br /> <br /><br /> <br />
+<br /> <br />
+<br /> <br /><br /> <br />
+<br /> <br />
+<br /> <br />
 # Credits:
 - Speech to text [iOS App Dev Tutorials](https://developer.apple.com/tutorials/app-dev-training/transcribing-speech-to-text)
 - Fetching JSON from Api [dev.to](https://dev.to/tprezioso/how-to-fetch-json-data-from-apis-in-swiftui-29pk)
