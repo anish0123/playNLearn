@@ -32,7 +32,7 @@
 
 
 This game is played by the user by choosing the correct number displayed and can also be played by using voice mode. Correct/Incorrect animation is diplayed after the user's selection by both tap & voice in the respective mode. The game has a time limit and an timer animation for that. The skip button is available for skiping current number & also a back button to navigate into main menu.
-<br /> <br />
+<br /> <br /><br /><br /><br /><br />
 <br /> <br />
 <br /> <br />
 <br /> <br />
@@ -41,16 +41,16 @@ This game is played by the user by choosing the correct number displayed and can
 <img src="https://user-images.githubusercontent.com/87969471/235674660-d3cbde1b-cb12-4959-bd0b-380e0395bf86.png" width="200" height="400" alt="Color Game with touch mode page"
   title="Color Game with touch mode page" align="left" />
   <img src="https://user-images.githubusercontent.com/87969471/235674878-6c9dc99b-c662-4241-b824-ff7889958647.png" width="200" height="400" alt="Number Game with voice mode page"
-  title="Number Game with voice mode page" align ="right" />
+  title="Color Game with voice mode page" align ="right" />
 This game is played by the user by choosing the correct color displayed and can also be played by using voice mode. Correct/Incorrect animation is diplayed after the user's selection by both tap & voice in the respective mode. The game has a time limit and an timer animation for that. The skip button is available for skiping current color & also a back button to navigate into main menu.
 <br /> <br />
-<br /> <br />
-<br /> <br />
+<br /> <br /><br />
+<br /> <br /><br /><br />
 <br /> <br />
 # Shape game: 
 
 <img src="https://user-images.githubusercontent.com/87969471/235675153-40592e25-6df8-4e4c-86eb-60196e175b20.png" width="200" height="400" alt="Shape Game with touch mode page"
-  title="Color Game with touch mode page" align = "left"/>
+  title="Shape Game with touch mode page" align = "left"/>
   <img src="https://user-images.githubusercontent.com/87969471/235675170-b5e480cf-1c96-499b-9754-3900ba0c25fd.png" width="200" height="400" alt="Shape Game with voice mode page"
   title="Shape Game with voice mode page" align="right" />
 This game is played by the user by choosing the correct shape displayed and can also be played by using voice mode. Correct/Incorrect animation is diplayed after the user's selection by both tap & voice in the respective mode. The game has a time limit and an timer animation for that. The skip button is available for skiping current color & also a back button to navigate into main menu.
@@ -64,8 +64,22 @@ This game is played by the user by choosing the correct shape displayed and can 
 
 # Xylophone
 <img src="https://users.metropolia.fi/~riteshg/readmeImages/Xylophone.png" width="200" height="400" alt="Color Game with touch mode page"
-  title="Color Game with touch mode page" align="left" />
+  title="Xylophone" align="left" />
 This game is played by user by tapping on the notes and the sound is played for the specific notes. Also a readymate note is presented for twinkle twinkle little star in the app which user can play by following it. There's a back button implemented to navigate back to main menu.
+<br /> <br />
+<br /> <br />
+<br /> <br /><br /> <br />
+<br /> <br />
+<br /> <br /><br /> <br />
+<br /> <br />
+<br /> <br />
+
+# Map
+<img src="https://users.metropolia.fi/~riteshg/readmeImages/Mapkit.png" width="200" height="400" alt="Color Game with touch mode page"
+  title="Hoplop Maps" align="left" />
+  <img src="https://users.metropolia.fi/~riteshg/readmeImages/MapKit_details.png" width="200" height="400" alt="Color Game with touch mode page"
+  title="Hoplop Maps" align="right" />
+Implementation of mapkit in swiftui along with data from remote api enabled the display of all Hoplops across finland. The street address of Hoplops are shown when the red circle on the map is tapped and zoomed. 
 <br /> <br />
 <br /> <br />
 <br /> <br /><br /> <br />
@@ -82,5 +96,6 @@ This game is played by user by tapping on the notes and the sound is played for 
 - Lottie Animations [Lottie Animation](https://lottiefiles.com/)
 - Updating lottie animation as per user selection [Hacking with swift](https://www.hackingwithswift.com/forums/swiftui/how-to-switch-animations-with-lottie-in-swiftui/1704)
 - Core Data [Hacking with swift](https://www.hackingwithswift.com/books/ios-swiftui/how-to-combine-core-data-and-swiftui)
+- Google map for Hoplops co-ordinates
 
 
