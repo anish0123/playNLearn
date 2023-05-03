@@ -1,10 +1,10 @@
 # Play N Learn
 
 # Collaborators
-- Anish Maharjan
-- Asmita Shrestha
-- Prabin Dhakal
-- Ritesh Ghimire
+- [Anish Maharjan](https://github.com/anish0123)
+- [Asmita Shrestha](https://github.com/asmita143)
+- [Prabin Dhakal](https://github.com/Prabin1500)
+- [Ritesh Ghimire](https://github.com/Argier96)
 <br>
 
   
